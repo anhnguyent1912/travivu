@@ -12,11 +12,16 @@ use App\Http\Controllers\client\InforController;
 use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\client\Tour_detailController;
 use App\Http\Controllers\client\SignupController;
+use App\Http\Controllers\client\Tour_guideController;
+use App\Http\Controllers\client\DestinationController;
 
 // Route::get('/', function () {
 //     return view('home');
 // });
 Route::get(uri: '/', action: [HomeController::class, 'index'])->name('home');
+Route::fallback(function () {
+    return response()->view('clients.errors.404', [], 404);
+});
 Route::get(uri: '/about', action: [AboutController::class, 'index'])->name('about');
 Route::get(uri: '/service', action: [ServiceController::class, 'index'])->name('service');
 Route::get(uri: '/Tour', action: [TourController::class, 'index'])->name('Tour');
@@ -27,3 +32,5 @@ Route::get(uri: '/infor', action: [InforController::class, 'index'])->name('info
 Route::get(uri: '/login', action: [LoginController::class, 'index'])->name('login');
 Route::get(uri: '/tour-detail', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
+Route::get(uri: '/tour-guide', action: [Tour_guideController::class, 'index'])->name('tour-guide');
+Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
