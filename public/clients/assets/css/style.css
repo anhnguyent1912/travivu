@@ -4079,10 +4079,12 @@ h6, .h6, blockquote {
   display: flex;
   z-index: 2;
   position: relative;
-  margin-top: -50px;
+  margin-top: -35px;
   background: white;
-  border-radius: 12px;
-  padding: 28px 55px 10px;
+  border-radius: 16px;
+  margin: -35px auto 0;
+  padding: 18px 30px;
+  align-items: center;
   -webkit-box-shadow: 10px 4px 60px rgba(197, 197, 197, 0.25);
   box-shadow: 10px 4px 60px rgba(197, 197, 197, 0.25); }
   @media only screen and (max-width: 1299px) {

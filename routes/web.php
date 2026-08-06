@@ -14,6 +14,7 @@ use App\Http\Controllers\client\Tour_detailController;
 use App\Http\Controllers\client\SignupController;
 use App\Http\Controllers\client\Tour_guideController;
 use App\Http\Controllers\client\DestinationController;
+use App\Http\Controllers\client\BlogController;
 
 // Route::get('/', function () {
 //     return view('home');
@@ -34,3 +35,4 @@ Route::get(uri: '/tour-detail', action: [Tour_detailController::class, 'index'])
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
 Route::get(uri: '/tour-guide', action: [Tour_guideController::class, 'index'])->name('tour-guide');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
+Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');

@@ -777,4 +777,4 @@
     </div>
 </section>
 <!-- Newsletter Area end -->
-@include('clients.block.footer')
+@include('clients.block.footer_2')

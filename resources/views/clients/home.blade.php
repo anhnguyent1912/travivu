@@ -1,7 +1,7 @@
 @include('clients.block.header')
 @include('clients.block.banner')
 <!--Form Back Drop-->
-<div class="form-back-drop"></div>
+{{-- <div class="form-back-drop"></div>
 
 <!-- Hidden Sidebar -->
 <section class="hidden-bar">
@@ -41,7 +41,7 @@
         </div>
     </div>
 </section>
-<!--End Hidden Sidebar -->
+<!--End Hidden Sidebar --> --}}
 
 <!-- Destinations Area start -->
 <section class="destinations-area bgc-black pt-100 pb-70 rel z-1">
@@ -50,9 +50,9 @@
             <div class="col-lg-12">
                 <div class="section-title text-white text-center counter-text-wrap mb-70" data-aos="fade-up"
                     data-aos-duration="1500" data-aos-offset="50">
-                    <h2>Discover the World's Treasures with Ravelo</h2>
-                    <p>One site <span class="count-text plus" data-speed="3000" data-stop="34500">0</span> most popular
-                        experience you’ll remember</p>
+                    <h2>Khám phá kho báu việt nam cùng Travivu</h2>
+                    <p>Website với <span class="count-text plus" data-speed="3000" data-stop="1240">0</span> địa điểm
+                        phổ biến nhất mà bạn sẽ nhớ</p>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     <div class="image">
                         <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
                         <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="assets/images/destinations/visiting-place1.jpg" alt="Destination">
+                        <img src="{{asset('clients/assets/images/destinations/visiting-place1.jpg')}}" alt="Destination">
                     </div>
                     <div class="content">
                         <span class="location"><i class="fal fa-map-marker-alt"></i> Tours, France</span>
@@ -71,11 +71,11 @@
                     </div>
                     <div class="destination-footer">
                         <span class="price"><span>$58.00</span>/per person</span>
-                        <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
+                        <a href="#" class="read-more">Đặt ngay <i class="fal fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-3 col-xl-4 col-md-6">
+            {{-- <div class="col-xxl-3 col-xl-4 col-md-6">
                 <div class="destination-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
                     data-aos-offset="50">
                     <div class="image">
@@ -131,7 +131,7 @@
                         <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
@@ -146,43 +146,44 @@
                 <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500"
                     data-aos-offset="50">
                     <div class="section-title mb-25">
-                        <h2>Travel with Confidence Top Reasons to Choose Our Agency</h2>
+                        <h2>Du lịch với sự tự tin Lý do hàng đầu để chọn công ty chúng tôi</h2>
                     </div>
-                    <p>We go above and beyond to make your travel dreams reality hidden gems and must-see attractions
+                    <p>Chúng tôi sẽ nỗ lực hết mình để biến giấc mơ du lịch của bạn thành hiện thực những viên ngọc ẩn
+                        và những điểm tham quan không thể bỏ qua
                     </p>
-                    <div class="divider counter-text-wrap mt-45 mb-55"><span>We have <span><span
-                                    class="count-text plus" data-speed="3000" data-stop="25">0</span> Years</span> of
-                            experience</span></div>
+                    <div class="divider counter-text-wrap mt-45 mb-55"><span>Chúng tôi có <span><span
+                                    class="count-text plus" data-speed="3000" data-stop="5">0</span> Năm</span>
+                            kinh nghiệm</span></div>
                     <div class="row">
                         <div class="col-6">
                             <div class="counter-item counter-text-wrap">
-                                <span class="count-text k-plus" data-speed="3000" data-stop="3">0</span>
-                                <span class="counter-title">Popular Destination</span>
+                                <span class="count-text k-plus" data-speed="3000" data-stop="2">0</span>
+                                <span class="counter-title">Điểm đến phổ biến</span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="counter-item counter-text-wrap">
-                                <span class="count-text m-plus" data-speed="3000" data-stop="9">0</span>
-                                <span class="counter-title">Satisfied Clients</span>
+                                <span class="count-text m-plus" data-speed="3000" data-stop="3">0</span>
+                                <span class="counter-title">Khách hàng hài lòng</span>
                             </div>
                         </div>
                     </div>
                     <a href="destination1.html" class="theme-btn mt-10 style-two">
-                        <span data-hover="Explore Destinations">Explore Destinations</span>
+                        <span data-hover="Khám phá điểm đến">Khám phá Điểm đến</span>
                         <i class="fal fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-xl-7 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
                 <div class="about-us-image">
-                    <div class="shape"><img src="assets/images/about/shape1.png" alt="Shape"></div>
-                    <div class="shape"><img src="assets/images/about/shape2.png" alt="Shape"></div>
-                    <div class="shape"><img src="assets/images/about/shape3.png" alt="Shape"></div>
-                    <div class="shape"><img src="assets/images/about/shape4.png" alt="Shape"></div>
-                    <div class="shape"><img src="assets/images/about/shape5.png" alt="Shape"></div>
-                    <div class="shape"><img src="assets/images/about/shape6.png" alt="Shape"></div>
-                    <div class="shape"><img src="assets/images/about/shape7.png" alt="Shape"></div>
-                    <img src="assets/images/about/about.png" alt="About">
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape1.png')}}" alt="Shape"></div>
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape2.png')}}" alt="Shape"></div>
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape3.png')}}" alt="Shape"></div>
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape4.png')}}" alt="Shape"></div>
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape5.png')}}" alt="Shape"></div>
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape6.png')}}" alt="Shape"></div>
+                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape7.png')}}" alt="Shape"></div>
+                    <img src="{{asset('clients/assets/images/about/about.png')}}" alt="About">
                 </div>
             </div>
         </div>
@@ -199,9 +200,9 @@
                 <div class="col-lg-12">
                     <div class="section-title text-center counter-text-wrap mb-70" data-aos="fade-up"
                         data-aos-duration="1500" data-aos-offset="50">
-                        <h2>Explore Popular Destinations</h2>
-                        <p>One site <span class="count-text plus" data-speed="3000" data-stop="34500">0</span> most
-                            popular experience</p>
+                        <h2>Khám phá các điểm đến phổ biến</h2>
+                        <p>Website với <span class="count-text plus" data-speed="3000" data-stop="1240">0</span> trải
+                            nghiệm phổ biến nhất</p>
                     </div>
                 </div>
             </div>
@@ -212,7 +213,7 @@
                             data-aos-offset="50">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="assets/images/destinations/destination1.jpg" alt="Destination">
+                                <img src="{{asset('clients/assets/images/destinations/destination1.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
                                 <h6><a href="destination-details.html">Thailand beach</a></h6>
@@ -226,7 +227,7 @@
                             data-aos-duration="1500" data-aos-offset="50">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="assets/images/destinations/destination2.jpg" alt="Destination">
+                                <img src="{{asset('clients/assets/images/destinations/destination2.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
                                 <h6><a href="destination-details.html">Parga, Greece</a></h6>
@@ -240,7 +241,7 @@
                             data-aos-duration="1500" data-aos-offset="50">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="assets/images/destinations/destination3.jpg" alt="Destination">
+                                <img src="{{asset('clients/assets/images/destinations/destination3.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
                                 <h6><a href="destination-details.html">Castellammare del Golfo, Italy</a></h6>
@@ -254,7 +255,7 @@
                             data-aos-offset="50">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="assets/images/destinations/destination4.jpg" alt="Destination">
+                                <img src="{{asset('clients/assets/images/destinations/destination4.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
                                 <h6><a href="destination-details.html">Reserve of Canada, Canada</a></h6>
@@ -268,7 +269,7 @@
                             data-aos-duration="1500" data-aos-offset="50">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="assets/images/destinations/destination5.jpg" alt="Destination">
+                                <img src="{{asset('clients/assets/images/destinations/destination5.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
                                 <h6><a href="destination-details.html">Dubai united states</a></h6>
@@ -282,7 +283,7 @@
                             data-aos-duration="1500" data-aos-offset="50">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="assets/images/destinations/destination6.jpg" alt="Destination">
+                                <img src="{{asset('clients/assets/images/destinations/destination6.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
                                 <h6><a href="destination-details.html">Milos, Greece</a></h6>
@@ -307,23 +308,23 @@
                 <div class="features-content-part mb-55" data-aos="fade-left" data-aos-duration="1500"
                     data-aos-offset="50">
                     <div class="section-title mb-60">
-                        <h2>The Ultimate Travel Experience Features That Set Our Agency Apart</h2>
+                        <h2>Trải nghiệm du lịch tuyệt đỉnh mang đến sự khác biệt cho công ty chúng tôi</h2>
                     </div>
                     <div class="features-customer-box">
                         <div class="image">
-                            <img src="assets/images/features/features-box.jpg" alt="Features">
+                            <img src="{{asset('clients/assets/images/features/features-box.jpg')}}" alt="Features">
                         </div>
                         <div class="content">
                             <div class="feature-authors mb-15">
-                                <img src="assets/images/features/feature-author1.jpg" alt="Author">
-                                <img src="assets/images/features/feature-author2.jpg" alt="Author">
-                                <img src="assets/images/features/feature-author3.jpg" alt="Author">
+                                <img src="{{asset('clients/assets/images/features/feature-author1.jpg')}}" alt="Author">
+                                <img src="{{asset('clients/assets/images/features/feature-author2.jpg')}}" alt="Author">
+                                <img src="{{asset('clients/assets/images/features/feature-author3.jpg')}}" alt="Author">
                                 <span>4k+</span>
                             </div>
-                            <h6>850K+ Happy Customer</h6>
+                            <h6>850K+ Khách hàng hài lòng</h6>
                             <div class="divider style-two counter-text-wrap my-25"><span><span class="count-text plus"
-                                        data-speed="3000" data-stop="25">0</span> Years</span></div>
-                            <p>We pride ourselves offering personalized itineraries</p>
+                                        data-speed="3000" data-stop="5">0</span> Năm</span></div>
+                            <p>Chúng tôi tự hào cung cấp các hành trình được cá nhân hóa</p>
                         </div>
                     </div>
                 </div>
@@ -334,15 +335,15 @@
                         <div class="feature-item">
                             <div class="icon"><i class="flaticon-tent"></i></div>
                             <div class="content">
-                                <h5><a href="tour-details.html">Tent Camping</a></h5>
-                                <p>Tent camping is wonderful way to connect with nature</p>
+                                <h5><a href="{{ route('Tour') }}">Chinh Phục Cảnh Quan Việt Nam</a></h5>
+                                <p>Khám phá những cảnh đẹp hùng vĩ và tuyệt vời của đất nước Việt Nam.</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <div class="icon"><i class="flaticon-tent"></i></div>
                             <div class="content">
-                                <h5><a href="tour-details.html">Kayaking</a></h5>
-                                <p>Kayaking is a thrilling outdoor activity that adventure</p>
+                                <h5><a href="{{ route('Tour') }}">Trải Nghiệm Đặc Sắc Việt Nam</a></h5>
+                                <p>Trải nghiệm những hoạt động và lễ hội đặc trưng của văn hóa Việt.</p>
                             </div>
                         </div>
                     </div>
@@ -350,15 +351,15 @@
                         <div class="feature-item mt-20">
                             <div class="icon"><i class="flaticon-tent"></i></div>
                             <div class="content">
-                                <h5><a href="tour-details.html">Mountain Biking</a></h5>
-                                <p>Mountain biking is exhilarating sport that physical fitness</p>
+                                <h5><a href="{{ route('Tour') }}">Khám Phá Di Sản Việt Nam</a></h5>
+                                <p>Khám phá các di sản thế giới và những kỳ quan thiên nhiên nổi tiếng.</p>
                             </div>
                         </div>
                         <div class="feature-item">
                             <div class="icon"><i class="flaticon-tent"></i></div>
                             <div class="content">
-                                <h5><a href="tour-details.html">Fishing & Boat</a></h5>
-                                <p>Fishing and boat bring joy quintessential activities that</p>
+                                <h5><a href="{{ route('Tour') }}">Vẻ Đẹp Thiên Nhiên Việt</a></h5>
+                                <p>Chinh phục vẻ đẹp tự nhiên hoang sơ và kỳ vĩ của Việt Nam.</p>
                             </div>
                         </div>
                     </div>
@@ -369,179 +370,14 @@
 </section>
 <!-- Features Area end -->
 
-
-<!-- Hotel Area start -->
-<section class="hotel-area bgc-black py-100 rel z-1">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="section-title text-white text-center counter-text-wrap mb-70" data-aos="fade-up"
-                    data-aos-duration="1500" data-aos-offset="50">
-                    <h2>Discover the World's Class Top Hotel</h2>
-                    <p>One site <span class="count-text plus" data-speed="3000" data-stop="34500">0</span> most
-                        popular experience you’ll remember</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-xxl-6 col-xl-8 col-lg-10">
-                <div class="destination-item style-three" data-aos="fade-up" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="assets/images/destinations/hotel1.jpg" alt="Hotel">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Ao Nang, Thailand</span>
-                        <h5><a href="destination-details.html">The brown bench near swimming pool Hotel</a></h5>
-                        <ul class="list-style-one">
-                            <li><i class="fal fa-bed-alt"></i> 2 Bed room</li>
-                            <li><i class="fal fa-hat-chef"></i> 1 kitchen</li>
-                            <li><i class="fal fa-bath"></i> 2 Wash room</li>
-                            <li><i class="fal fa-router"></i> Internet</li>
-                        </ul>
-                        <div class="destination-footer">
-                            <span class="price"><span>$85.00</span>/per night</span>
-                            <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-6 col-xl-8 col-lg-10">
-                <div class="destination-item style-three" data-aos="fade-up" data-aos-delay="50"
-                    data-aos-duration="1500" data-aos-offset="50">
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="assets/images/destinations/hotel2.jpg" alt="Hotel">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Kigali, Rwanda</span>
-                        <h5><a href="destination-details.html">Green trees and body of water Marriott Hotel</a></h5>
-                        <ul class="list-style-one">
-                            <li><i class="fal fa-bed-alt"></i> 2 Bed room</li>
-                            <li><i class="fal fa-hat-chef"></i> 1 kitchen</li>
-                            <li><i class="fal fa-bath"></i> 2 Wash room</li>
-                            <li><i class="fal fa-router"></i> Internet</li>
-                        </ul>
-                        <div class="destination-footer">
-                            <span class="price"><span>$85.00</span>/per night</span>
-                            <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-6 col-xl-8 col-lg-10">
-                <div class="destination-item style-three" data-aos="fade-up" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Ao Nang, Thailand</span>
-                        <h5><a href="#">Painted house surrounded with trees Hotel</a></h5>
-                        <ul class="list-style-one">
-                            <li><i class="fal fa-bed-alt"></i> 2 Bed room</li>
-                            <li><i class="fal fa-hat-chef"></i> 1 kitchen</li>
-                            <li><i class="fal fa-bath"></i> 2 Wash room</li>
-                            <li><i class="fal fa-router"></i> Internet</li>
-                        </ul>
-                        <div class="destination-footer">
-                            <span class="price"><span>$85.00</span>/per night</span>
-                            <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="assets/images/destinations/hotel3.jpg" alt="Hotel">
-                    </div>
-                </div>
-            </div>
-            <div class="col-xxl-6 col-xl-8 col-lg-10">
-                <div class="destination-item style-three" data-aos="fade-up" data-aos-delay="50"
-                    data-aos-duration="1500" data-aos-offset="50">
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i> Ao Nang, Thailand</span>
-                        <h5><a href="#">house pool Jungle Pool Indonesia Hotel</a></h5>
-                        <ul class="list-style-one">
-                            <li><i class="fal fa-bed-alt"></i> 2 Bed room</li>
-                            <li><i class="fal fa-hat-chef"></i> 1 kitchen</li>
-                            <li><i class="fal fa-bath"></i> 2 Wash room</li>
-                            <li><i class="fal fa-router"></i> Internet</li>
-                        </ul>
-                        <div class="destination-footer">
-                            <span class="price"><span>$85.00</span>/per night</span>
-                            <a href="#" class="read-more">Book Now <i class="fal fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="assets/images/destinations/hotel4.jpg" alt="Hotel">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hotel-more-btn text-center mt-40">
-            <a href="destination2.html" class="theme-btn style-four">
-                <span data-hover="Explore More Hotel">Explore More Hotel</span>
-                <i class="fal fa-arrow-right"></i>
-            </a>
-        </div>
-    </div>
-</section>
-<!-- Hotel Area end -->
-
-
-<!-- Mobile App Area start -->
-<section class="mobile-app-area py-100 rel z-1">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-5">
-                <div class="mobile-app-content rmb-55" data-aos="fade-left" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="section-title mb-30">
-                        <h2>We Are Available On the Store Get Our Mobile Apps Very Easily</h2>
-                    </div>
-                    <p>We go above and beyond to make your travel dreams a reality. Trust us to handle the details so
-                        you can creating unforgettable memories. Explore the world with confidence</p>
-                    <ul class="list-style-two mt-35 mb-30">
-                        <li>Experience Agency</li>
-                        <li>Professional Team</li>
-                        <li>Low Cost Travel</li>
-                        <li>Online Support 24/7</li>
-                    </ul>
-                    <div class="google-play-app-store">
-                        <a href="#"><img src="assets/images/mobile-app/g-play.jpg" alt="Google Play"></a>
-                        <a href="#"><img src="assets/images/mobile-app/a-store.jpg" alt="App Store"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <div class="mobile-app-images">
-                    <div class="bg"><img src="assets/images/mobile-app/phone-bg.png" alt="BG"></div>
-                    <div class="images">
-                        <img src="assets/images/mobile-app/phone2.png" alt="Phone" data-aos="fade-down-left"
-                            data-aos-duration="1500" data-aos-offset="50">
-                        <img src="assets/images/mobile-app/phone.png" alt="Phone">
-                        <img src="assets/images/mobile-app/phone3.png" alt="Phone" data-aos="fade-up-right"
-                            data-aos-duration="1500" data-aos-offset="50">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Mobile App Area end -->
-
-
 <!-- Testimonials Area start -->
-<section class="testimonials-area rel z-1">
+{{-- <section class="testimonials-area rel z-1">
     <div class="container">
         <div class="testimonials-wrap bgc-lighter">
             <div class="row">
                 <div class="col-lg-5 rel" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
                     <div class="testimonial-left-image rmb-55"
-                        style="background-image: url(assets/images/testimonials/testimonial-left.jpg);"></div>
+                        style="background-image: url({{asset('clients/assets/images/testimonials/testimonial-left.jpg')}});"></div>
                 </div>
                 <div class="col-lg-7">
                     <div class="testimonial-right-content" data-aos="fade-left" data-aos-duration="1500"
@@ -566,7 +402,7 @@
                                     took care of every detail, from to accommodations, and even suggested incredible
                                     experiences"</div>
                                 <div class="author">
-                                    <div class="image"><img src="assets/images/testimonials/author.jpg"
+                                    <div class="image"><img src="{{asset('clients/assets/images/testimonials/author.jpg')}}"
                                             alt="Author"></div>
                                     <div class="content">
                                         <h5>Randall V. Vasquez</h5>
@@ -590,7 +426,7 @@
                                     took care of every detail, from to accommodations, and even suggested incredible
                                     experiences"</div>
                                 <div class="author">
-                                    <div class="image"><img src="assets/images/testimonials/author.jpg"
+                                    <div class="image"><img src="{{asset('clients/assets/images/testimonials/author.jpg')}}"
                                             alt="Author"></div>
                                     <div class="content">
                                         <h5>Randall V. Vasquez</h5>
@@ -604,7 +440,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- Testimonials Area end -->
 
 
@@ -613,33 +449,33 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-4 col-md-6" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-offset="50">
-                <div class="cta-item" style="background-image: url(assets/images/cta/cta1.jpg);">
-                    <span class="category">Tent Camping</span>
-                    <h2>Explore the world best tourism</h2>
-                    <a href="tour-details.html" class="theme-btn style-two bgc-secondary">
-                        <span data-hover="Explore Tours">Explore Tours</span>
+                <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta1.jpg')}});">
+                    <span class="category">Khám Phá Vẻ Đẹp Văn Hóa Việt</span>
+                    <h2>Tìm hiểu những giá trị văn hóa độc đáo của các vùng miền Việt Nam.</h2>
+                    <a href="{{ route('Tour') }}" class="theme-btn style-two bgc-secondary">
+                        <span data-hover="Khám phá">Khám phá</span>
                         <i class="fal fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-xl-4 col-md-6" data-aos="zoom-in-down" data-aos-delay="50" data-aos-duration="1500"
                 data-aos-offset="50">
-                <div class="cta-item" style="background-image: url(assets/images/cta/cta2.jpg);">
-                    <span class="category">Sea Beach</span>
-                    <h2>World largest Sea Beach in Thailand</h2>
-                    <a href="tour-details.html" class="theme-btn style-two">
-                        <span data-hover="Explore Tours">Explore Tours</span>
+                <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta2.jpg')}});">
+                    <span class="category">Bãi biển</span>
+                    <h2>Bãi trong xanh dạt dào ở Việt Nam</h2>
+                    <a href="{{ route('Tour') }}" class="theme-btn style-two">
+                        <span data-hover="Khám phá">Khám phá</span>
                         <i class="fal fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
             <div class="col-xl-4 col-md-6" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1500"
                 data-aos-offset="50">
-                <div class="cta-item" style="background-image: url(assets/images/cta/cta3.jpg);">
-                    <span class="category">Water Falls</span>
-                    <h2>Largest Water falls Bali, Indonesia</h2>
-                    <a href="tour-details.html" class="theme-btn style-two bgc-secondary">
-                        <span data-hover="Explore Tours">Explore Tours</span>
+                <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta3.jpg')}});">
+                    <span class="category">Thác nước</span>
+                    <h2>Thác nước lớn nhất Việt NamKhám phá</h2>
+                    <a href="{{ route('Tour') }}" class="theme-btn style-two bgc-secondary">
+                        <span data-hover="Khám phá">Khám phá</span>
                         <i class="fal fa-arrow-right"></i>
                     </a>
                 </div>
@@ -651,7 +487,7 @@
 
 
 <!-- Blog Area start -->
-<section class="blog-area py-70 rel z-1">
+{{-- <section class="blog-area py-70 rel z-1">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -659,7 +495,7 @@
                     data-aos-duration="1500" data-aos-offset="50">
                     <h2>Read Latest News & Blog</h2>
                     <p>One site <span class="count-text plus bgc-primary" data-speed="3000"
-                            data-stop="34500">0</span> most popular experience you’ll remember</p>
+                            data-stop="1240">0</span> most popular experience you’ll remember</p>
                 </div>
             </div>
         </div>
@@ -676,7 +512,7 @@
                         </ul>
                     </div>
                     <div class="image">
-                        <img src="assets/images/blog/blog1.jpg" alt="Blog">
+                        <img src="{{asset('clients/assets/images/blog/blog1.jpg')}}" alt="Blog">
                     </div>
                     <a href="blog-details.html" class="theme-btn">
                         <span data-hover="Book Now">Read More</span>
@@ -697,7 +533,7 @@
                         </ul>
                     </div>
                     <div class="image">
-                        <img src="assets/images/blog/blog2.jpg" alt="Blog">
+                        <img src="{{asset('clients/assets/images/blog/blog2.jpg')}}" alt="Blog">
                     </div>
                     <a href="blog-details.html" class="theme-btn">
                         <span data-hover="Book Now">Read More</span>
@@ -718,7 +554,7 @@
                         </ul>
                     </div>
                     <div class="image">
-                        <img src="assets/images/blog/blog3.jpg" alt="Blog">
+                        <img src="{{asset('clients/assets/images/blog/blog3.jpg')}}" alt="Blog">
                     </div>
                     <a href="blog-details.html" class="theme-btn">
                         <span data-hover="Book Now">Read More</span>
@@ -728,7 +564,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- Blog Area end -->
 
 @include('clients.block.footer')
