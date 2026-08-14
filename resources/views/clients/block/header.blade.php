@@ -31,6 +31,8 @@
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('clients/assets/css/style.css')}}">
     
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="page-wrapper">
@@ -48,7 +50,7 @@
 
                     <div class="header-inner rel d-flex align-items-center">
                         <div class="logo-outer">
-                            <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo.png')}}" alt="Logo" title="Logo"></a></div>
+                            {{-- <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo.png')}}" alt="Logo" title="Logo"></a></div> --}}
                         </div>
 
                         <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
@@ -73,10 +75,10 @@
                                     <ul class="navigation clearfix">
                                         <li class="current"><a href="{{ route('home')}}">Trang chủ</a></li>
                                         <li><a href="{{ route('about') }}">Giới thiệu</a></li>
-                                        <li class="dropdown"><a href="#">Tours</a>
+                                        <li class="#"><a href="{{ route('Tour') }}">Tours</a>
                                             <ul>
                                                 <li><a href="{{ route('Tour') }}">Tour</a></li>
-                                                <li><a href="{{ route('tour-guide') }}">Hướng dẫn viên</a></li>
+                                                {{-- <li><a href="{{ route('tour-guide') }}">Hướng dẫn viên</a></li> --}}
                                             </ul>
                                         </li>
                                         <li><a href="{{ route('destination') }}">Điểm đến</a></li>
@@ -111,16 +113,14 @@
                         
                         <!-- Menu Button -->
                         <div class="menu-btns py-10">
-                            <a href="{{ route('contact') }}" class="theme-btn style-two bgc-secondary">
-                                <span data-hover="Book Now">Đặt ngay</span>
+                            <a href="{{ route('Tour') }}" class="theme-btn style-two bgc-secondary">
+                                <span data-hover="Đặt ngay">Đặt ngay</span>
                                 <i class="fal fa-arrow-right"></i>
                             </a>
                             <!-- menu sidbar -->
                             <div class="menu-sidebar">
                                 <button class="bg-transparent">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
+                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: white;"></i>
                                 </button>
                             </div>
                         </div>
