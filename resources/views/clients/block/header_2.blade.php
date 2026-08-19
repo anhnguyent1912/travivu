@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="zxx">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -41,23 +39,14 @@
     <!-- Main css -->
     {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/style.css')}}"> --}}
 </head>
-<body>
-    <div class="page-wrapper">
-
-        <!-- Preloader -->
-        {{-- <div class="preloader">
-            <div class="custom-loader"></div>
-        </div> --}}
-
-        <!-- main header -->
-        <header class="main-header header-one white-menu menu-absolute">
+<header class="main-header header-one">
             <!--Header-Upper-->
-            <div class="header-upper py-30 rpy-0">
+            <div class="header-upper bg-white py-30 rpy-0">
                 <div class="container-fluid clearfix">
 
                     <div class="header-inner rel d-flex align-items-center">
                         <div class="logo-outer">
-                            <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo.png')}}" alt="Logo" title="Logo"></a></div>
+                            <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo-two.png')}}" alt="Logo" title="Logo"></a></div>
                         </div>
 
                         <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
@@ -65,20 +54,20 @@
                             <nav class="main-menu navbar-expand-lg">
                                 <div class="navbar-header">
                                    <div class="mobile-logo">
-                                       <a href="{{ route('home')}}">
-                                            <img src="{{asset('clients/assets/images/logos/logo.png')}}" alt="Logo" title="Logo">
+                                       <a href="{{ route('home') }}">
+                                            <img src="{{asset('clients/assets/images/logos/logo-two.png')}}" alt="Logo" title="Logo">
                                        </a>
                                    </div>
                                    
                                     <!-- Toggle Button -->
-                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                                   <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
                                 </div>
 
-                                <div class="navbar-collapse collapse clearfix">
+                               <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
                                         <li class="current"><a href="{{ route('home')}}">Trang chủ</a></li>
                                         <li><a href="{{ route('about') }}">Giới thiệu</a></li>
@@ -109,16 +98,7 @@
                             <!-- Main Menu End-->
                         </div>
                         
-                        <!-- Nav Search -->
-                        <div class="nav-search">
-                            <button class="far fa-search"></button>
-                            <form action="#" class="hide">
-                                <input type="text" placeholder="Search" class="searchbox" required="">
-                                <button type="submit" class="searchbutton far fa-search"></button>
-                            </form>
-                        </div>
-                        
-                        <!-- Menu Button -->
+                       <!-- Menu Button -->
                         <div class="menu-btns py-10">
                             <a href="{{ route('Tour') }}" class="theme-btn style-two bgc-secondary">
                                 <span data-hover="Đặt ngay">Đặt ngay</span>
@@ -127,7 +107,7 @@
                             <!-- menu sidbar -->
                             <div class="menu-sidebar">
                                 <button class="bg-transparent">
-                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: white;"></i>
+                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: rgb(23, 21, 21);"></i>
                                 </button>
                             </div>
                         </div>
@@ -135,4 +115,4 @@
                 </div>
             </div>
             <!--End Header Upper-->
-        </header>
+</header>
