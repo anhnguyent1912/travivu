@@ -137,7 +137,8 @@
 
 <!-- Custom script -->
 <script src="{{ asset('clients/assets/js/script.js') }}"></script>
-
+<script src="{{ asset('clients/assets/js/login.js') }}"></script>
+<script src="{{ asset('clients/assets/js/jquery.datetimepicker.full.min.js') }}"></script>
 </body>
 
 </html>

@@ -14,7 +14,7 @@
                             chuyến đi đều
                             liền mạch và làm phong phú thêm những viên ngọc ẩn giấu</p>
                         <div class="social-style-one mt-15">
-                            <a href="https://www.facebook.com/dienne.dev"><i class="fab fa-facebook-f"></i></a>
+                            <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
                             <a href="contact.html"><i class="fab fa-youtube"></i></a>
                             <a href="contact.html"><i class="fab fa-pinterest"></i></a>
                             <a href="contact.html"><i class="fab fa-twitter"></i></a>
@@ -173,11 +173,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 {{-- paypal-payment  --}}
-<script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
-<!-- Custom script by Dev dien-->
-<script src="{{ asset('clients/assets/js/custom-js.js') }}"></script>
+{{-- <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script> --}}
+<!-- Custom script-->
+<script src="{{ asset('clients/assets/js/login.js') }}"></script>
 <script src="{{ asset('clients/assets/js/jquery.datetimepicker.full.min.js') }}"></script>
-
 </body>
 
 </html>

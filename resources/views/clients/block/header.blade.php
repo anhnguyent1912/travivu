@@ -40,6 +40,8 @@
 
     <!-- Main css -->
     {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/style.css')}}"> --}}
+    <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery.datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
 </head>
 <body>
     <div class="page-wrapper">
@@ -80,7 +82,7 @@
 
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="current"><a href="{{ route('home')}}">Trang chủ</a></li>
+                                        <li class="current active"><a href="{{ route('home')}}">Trang chủ</a></li>
                                         <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                                         <li class="#"><a href="{{ route('Tour') }}">Tours</a>
                                             <ul>
@@ -126,8 +128,8 @@
                             </a>
                             <!-- menu sidbar -->
                             <div class="menu-sidebar">
-                                <button class="bg-transparent">
-                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: white;"></i>
+                                 <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">
+                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
                                 </button>
                             </div>
                         </div>

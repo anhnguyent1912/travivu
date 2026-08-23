@@ -38,6 +38,8 @@
 
     <!-- Main css -->
     {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/style.css')}}"> --}}
+    <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery.datetimepicker.min.css')}}">
+    <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
 </head>
 <header class="main-header header-one">
             <!--Header-Upper-->
@@ -69,16 +71,21 @@
 
                                <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
-                                        <li class="current"><a href="{{ route('home')}}">Trang chủ</a></li>
-                                        <li><a href="{{ route('about') }}">Giới thiệu</a></li>
-                                        <li class="#"><a href="{{ route('Tour') }}">Tours</a>
-                                            <ul>
-                                                <li><a href="{{ route('Tour') }}">Tour</a></li>
+                                        <li class="{{ Request::url() == route('home') ? 'active' : '' }}"><a
+                                                href="{{ route('home') }}">Trang chủ</a></li>
+                                        <li class="{{ Request::url() == route('about') ? 'active' : '' }}"><a
+                                                href="{{ route('about') }}">Giới thiệu</a></li>
+                                        <li class="{{ Request::url() == route('Tour') ? 'active' : '' }}"><a
+                                             href="{{ route('Tour') }}">Tours</a>
+                                            {{-- <ul> --}}
+                                                {{-- <li><a href="{{ route('Tour') }}">Tour</a></li> --}}
                                                 {{-- <li><a href="{{ route('tour-guide') }}">Hướng dẫn viên</a></li> --}}
-                                            </ul>
+                                            {{-- </ul> --}}
                                         </li>
-                                        <li><a href="{{ route('destination') }}">Điểm đến</a></li>
-                                        <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                                        <li class="{{ Request::url() == route('destination') ? 'active' : '' }}"><a
+                                                href="{{ route('destination') }}">Điểm đến</a></li>
+                                        <li class="{{ Request::url() == route('contact') ? 'active' : '' }}"><a
+                                                href="{{ route('contact') }}">Liên Hệ</a></li>
                                         {{-- <li class="dropdown"><a href="#">Pages</a>
                                             <ul>
                                                 <li><a href="#">faqs</a></li>

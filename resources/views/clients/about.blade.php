@@ -1,4 +1,4 @@
-@include('clients.block.header')
+@include('clients.block.header_2')
 @include('clients.block.banner_2')
 
 
