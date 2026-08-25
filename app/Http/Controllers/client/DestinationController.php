@@ -12,7 +12,8 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        return view('clients.Destination');
+        $title = 'Điểm đến';
+        return view(view: 'clients.Destination', data: compact('title'));
     }
 
     /**

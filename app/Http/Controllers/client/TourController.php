@@ -12,7 +12,8 @@ class TourController extends Controller
      */
     public function index()
     {
-        return view('clients.Tour');
+        $title = 'Tour';
+        return view(view: 'clients.Tour', data: compact('title'));
     }
 
     /**

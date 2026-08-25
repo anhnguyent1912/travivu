@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Ravelo - Travel & Tour Booking HTML Template</title>
+    <title>Tralvivu - {{ $title }}</title>
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{asset('clients/assets/images/logos/favicon.png')}}" type="image/x-icon">
     <!-- Google Fonts -->
@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="{{asset('clients/assets/css/slick.min.css')}}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('clients/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
+
     
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -128,9 +130,19 @@
                             </a>
                             <!-- menu sidbar -->
                             <div class="menu-sidebar">
-                                 <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">
+                                <li class="drop-dow">
+                                    <button class="dropdown-toggle bg-transparent" id="userDropdown">
+                                    <i class='bx bxs-user icon-user' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
+                                            <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
+                                            <li><a href="{{ route('login') }}">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                                 {{-- <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">
                                     <i class='bx bxs-user bx-tada' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
                     </div>

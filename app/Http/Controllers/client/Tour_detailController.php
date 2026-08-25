@@ -4,15 +4,17 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class Tour_detailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id=''): Factory|View
     {
-        return view('clients.tour-detail');
+        $title = 'Chi tiết tour' . $id;
+        return view(view: 'clients.tour-detail', data: compact('title'));
     }
 
     /**

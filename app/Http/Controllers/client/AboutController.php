@@ -12,7 +12,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('clients.about');
+        $title = 'Giới thiệu';
+        return view(view: 'clients.about', data: compact('title'));
     }
 
     /**

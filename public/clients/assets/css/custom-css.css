@@ -19,11 +19,11 @@
 .dropdown-menu {
     list-style-type: none;
     position: absolute;
-    top: 60px; /* Adjust to the correct position */
+    top: 60px;
     right: 0;
 }
 .menu-sidebar .dropdown-menu {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm box-shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 .dropdown-menu li {
     padding: 8px 16px;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Ravelo - Travel & Tour Booking HTML Template</title>
+    <title>Tralvivu - {{ $title }}</title>
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="{{asset('clients/assets/images/logos/favicon.png')}}" type="image/x-icon">
     <!-- Google Fonts -->
@@ -86,12 +86,6 @@
                                                 href="{{ route('destination') }}">Điểm đến</a></li>
                                         <li class="{{ Request::url() == route('contact') ? 'active' : '' }}"><a
                                                 href="{{ route('contact') }}">Liên Hệ</a></li>
-                                        {{-- <li class="dropdown"><a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="#">faqs</a></li>
-                                                <li><a href="{{ route('contact') }}">Contact Us</a></li>
-                                            </ul>
-                                        </li> --}}
                                         <li class="#"><a href="{{route('blog')}}">blog</a>
                                             {{-- <ul>
                                                 <li><a href="{{route('blog')}}">blog List</a></li>
@@ -113,9 +107,19 @@
                             </a>
                             <!-- menu sidbar -->
                             <div class="menu-sidebar">
-                                <button class="bg-transparent">
-                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: rgb(23, 21, 21);"></i>
-                                </button>
+                                <li class="drop-dow">
+                                    <button class="dropdown-toggle bg-transparent" id="userDropdown">
+                                    <i class='bx bxs-user icon-user' style="font-size: 36px; color: rgb(18, 18, 18);"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
+                                            <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
+                                            <li><a href="{{ route('login') }}">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                                 {{-- <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">
+                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
+                                </button> --}}
                             </div>
                         </div>
                     </div>
