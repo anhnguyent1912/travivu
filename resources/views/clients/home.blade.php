@@ -66,9 +66,9 @@
                         <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}" alt="Destination">
                     </div>
                     <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i>Phú Quốc</span>
+                        <span class="location"><i class="fal fa-map-marker-alt"></i>{{ $tour->destination }}</span>
                         <h5><a href="destination-details.html">{{ $tour->title }}</a></h5>
-                        <span class="time">3 ngày 2 đêm </span>
+                        <span class="time">{{ $tour->description }} </span>
                     </div>
                     <div class="destination-footer">
                         <span class="price"><span>{{ number_format($tour->priceAdult, 0, ',', '.') }}</span>VND / người</span>
