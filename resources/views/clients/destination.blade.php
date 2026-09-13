@@ -30,8 +30,8 @@
                             <img src="assets/images/destinations/destination1.jpg" alt="Destination">
                         </div>
                         <div class="content">
-                            <h6><a href="destination-details.html">Thailand beach</a></h6>
-                            <span class="time">5352+ tours & 856+ Activity</span>
+                            <h6><a href="destination-details.html">Biển Đà Nẵng</a></h6>
+                            <span class="time">5352+ tours & 856+Hoạt Động</span>
                             <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -44,8 +44,8 @@
                             <img src="assets/images/destinations/destination2.jpg" alt="Destination">
                         </div>
                         <div class="content">
-                            <h6><a href="destination-details.html">Parga, Greece</a></h6>
-                            <span class="time">5352+ tours & 856+ Activity</span>
+                            <h6><a href="destination-details.html">Vịnh Hạ Long</a></h6>
+                            <span class="time">5352+ tours & 856+Hoạt Động</span>
                             <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -58,8 +58,8 @@
                             <img src="assets/images/destinations/destination3.jpg" alt="Destination">
                         </div>
                         <div class="content">
-                            <h6><a href="destination-details.html">Castellammare del Golfo, Italy</a></h6>
-                            <span class="time">5352+ tours & 856+ Activity</span>
+                            <h6><a href="destination-details.html">Phú Quốc</a></h6>
+                            <span class="time">5352+ tours & 856+Hoạt Động</span>
                             <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -72,8 +72,8 @@
                             <img src="assets/images/destinations/destination4.jpg" alt="Destination">
                         </div>
                         <div class="content">
-                            <h6><a href="destination-details.html">Reserve of Canada, Canada</a></h6>
-                            <span class="time">5352+ tours & 856+ Activity</span>
+                            <h6><a href="destination-details.html">Vũng Tàu</a></h6>
+                            <span class="time">5352+ tours & 856+Hoạt Động</span>
                             <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -86,8 +86,8 @@
                             <img src="assets/images/destinations/destination5.jpg" alt="Destination">
                         </div>
                         <div class="content">
-                            <h6><a href="destination-details.html">Dubai united states</a></h6>
-                            <span class="time">5352+ tours & 856+ Activity</span>
+                            <h6><a href="destination-details.html">Hội An</a></h6>
+                            <span class="time">5352+ tours & 856+ Hoạt Động</span>
                             <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -100,8 +100,8 @@
                             <img src="assets/images/destinations/destination6.jpg" alt="Destination">
                         </div>
                         <div class="content">
-                            <h6><a href="destination-details.html">Milos, Greece</a></h6>
-                            <span class="time">5352+ tours & 856+ Activity</span>
+                            <h6><a href="destination-details.html">Nghệ An</a></h6>
+                            <span class="time">5352+ tours & 856+ Hoạt Động</span>
                             <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>

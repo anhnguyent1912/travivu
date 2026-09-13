@@ -5,16 +5,24 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Contracts\View\Factory;
+use App\Models\client\tour;
 
 class Tour_detailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index($id=''): Factory|View
+    private $tour;
+    public function __construct()
     {
-        $title = 'Chi tiết tour' . $id;
-        return view(view: 'clients.tour-detail', data: compact('title'));
+        $this->tour = new tour();
+    }
+
+    public function index($id=0): Factory|View
+    {
+        $title = 'Chi tiết tour';
+
+        $tourdetail = $this->tour->gettourdetail($id);
+        // dd($tourdetail);
+        return view(view: 'clients.tour-detail', data: compact('title', 'tourdetail'));
     }
 
     /**

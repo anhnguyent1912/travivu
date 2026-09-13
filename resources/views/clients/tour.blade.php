@@ -236,7 +236,7 @@
                             <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                 data-aos-duration="1500" data-aos-offset="50">
                                 <div class="image">
-                                    <span class="badge bgc-pink">Featured</span>
+                                    <span class="badge bgc-pink">yêu thích</span>
                                     <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                     <img src="{{ asset('clients/assets/images/destinations/tour-list1.jpg') }}" alt="Tour List">
                                 </div>
@@ -252,14 +252,14 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                     </div>
-                                    <h6><a href="tour-details.html">Bay Cruise trip by Boat's in Bali, Indonesia</a>
+                                    <h6><a href="tour-details.html">Vịnh Hạ Long, Việt Nam</a>
                                     </h6>
                                     <ul class="blog-meta">
-                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                        <li><i class="far fa-user"></i> 5-8 guest</li>
+                                        <li><i class="far fa-clock"></i> 3 Ngày 2 Đêm</li>
+                                        <li><i class="far fa-user"></i> 2-3 người</li>
                                     </ul>
                                     <div class="destination-footer">
-                                        <span class="price"><span>$58.00</span>/person</span>
+                                        <span class="price"><span>500.000đ</span>/Người</span>
                                         <a href="tour-details.html" class="theme-btn style-two style-three">
                                             <i class="fal fa-arrow-right"></i>
                                         </a>

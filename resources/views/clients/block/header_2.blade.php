@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery.datetimepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
 </head>
+<body>
+    <div class="page-wrapper">
 <header class="main-header header-one">
             <!--Header-Upper-->
             <div class="header-upper bg-white py-30 rpy-0">
@@ -48,7 +50,7 @@
 
                     <div class="header-inner rel d-flex align-items-center">
                         <div class="logo-outer">
-                            <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo-two.png')}}" alt="Logo" title="Logo"></a></div>
+                            {{-- <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo-two.png')}}" alt="Logo" title="Logo"></a></div> --}}
                         </div>
 
                         <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">

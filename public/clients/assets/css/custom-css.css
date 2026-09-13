@@ -46,15 +46,39 @@
 }
 
 /* css tourdetail  */
-.tour-gallery .gallery-between {
-    height: 100%;
-    padding-bottom: 10px;
-}
-.tour-gallery .gallery-item img {
-    height: 100%;
+.tour-gallery .gallery-item {
+    height: 260px;
+    margin-bottom: 10px;
+    overflow: hidden;
     border-radius: 8px;
 }
 
+.tour-gallery .gallery-between {
+    height: 530px;
+    padding-bottom: 10px;
+}
+
+.tour-gallery .gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.tour-sidebar .quantity-input {
+    width: 55px;
+    height: 32px;
+    padding: 4px 6px;
+    text-align: center;
+    margin-top: 13px;
+}
+/* thoi gian */
+.tour-sidebar .time p {
+    flex: 1;
+    margin: 0 0 0 20px;
+    text-align: right;
+}
 /****************************************
 *              PAGE TOURS              *
 * ***************************************/
@@ -101,7 +125,7 @@
 }
 
 .hidden-content {
-    display: none; /* Ẩn nội dung */
+    display: none;
 }
 .equal-block-fix {
     display: flex !important;
@@ -367,13 +391,12 @@
     overflow-y: auto;
 }
 /****************************************
-*             TOUR BOOKED            *
-* ***************************************/
+*             TOUR BOOKED            */
 .truncate-3-lines {
-    display: -webkit-box; /* Sử dụng Flexbox để xử lý text */
-    -webkit-line-clamp: 3; /* Giới hạn số dòng hiển thị */
-    -webkit-box-orient: vertical; /* Thiết lập hướng xử lý theo chiều dọc */
-    overflow: hidden; /* Ẩn phần nội dung vượt quá */
-    text-overflow: ellipsis; /* Thêm dấu ba chấm vào cuối */
-    word-break: break-word; /* Đảm bảo từ không bị tràn ra ngoài */
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-break: break-word; 
 }

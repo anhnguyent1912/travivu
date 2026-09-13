@@ -68,11 +68,11 @@
                     <div class="content">
                         <span class="location"><i class="fal fa-map-marker-alt"></i>{{ $tour->destination }}</span>
                         <h5><a href="destination-details.html">{{ $tour->title }}</a></h5>
-                        <span class="time">{{ $tour->description }} </span>
+                        <span class="time">{{ $tour->time }} </span>
                     </div>
                     <div class="destination-footer">
                         <span class="price"><span>{{ number_format($tour->priceAdult, 0, ',', '.') }}</span>VND / người</span>
-                        <a href="#" class="read-more">Đặt ngay <i class="fal fa-angle-right"></i></a>
+                        <a href="{{ route('tour-detail',['id' => $tour->tourid]) }}" class="read-more">Đặt ngay <i class="fal fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
 
 
 <!-- About Us Area start -->
-<section class="about-us-area py-100 rpb-90 rel z-1">
+{{-- <section class="about-us-area py-100 rpb-90 rel z-1">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-5 col-lg-6">
@@ -133,7 +133,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- About Us Area end -->
 
 
@@ -161,8 +161,8 @@
                                 <img src="{{asset('clients/assets/images/destinations/destination1.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
-                                <h6><a href="destination-details.html">Thailand beach</a></h6>
-                                <span class="time">5352+ tours & 856+ Activity</span>
+                                <h6><a href="destination-details.html">beach</a></h6>
+                                <span class="time">abcxyz</span>
                                 <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -175,8 +175,8 @@
                                 <img src="{{asset('clients/assets/images/destinations/destination2.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
-                                <h6><a href="destination-details.html">Parga, Greece</a></h6>
-                                <span class="time">5352+ tours & 856+ Activity</span>
+                                <h6><a href="destination-details.html">abc</a></h6>
+                                <span class="time">defghi</span>
                                 <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -189,8 +189,8 @@
                                 <img src="{{asset('clients/assets/images/destinations/destination3.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
-                                <h6><a href="destination-details.html">Castellammare del Golfo, Italy</a></h6>
-                                <span class="time">5352+ tours & 856+ Activity</span>
+                                <h6><a href="destination-details.html">def</a></h6>
+                                <span class="time">jklmno</span>
                                 <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -203,8 +203,8 @@
                                 <img src="{{asset('clients/assets/images/destinations/destination4.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
-                                <h6><a href="destination-details.html">Reserve of Canada, Canada</a></h6>
-                                <span class="time">5352+ tours & 856+ Activity</span>
+                                <h6><a href="destination-details.html">ghi</a></h6>
+                                <span class="time">pqrst</span>
                                 <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -217,8 +217,8 @@
                                 <img src="{{asset('clients/assets/images/destinations/destination5.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
-                                <h6><a href="destination-details.html">Dubai united states</a></h6>
-                                <span class="time">5352+ tours & 856+ Activity</span>
+                                <h6><a href="destination-details.html">jkl</a></h6>
+                                <span class="time">uvwxy</span>
                                 <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -231,8 +231,8 @@
                                 <img src="{{asset('clients/assets/images/destinations/destination6.jpg')}}" alt="Destination">
                             </div>
                             <div class="content">
-                                <h6><a href="destination-details.html">Milos, Greece</a></h6>
-                                <span class="time">5352+ tours & 856+ Activity</span>
+                                <h6><a href="destination-details.html">mno</a></h6>
+                                <span class="time">zabcde</span>
                                 <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
@@ -429,87 +429,5 @@
     </div>
 </section>
 <!-- CTA Area end -->
-
-
-<!-- Blog Area start -->
-{{-- <section class="blog-area py-70 rel z-1">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="section-title text-center counter-text-wrap mb-70" data-aos="fade-up"
-                    data-aos-duration="1500" data-aos-offset="50">
-                    <h2>Read Latest News & Blog</h2>
-                    <p>One site <span class="count-text plus bgc-primary" data-speed="3000"
-                            data-stop="1240">0</span> most popular experience you’ll remember</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-item" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="content">
-                        <a href="blog.html" class="category">Travel</a>
-                        <h5><a href="blog-details.html">Ultimate Guide to Planning Your Dream Vacation with Ravelo
-                                Travel Agency</a></h5>
-                        <ul class="blog-meta">
-                            <li><i class="far fa-calendar-alt"></i> <a href="#">25 February 2024</a></li>
-                            <li><i class="far fa-comments"></i> <a href="#">Comments (5)</a></li>
-                        </ul>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset('clients/assets/images/blog/blog1.jpg')}}" alt="Blog">
-                    </div>
-                    <a href="blog-details.html" class="theme-btn">
-                        <span data-hover="Book Now">Read More</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-item" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="content">
-                        <a href="blog.html" class="category">Travel</a>
-                        <h5><a href="blog-details.html">Unforgettable Adventures Travel Agency Bucket List
-                                Experiences</a></h5>
-                        <ul class="blog-meta">
-                            <li><i class="far fa-calendar-alt"></i> <a href="#">25 February 2024</a></li>
-                            <li><i class="far fa-comments"></i> <a href="#">Comments (5)</a></li>
-                        </ul>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset('clients/assets/images/blog/blog2.jpg')}}" alt="Blog">
-                    </div>
-                    <a href="blog-details.html" class="theme-btn">
-                        <span data-hover="Book Now">Read More</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-item" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="content">
-                        <a href="blog.html" class="category">Travel</a>
-                        <h5><a href="blog-details.html">Exploring Culture and way Cuisine Travel Agency's they Best
-                                Foodie Destinations</a></h5>
-                        <ul class="blog-meta">
-                            <li><i class="far fa-calendar-alt"></i> <a href="#">25 February 2024</a></li>
-                            <li><i class="far fa-comments"></i> <a href="#">Comments (5)</a></li>
-                        </ul>
-                    </div>
-                    <div class="image">
-                        <img src="{{asset('clients/assets/images/blog/blog3.jpg')}}" alt="Blog">
-                    </div>
-                    <a href="blog-details.html" class="theme-btn">
-                        <span data-hover="Book Now">Read More</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
-<!-- Blog Area end -->
 
 @include('clients.block.footer')
