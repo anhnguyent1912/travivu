@@ -141,7 +141,7 @@
                     @endforeach
                 </div>
 
-                <h3>Clients Reviews</h3>
+                <h3>Đánh giá trải nghiệm</h3>
                 <div class="clients-reviews bgc-black mt-30 mb-60">
                     <div class="left">
                         <b>4.8</b>
@@ -400,11 +400,11 @@
                         <form action="#">
                             <div class="date mb-25">
                                 <b>Ngày bắt đầu</b>
-                                <input type="date">
+                                <input type="text" value = "{{ date('d-m-Y', strtotime($tourdetail->startDate)) }}" disabled>
                             </div>
                             <div class="date mb-25">
                                 <b>Ngày kết thúc</b>
-                                <input type="date">
+                                <input type="text" value = "{{ date('d-m-Y', strtotime($tourdetail->endDate)) }}" disabled>
                             </div>
                             <hr>
                             <div class="time py-5">

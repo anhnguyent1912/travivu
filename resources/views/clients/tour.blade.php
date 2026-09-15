@@ -129,72 +129,6 @@
                             </li>
                         </ul>
                     </div>
-
-                    {{-- <div class="widget widget-duration" data-aos="fade-up" data-aos-duration="1500"
-                        data-aos-offset="50">
-                        <h6 class="widget-title">Duration</h6>
-                        <ul class="radio-filter">
-                            <li>
-                                <input class="form-check-input" type="radio" checked name="Duration"
-                                    id="duration1">
-                                <label for="duration1">0 - 2 hours</label>
-                            </li>
-                            <li>
-                                <input class="form-check-input" type="radio" name="Duration" id="duration2">
-                                <label for="duration2">2 - 4 hours</label>
-                            </li>
-                            <li>
-                                <input class="form-check-input" type="radio" name="Duration" id="duration3">
-                                <label for="duration3">4 - 8 hours</label>
-                            </li>
-                            <li>
-                                <input class="form-check-input" type="radio" name="Duration" id="duration4">
-                                <label for="duration4">Fulda (+8 hours)</label>
-                            </li>
-                            <li>
-                                <input class="form-check-input" type="radio" name="Duration" id="duration5">
-                                <label for="duration5">Multi days</label>
-                            </li>
-                        </ul>
-                    </div> --}}
-
-                    {{-- <div class="widget widget-tour" data-aos="fade-up" data-aos-duration="1500"
-                        data-aos-offset="50">
-                        <h6 class="widget-title">Phổ biến</h6>
-                        <div class="destination-item tour-grid style-three bgc-lighter">
-                            <div class="image">
-                                <span class="badge">10% Off</span>
-                                <img src="assets/images/widgets/tour1.jpg" alt="Tour">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bali,
-                                        Indonesia</span>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <span>(4.8)</span>
-                                    </div>
-                                </div>
-                                <h6><a href="tour-details.html">Relinking Beach, Bali, Indonesia</a></h6>
-                            </div>
-                        </div>
-                        <div class="destination-item tour-grid style-three bgc-lighter">
-                            <div class="image">
-                                <img src="assets/images/widgets/tour1.jpg" alt="Tour">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bali,
-                                        Indonesia</span>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <span>(4.8)</span>
-                                    </div>
-                                </div>
-                                <h6><a href="tour-details.html">Relinking Beach, Bali, Indonesia</a></h6>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="widget widget-cta mt-30" data-aos="fade-up" data-aos-duration="1500"
@@ -232,18 +166,18 @@
 
                 <div class="tour-grid-wrap">
                     <div class="row">
+                        @foreach ($tour as $tour)
                         <div class="col-xl-4 col-md-6">
                             <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                 data-aos-duration="1500" data-aos-offset="50">
                                 <div class="image">
                                     <span class="badge bgc-pink">yêu thích</span>
                                     <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                    <img src="{{ asset('clients/assets/images/destinations/tour-list1.jpg') }}" alt="Tour List">
+                                    <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}" alt="Tour List">
                                 </div>
                                 <div class="content">
                                     <div class="destination-header">
-                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Bali,
-                                            Indonesia</span>
+                                        <span class="location"><i class="fal fa-map-marker-alt"></i> {{ $tour->destination }}</span>
                                         <div class="ratting">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -252,21 +186,22 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                     </div>
-                                    <h6><a href="tour-details.html">Vịnh Hạ Long, Việt Nam</a>
+                                    <h6><a href="{{ route('tour-detail',['id' => $tour->tourid]) }}">{{ $tour->title }}</a>
                                     </h6>
                                     <ul class="blog-meta">
-                                        <li><i class="far fa-clock"></i> 3 Ngày 2 Đêm</li>
-                                        <li><i class="far fa-user"></i> 2-3 người</li>
+                                        <li><i class="far fa-clock"></i> {{ $tour->time }}</li>
+                                        <li><i class="far fa-user"></i>{{ $tour->quantity }}</li>
                                     </ul>
                                     <div class="destination-footer">
-                                        <span class="price"><span>500.000đ</span>/Người</span>
-                                        <a href="tour-details.html" class="theme-btn style-two style-three">
+                                        <span class="price"><span>{{ number_format($tour->priceAdult, 0, ',', '.') }}</span>VND / người</span>
+                                        <a href="{{ route('tour-detail',['id' => $tour->tourid]) }}" class="theme-btn style-two style-three">
                                             <i class="fal fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                         <div class="col-lg-12">
                             <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
                                 data-aos-duration="1500" data-aos-offset="50">

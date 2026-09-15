@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{asset('clients/assets/css/aos.css')}}">
     <!-- Slick -->
     <link rel="stylesheet" href="{{asset('clients/assets/css/slick.min.css')}}">
+    <!-- Jquery UI -->
+    <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery-ui.min.css') }}">
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('clients/assets/css/style.css')}}">
     

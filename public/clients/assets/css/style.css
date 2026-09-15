@@ -1,52 +1,4 @@
 @charset "UTF-8";
-/*----------------------------------------------------------------------
-    Template Name: Ravelo - Travel & Tour Booking HTML Template
-    Template URI: https://webtend.net/demo/html/ravelo/
-    Author: WebTend
-    Author URI:  https://webtend.net/
-    Version: 1.0
-
-    Note: This is Main Style CSS File. */
-/*----------------------------------------------------------------------
-	CSS INDEX
-	----------------------
-
-    ## Default Style
-    ## Common Classes
-    ## Repeat Style
-    ## Padding Margin
-    ## Custom Animation
-    ## Header style
-    ## Hero Area
-    ## Banner Area
-    ## Destinations Area
-    ## Counter Area
-    ## About Area
-    ## Features Area
-    ## Mobile App
-    ## Testimonials
-    ## Instagram
-    ## Newsletter
-    ## Team Area
-    ## CTA Area
-    ## Benefit Area
-    ## Products
-    ## Client Logo
-    ## Contact Forms
-    ## Videos
-    ## Gallery
-    ## Blog Area
-    ## FAQs Area
-    ## 404 Error
-    ## Pricing
-    ## Skillbar
-    ## Activity Area
-    ## Sidebar Widgets
-    ## Main Footer */
-/* -------------------------------------------------------------- */
-/*******************************************************/
-/******************* ## Default Style ******************/
-/*******************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +6,6 @@
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none; }
-
 body {
   color: var(--base-color);
   background: rgb(244, 243, 243);
@@ -72,7 +23,6 @@ body {
   --border-color: #E9E9E9;
   --primary-rgb: 99, 171, 69;
   --secondary-rgb: 247, 146, 30; }
-
 a {
   color: var(--base-color);
   cursor: pointer;
@@ -86,10 +36,8 @@ a {
     outline: none; }
   a:hover {
     color: var(--heading-color); }
-
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: var(--heading-color); }
-
 .text-white h1, .text-white h1 a,
 .text-white h2, .text-white h2 a,
 .text-white h3, .text-white h3 a,
@@ -711,11 +659,12 @@ a.theme-btn {
       width: 44px;
       height: 44px;
       background: transparent;
-      line-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 50%;
       text-align: center;
-      border: 1px solid var(--border-color);
-      line-height: 42px; }
+      border: 1px solid var(--border-color); }
     .pagination li.disabled .page-link, .pagination li:last-child .page-link {
       border-radius: 50%; }
     .pagination li.active .page-link, .pagination li:hover:not(.disabled) .page-link {
@@ -4503,7 +4452,9 @@ h6, .h6, blockquote {
       width: 40px;
       height: 40px;
       background: white;
-      line-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 50%;
       text-align: center;
       color: var(--secondary-color); }

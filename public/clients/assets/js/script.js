@@ -448,17 +448,22 @@
         
         // ## Price Range Fliter jQuery UI
         if ($('.price-slider-range').length) {
+            var formatPrice = function (price) {
+                return price.toLocaleString('vi-VN') + ' VND';
+            };
+
             $(".price-slider-range").slider({
                 range: true,
-                min: 5,
-                max: 1000,
-                values: [100, 750],
+                min: 0,
+                max: 10000000,
+                step: 100000,
+                values: [0, 10000000],
                 slide: function (event, ui) {
-                    $("#price").val("$ " + ui.values[0] + " - $ " + ui.values[1]);
+                    $("#price").val(formatPrice(ui.values[0]) + " - " + formatPrice(ui.values[1]));
                 }
             });
-            $("#price").val("$ " + $(".price-slider-range").slider("values", 0) +
-                " - $ " + $(".price-slider-range").slider("values", 1));
+            var initialValues = $(".price-slider-range").slider("values");
+            $("#price").val(formatPrice(initialValues[0]) + " - " + formatPrice(initialValues[1]));
         }
         
         

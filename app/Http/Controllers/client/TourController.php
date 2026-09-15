@@ -4,21 +4,23 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\client\tour;
 
 class TourController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    private $tour;
+
+    public function __construct()
+    {
+        $this->tour = new tour();
+    }
     public function index()
     {
         $title = 'Tour';
-        return view(view: 'clients.Tour', data: compact('title'));
+        $tour = $this->tour->getAllTour();
+        return view(view: 'clients.Tour', data: compact('title','tour'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
