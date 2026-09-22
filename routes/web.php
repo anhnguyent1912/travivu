@@ -31,8 +31,9 @@ Route::get(uri: '/contact', action: [ContactController::class, 'index'])->name('
 Route::get(uri: '/checkout', action: [CheckoutController::class, 'index'])->name('checkout');
 Route::get(uri: '/infor', action: [InforController::class, 'index'])->name('infor');
 Route::get(uri: '/login', action: [LoginController::class, 'index'])->name('login');
+Route::post(uri: '/login', action: [LoginController::class, 'register'])->name('register');
 Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
-Route::get(uri: '/tour-guide', action: [Tour_guideController::class, 'index'])->name('tour-guide');
+// Route::get(uri: '/tour-guide', action: [Tour_guideController::class, 'index'])->name('tour-guide');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');

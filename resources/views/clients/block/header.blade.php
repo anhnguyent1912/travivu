@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
     <!-- login -->
         <!-- Font Icon -->

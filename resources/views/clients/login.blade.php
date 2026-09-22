@@ -24,6 +24,7 @@
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="your_name" id="your_name" placeholder="Tên đăng nhập hoặc SĐT"/>
                             </div>
+                            <div class="invalid-feedback" style="margin-top: -15px" id="validate_username"></div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="your_pass" id="your_pass" placeholder="Mật khẩu"/>
@@ -54,23 +55,28 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Đăng ký</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form method="POST" action="{{ route('register') }}" class="register-form" id="register-form">
                             <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Tên đăng nhập hoặc SĐT"/>
+                                <label for="username_register"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="username_register" id="username_register" placeholder="Tên đăng nhập hoặc SĐT" required/>
                             </div>
+                            <div class="invalid-feedback" style="margin-top: -15px" id="validate_username_regis"></div>
+                            @csrf
                             <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Email"/>
+                                <label for="email_register"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email_register" id="email_register" placeholder="Email"/>
                             </div>
+                            <div class="invalid-feedback" style="margin-top: -15px" id="validate_email_regis"></div>
                             <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Mật khẩu"/>
+                                <label for="password_register"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="password_register" placeholder="Mật khẩu"/>
                             </div>
+                            <div class="invalid-feedback" style="margin-top: -15px" id="validate_password_regis"></div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Nhập lại mật khẩu"/>
                             </div>
+                            <div class="invalid-feedback" style="margin-top: -15px" id="validate_repass"></div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>Tôi đồng ý với các điều khoản trong  <a href="#" class="term-service">Điều khoản dịch vụ</a></label>
