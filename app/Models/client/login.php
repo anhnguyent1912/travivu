@@ -34,4 +34,14 @@ class login extends Model
 
         return $check;
     }
+    public function getUserByToken($token)
+    {
+        return DB::table($this->table)->where('activation_token', $token)->first();
+    }
+    public function activateUserAccount($token)
+    {
+        return DB::table($this->table)
+            ->where('activation_token', $token)
+            ->update(['activation_token' => null,'isActive' => 'y']);
+    }
 }
