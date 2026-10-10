@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="{{asset('clients/assets/images/logos/favicon.png')}}" type="image/x-icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    
     <!-- Flaticon -->
     <link rel="stylesheet" href="{{asset('clients/assets/css/flaticon.min.css')}}">
     <!-- Font Awesome -->
@@ -31,14 +30,12 @@
     <!-- Main Style -->
     <link rel="stylesheet" href="{{asset('clients/assets/css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- login -->
         <!-- Font Icon -->
     {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/fonts/material-icon/css/material-design-iconic-font.min.css')}}"> --}}
-
     <!-- Main css -->
     {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/style.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery.datetimepicker.min.css')}}">
@@ -46,16 +43,14 @@
 </head>
 <body>
     <div class="page-wrapper">
-<header class="main-header header-one">
+<header class="main-header header-one fixed-header" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background-color: #ffffff;">
             <!--Header-Upper-->
             <div class="header-upper bg-white py-30 rpy-0">
                 <div class="container-fluid clearfix">
-
                     <div class="header-inner rel d-flex align-items-center">
                         <div class="logo-outer">
                             {{-- <div class="logo"><a href="{{ route('home')}}"><img src="{{asset('clients/assets/images/logos/logo-two.png')}}" alt="Logo" title="Logo"></a></div> --}}
                         </div>
-
                         <div class="nav-outer mx-lg-auto ps-xxl-5 clearfix">
                             <!-- Main Menu -->
                             <nav class="main-menu navbar-expand-lg">
@@ -64,8 +59,7 @@
                                        <a href="{{ route('home') }}">
                                             <img src="{{asset('clients/assets/images/logos/logo-two.png')}}" alt="Logo" title="Logo">
                                        </a>
-                                   </div>
-                                   
+                                   </div>                                
                                     <!-- Toggle Button -->
                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                                         <span class="icon-bar"></span>
@@ -82,24 +76,15 @@
                                                 href="{{ route('about') }}">Giới thiệu</a></li>
                                         <li class="{{ Request::url() == route('Tour') ? 'active' : '' }}"><a
                                              href="{{ route('Tour') }}">Tours</a>
-                                            {{-- <ul> --}}
-                                                {{-- <li><a href="{{ route('Tour') }}">Tour</a></li> --}}
-                                                {{-- <li><a href="{{ route('tour-guide') }}">Hướng dẫn viên</a></li> --}}
-                                            {{-- </ul> --}}
                                         </li>
                                         <li class="{{ Request::url() == route('destination') ? 'active' : '' }}"><a
                                                 href="{{ route('destination') }}">Điểm đến</a></li>
                                         <li class="{{ Request::url() == route('contact') ? 'active' : '' }}"><a
                                                 href="{{ route('contact') }}">Liên Hệ</a></li>
                                         <li class="#"><a href="{{route('blog')}}">blog</a>
-                                            {{-- <ul>
-                                                <li><a href="{{route('blog')}}">blog List</a></li>
-                                                <li><a href="#">blog details</a></li>
-                                            </ul> --}}
                                         </li>
                                     </ul>
                                 </div>
-
                             </nav>
                             <!-- Main Menu End-->
                         </div>
@@ -117,14 +102,16 @@
                                     <i class='bx bxs-user icon-user' style="font-size: 36px; color: rgb(18, 18, 18);"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                        <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
+                                        @if (session()->has('username'))
+                                            <li class="dropdown-header">{{ session('username') }}</li>
+                                            <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
                                             <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
                                             <li><a href="{{ route('login') }}">Đăng xuất</a></li>
+                                             @else
+                                             <li><a href="{{ route('login') }}">Đăng nhập</a></li>
+                                        @endif
                                     </ul>
                                 </li>
-                                 {{-- <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">
-                                    <i class='bx bxs-user bx-tada' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
-                                </button> --}}
                             </div>
                         </div>
                     </div>

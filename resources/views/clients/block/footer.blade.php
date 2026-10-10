@@ -159,8 +159,6 @@
 <script src="{{ asset('clients/assets/js/jquery.nice-select.min.js') }}"></script>
 <!-- Image Loader -->
 <script src="{{ asset('clients/assets/js/imagesloaded.pkgd.min.js') }}"></script>
-<!-- Skillbar -->
-<script src="{{ asset('clients/assets/js/skill.bars.jquery.min.js') }}"></script>
 <!-- Jquery UI -->
 <script src="{{ asset('clients/assets/js/jquery-ui.min.js') }}"></script>
 <!-- Isotope -->

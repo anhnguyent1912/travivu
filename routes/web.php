@@ -15,7 +15,7 @@ use App\Http\Controllers\client\SignupController;
 use App\Http\Controllers\client\Tour_guideController;
 use App\Http\Controllers\client\DestinationController;
 use App\Http\Controllers\client\BlogController;
-
+use App\Http\Controllers\client\LoginGoogleController;
 // Route::get('/', function () {
 //     return view('home');
 // });
@@ -35,6 +35,8 @@ Route::post(uri: '/login', action: [LoginController::class, 'register'])->name('
 Route::get(uri: '/activate-account/{token}', action: [LoginController::class, 'activateAccount'])->name('activate.account');
 Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
-// Route::get(uri: '/tour-guide', action: [Tour_guideController::class, 'index'])->name('tour-guide');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');
+
+Route::get('auth/google', [LoginGoogleController::class, 'redirectToGoogle'])->name('login-google');
+Route::get('auth/google/callback', [LoginGoogleController::class, 'handleGoogleCallback']);

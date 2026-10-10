@@ -145,7 +145,7 @@
                 <div class="clients-reviews bgc-black mt-30 mb-60">
                     <div class="left">
                         <b>4.8</b>
-                        <span>(586 reviews)</span>
+                            <span>(586 đánh giá)</span>
                         <div class="ratting">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -156,7 +156,7 @@
                     </div>
                     <div class="right">
                         <div class="ratting-item">
-                            <span class="title">Services</span>
+                            <span class="title">Dịch vụ</span>
                             <span class="line"><span style="width: 80%;"></span></span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
@@ -167,17 +167,7 @@
                             </div>
                         </div>
                         <div class="ratting-item">
-                            <span class="title">Guides</span>
-                            <span class="line"><span style="width: 70%;"></span></span>
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                        <div class="ratting-item">
-                            <span class="title">Price</span>
+                            <span class="title">Giá cả</span>
                             <span class="line"><span style="width: 80%;"></span></span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
@@ -188,7 +178,7 @@
                             </div>
                         </div>
                         <div class="ratting-item">
-                            <span class="title">Safety</span>
+                            <span class="title">An toàn</span>
                             <span class="line"><span style="width: 80%;"></span></span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
@@ -199,7 +189,7 @@
                             </div>
                         </div>
                         <div class="ratting-item">
-                            <span class="title">Foods</span>
+                            <span class="title">Ẩm thực</span>
                             <span class="line"><span style="width: 80%;"></span></span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
@@ -210,7 +200,7 @@
                             </div>
                         </div>
                         <div class="ratting-item">
-                            <span class="title">Hotels</span>
+                            <span class="title">Khách sạn</span>
                             <span class="line"><span style="width: 80%;"></span></span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
@@ -223,14 +213,14 @@
                     </div>
                 </div>
 
-                <h3>Clients Comments</h3>
+                <h3>Bình luận của khách hàng</h3>
                 <div class="comments mt-30 mb-60">
                     <div class="comment-body" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                         <div class="author-thumb">
                             <img src="assets/images/blog/comment-author1.jpg" alt="Author">
                         </div>
                         <div class="content">
-                            <h6>Lonnie B. Horwitz</h6>
+                            <h6>Dao Thi C</h6>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -238,10 +228,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="time">Venice, Rome and Milan – 9 Days 8 Nights</span>
-                            <p>Tours and travels play a crucial role in enriching lives by offering unique experiences,
-                                cultural exchanges, and the joy of exploration.</p>
-                            <a class="read-more" href="#">Reply <i class="far fa-angle-right"></i></a>
+                            <span class="time">Tour: {{ $tourdetail->title }}</span>
+                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm vui khám phá.</p>
+                            <a class="read-more" href="#">Trả lời <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="comment-body comment-child" data-aos="fade-up" data-aos-duration="1500"
@@ -250,7 +239,7 @@
                             <img src="assets/images/blog/comment-author2.jpg" alt="Author">
                         </div>
                         <div class="content">
-                            <h6>William G. Edwards</h6>
+                            <h6>Tran Van H</h6>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -258,10 +247,9 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="time">Venice, Rome and Milan – 9 Days 8 Nights</span>
-                            <p>Tours and travels play a crucial role in enriching lives by offering unique experiences,
-                                cultural exchanges, and the joy of exploration.</p>
-                            <a class="read-more" href="#">Reply <i class="far fa-angle-right"></i></a>
+                            <span class="time">Tour: {{ $tourdetail->title }}</span>
+                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm vui khám phá.</p>
+                            <a class="read-more" href="#">Trả lời <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
                     <div class="comment-body" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
@@ -269,7 +257,7 @@
                             <img src="assets/images/blog/comment-author3.jpg" alt="Author">
                         </div>
                         <div class="content">
-                            <h6>Jaime B. Wilson</h6>
+                            <h6>Nguyen Van B</h6>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -277,20 +265,19 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="time">Venice, Rome and Milan – 9 Days 8 Nights</span>
-                            <p>Tours and travels play a crucial role in enriching lives by offering unique experiences,
-                                cultural exchanges, and the joy of exploration.</p>
-                            <a class="read-more" href="#">Reply <i class="far fa-angle-right"></i></a>
+                            <span class="time">Tour: {{ $tourdetail->title }}</span>
+                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm vui khám phá.</p>
+                            <a class="read-more" href="#">Trả lời <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <h3>Add Reviews</h3>
+                <h3>Thêm đánh giá</h3>
                 <form id="comment-form" class="comment-form bgc-lighter z-1 rel mt-30" name="review-form"
                     action="#" method="post" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                     <div class="comment-review-wrap">
                         <div class="comment-ratting-item">
-                            <span class="title">Services</span>
+                            <span class="title">Dịch vụ</span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -300,16 +287,7 @@
                             </div>
                         </div>
                         <div class="comment-ratting-item">
-                            <span class="title">Guides</span>
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                        <div class="comment-ratting-item">
-                            <span class="title">Price</span>
+                            <span class="title">Giá cả</span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -319,7 +297,7 @@
                             </div>
                         </div>
                         <div class="comment-ratting-item">
-                            <span class="title">Safety</span>
+                            <span class="title">An toàn</span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -329,7 +307,7 @@
                             </div>
                         </div>
                         <div class="comment-ratting-item">
-                            <span class="title">Foods</span>
+                            <span class="title">Ẩm thực</span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -339,7 +317,7 @@
                             </div>
                         </div>
                         <div class="comment-ratting-item">
-                            <span class="title">Hotels</span>
+                            <span class="title">Khách sạn</span>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -350,18 +328,18 @@
                         </div>
                     </div>
                     <hr class="mt-30 mb-40">
-                    <h5>Leave Feedback</h5>
+                    <h5>Để lại nhận xét</h5>
                     <div class="row gap-20 mt-20">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="full-name">Name</label>
+                                <label for="full-name">Họ và tên</label>
                                 <input type="text" id="full-name" name="full-name" class="form-control"
                                     value="" required="">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="phone">Phone</label>
+                                <label for="phone">Số điện thoại</label>
                                 <input type="text" id="phone" name="phone" class="form-control"
                                     value="" required="">
                             </div>
@@ -375,14 +353,14 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="message">Comments</label>
+                                <label for="message">Nội dung nhận xét</label>
                                 <textarea name="message" id="message" class="form-control" rows="5" required=""></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group mb-0">
                                 <button type="submit" class="theme-btn bgc-secondary style-two">
-                                    <span data-hover="Submit reviews">Submit reviews</span>
+                                    <span data-hover="Gửi đánh giá">Gửi đánh giá</span>
                                     <i class="fal fa-arrow-right"></i>
                                 </button>
                             </div>
@@ -447,22 +425,6 @@
                                     88</a></li>
                         </ul>
                     </div>
-
-                    {{-- <div class="widget widget-cta" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content text-white">
-                            <span class="h6">Explore The World</span>
-                            <h3>Best Tourist Place</h3>
-                            <a href="tour-grid.html" class="theme-btn style-two bgc-secondary">
-                                <span data-hover="Explore Now">Explore Now</span>
-                                <i class="fal fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        <div class="image">
-                            <img src="assets/images/widgets/cta-widget.png" alt="CTA">
-                        </div>
-                        <div class="cta-shape"><img src="assets/images/widgets/cta-shape3.png" alt="Shape"></div>
-                    </div> --}}
-
                 </div>
             </div>
         </div>

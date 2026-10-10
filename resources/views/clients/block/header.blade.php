@@ -46,14 +46,8 @@
 </head>
 <body>
     <div class="page-wrapper">
-
-        <!-- Preloader -->
-        {{-- <div class="preloader">
-            <div class="custom-loader"></div>
-        </div> --}}
-
         <!-- main header -->
-        <header class="main-header header-one white-menu menu-absolute">
+        <header class="main-header header-one white-menu fixed-header" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background-color: #1c1c1c;">
             <!--Header-Upper-->
             <div class="header-upper py-30 rpy-0">
                 <div class="container-fluid clearfix">
@@ -88,26 +82,14 @@
                                         <li class="#"><a href="{{ route('Tour') }}">Tours</a>
                                             <ul>
                                                 <li><a href="{{ route('Tour') }}">Tour</a></li>
-                                                {{-- <li><a href="{{ route('tour-guide') }}">Hướng dẫn viên</a></li> --}}
                                             </ul>
                                         </li>
                                         <li><a href="{{ route('destination') }}">Điểm đến</a></li>
                                         <li><a href="{{ route('contact') }}">Liên hệ</a></li>
-                                        {{-- <li class="dropdown"><a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="#">faqs</a></li>
-                                                <li><a href="{{ route('contact') }}">Contact Us</a></li>
-                                            </ul>
-                                        </li> --}}
                                         <li class="#"><a href="{{route('blog')}}">blog</a>
-                                            {{-- <ul>
-                                                <li><a href="{{route('blog')}}">blog List</a></li>
-                                                <li><a href="#">blog details</a></li>
-                                            </ul> --}}
                                         </li>
                                     </ul>
                                 </div>
-
                             </nav>
                             <!-- Main Menu End-->
                         </div>
@@ -134,9 +116,14 @@
                                     <i class='bx bxs-user icon-user' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                        <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
+                                        @if (session()->has('username'))
+                                            <li class="dropdown-header">{{ session('username') }}</li>
+                                            <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
                                             <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
                                             <li><a href="{{ route('login') }}">Đăng xuất</a></li>
+                                             @else
+                                             <li><a href="{{ route('login') }}">Đăng nhập</a></li>
+                                        @endif
                                     </ul>
                                 </li>
                                  {{-- <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">

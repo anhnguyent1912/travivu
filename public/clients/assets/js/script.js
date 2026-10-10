@@ -1,40 +1,3 @@
-/*-----------------------------------------------------------------------------------
-    Template Name: Ravelo - Travel & Tour Booking HTML Template
-    Template URI: https://webtend.net/demo/html/ravelo/
-    Author: WebTend
-    Author URI:  https://webtend.net/
-    Version: 1.0
-
-    Note: This is Main JS File.
------------------------------------------------------------------------------------
-	CSS INDEX
-	===================
-    ## Header Style
-    ## Dropdown menu
-    ## Submenu
-    ## Menu Hidden Sidebar
-    ## Search Box
-    ## Sidebar Menu
-    ## Video Popup
-    ## Testimonial Slider
-    ## Destination Carousel
-    ## Client Logo Carousel
-    ## Hot Deals Carousel
-    ## Gallery Slider
-    ## Product Slider
-    ## Gallery Popup
-    ## Instagram Gallery
-    ## SkillBar
-    ## Fact Counter
-    ## Destinations Filter
-    ## Price Range Fliter
-    ## Hover Content
-    ## Scroll to Top
-    ## Nice Select
-    ## AOS Animation
-    ## Preloader
-    
------------------------------------------------------------------------------------*/
 
 (function ($) {
 
@@ -42,7 +5,7 @@
 
     $(document).ready(function () {
 
-        // ## Header Style and Scroll to Top
+        // ## Header
         function headerStyle() {
             if ($('.main-header').length) {
                 var windowpos = $(window).scrollTop();
@@ -130,37 +93,7 @@
 					};
 				}
 			});
-		}
-        
-        
-        // ## Sidebar Menu
-        if ($('.sidebar-menu li.dropdown ul').length) {
-            $('.sidebar-menu li.dropdown').append('<div class="dropdown-btn"><span class="far fa-angle-down"></span></div>');
-
-            //Dropdown Button
-            $('.sidebar-menu li.dropdown .dropdown-btn').on('click', function () {
-                $(this).prev('ul').slideToggle(500);
-                $(this).prev('.megamenu').slideToggle(800);
-                $(this).parent('li.dropdown').toggleClass('active');
-            });
-            
-            //Disable dropdown parent link
-            $('.sidebar-menu li.dropdown > a').on('click', function (e) {
-                e.preventDefault();
-                $(this).next('ul').slideToggle(500);
-                $(this).parent('li.dropdown').toggleClass('active');
-            });
-        }
-        
-  
-        // ## Video Popup
-        if ($('.video-play').length) {
-            $('.video-play').magnificPopup({
-                type: 'video',
-            });
-        }
-
-        
+		}     
         // ## Testimonial Slider
         if ($('.testimonials-active').length) {
             $('.testimonials-active').slick({
@@ -176,50 +109,6 @@
             });
         }
 
-        
-        // ## Destination Carousel
-        if ($('.destination-active').length) {
-            $('.destination-active').slick({
-                infinite: true,
-                speed: 400,
-                arrows: false,
-                dots: true,
-                focusOnSelect: true,
-                autoplay: true,
-                autoplaySpeed: 5000,
-                slidesToShow: 5,
-                slidesToScroll: 2,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 4,
-                        }
-                    },
-                    {
-                        breakpoint: 991,
-                        settings: {
-                            slidesToShow: 3,
-                        }
-                    },
-                    {
-                        breakpoint: 767,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 375,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1,
-                        }
-                    }
-                ]
-            });
-        }
-        
-        
         // ## Client Logo Carousel
         if ($('.client-logo-active').length) {
             $('.client-logo-active').slick({
@@ -257,107 +146,107 @@
         
  
         // ## Hot Deals Carousel
-        if ($('.hot-deals-active').length) {
-            $('.hot-deals-active').slick({
-                infinite: true,
-                speed: 400,
-                arrows: false,
-                dots: true,
-                focusOnSelect: true,
-                autoplay: true,
-                autoplaySpeed: 5000,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 991,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 767,
-                        settings: {
-                            slidesToShow: 1,
-                        }
-                    }
-                ]
-            });
-        }
+        // if ($('.hot-deals-active').length) {
+        //     $('.hot-deals-active').slick({
+        //         infinite: true,
+        //         speed: 400,
+        //         arrows: false,
+        //         dots: true,
+        //         focusOnSelect: true,
+        //         autoplay: true,
+        //         autoplaySpeed: 5000,
+        //         slidesToShow: 3,
+        //         slidesToScroll: 1,
+        //         responsive: [
+        //             {
+        //                 breakpoint: 991,
+        //                 settings: {
+        //                     slidesToShow: 2,
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 767,
+        //                 settings: {
+        //                     slidesToShow: 1,
+        //                 }
+        //             }
+        //         ]
+        //     });
+        // }
         
 
         // ## Gallery Slider
-        if ($('.gallery-slider-active').length) {
-            $('.gallery-slider-active').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                infinite: true,
-                speed: 400,
-                arrows: false,
-                dots: true,
-                centerMode: true,
-                focusOnSelect: true,
-                autoplay: true,
-                autoplaySpeed: 5000,
-                responsive: [
-                    {
-                        breakpoint: 1600,
-                        settings: {
-                            slidesToShow: 3,
-                        }
-                    },
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 650,
-                        settings: {
-                            slidesToShow: 1,
-                        }
-                    }
-                ]
-            });
-        }
+        // if ($('.gallery-slider-active').length) {
+        //     $('.gallery-slider-active').slick({
+        //         slidesToShow: 4,
+        //         slidesToScroll: 1,
+        //         infinite: true,
+        //         speed: 400,
+        //         arrows: false,
+        //         dots: true,
+        //         centerMode: true,
+        //         focusOnSelect: true,
+        //         autoplay: true,
+        //         autoplaySpeed: 5000,
+        //         responsive: [
+        //             {
+        //                 breakpoint: 1600,
+        //                 settings: {
+        //                     slidesToShow: 3,
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 1200,
+        //                 settings: {
+        //                     slidesToShow: 2,
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 650,
+        //                 settings: {
+        //                     slidesToShow: 1,
+        //                 }
+        //             }
+        //         ]
+        //     });
+        // }
         
         
         // ## Product Slider
-        if ($('.product-slider').length) {
-            $('.product-slider').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                infinite: true,
-                speed: 400,
-                arrows: false,
-                dots: true,
-                centerMode: false,
-                focusOnSelect: true,
-                autoplay: true,
-                autoplaySpeed: 5000,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                        }
-                    },
-                    {
-                        breakpoint: 991,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                    {
-                        breakpoint: 500,
-                        settings: {
-                            slidesToShow: 1,
-                        }
-                    }
-                ]
-            });
-        }
+        // if ($('.product-slider').length) {
+        //     $('.product-slider').slick({
+        //         slidesToShow: 4,
+        //         slidesToScroll: 1,
+        //         infinite: true,
+        //         speed: 400,
+        //         arrows: false,
+        //         dots: true,
+        //         centerMode: false,
+        //         focusOnSelect: true,
+        //         autoplay: true,
+        //         autoplaySpeed: 5000,
+        //         responsive: [
+        //             {
+        //                 breakpoint: 1200,
+        //                 settings: {
+        //                     slidesToShow: 3,
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 991,
+        //                 settings: {
+        //                     slidesToShow: 2,
+        //                 }
+        //             },
+        //             {
+        //                 breakpoint: 500,
+        //                 settings: {
+        //                     slidesToShow: 1,
+        //                 }
+        //             }
+        //         ]
+        //     });
+        // }
         
         
         // ## Gallery Popup
@@ -368,28 +257,6 @@
                 navigateByImgClick: true,
             },
         });
-        
-        
-        // ## Instagram Gallery 
-        $('.instagram-item').magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-            },
-        });
-        
-        
-        // ## SkillBar
-        if ($('.skillbar').length) {
-            $('.skillbar').appear(function () {
-                $('.skillbar').skillBars({
-                    from: 0,
-                    speed: 4000,
-                    interval: 100,
-                });
-            });
-        }
         
         
          /* ## Fact Counter + Text Count - Our Success */
@@ -518,27 +385,27 @@
        When document is scroll, do
     ========================================================================== */
 
-    $(window).on('scroll', function () {
+    // $(window).on('scroll', function () {
 
         // Header Style and Scroll to Top
-        function headerStyle() {
-            if ($('.main-header').length) {
-                var windowpos = $(window).scrollTop();
-                var siteHeader = $('.main-header');
-                var scrollLink = $('.scroll-top');
-                if (windowpos >= 100) {
-                    siteHeader.addClass('fixed-header');
-                    scrollLink.fadeIn(300);
-                } else {
-                    siteHeader.removeClass('fixed-header');
-                    scrollLink.fadeOut(300);
-                }
-            }
-        }
+    //     function headerStyle() {
+    //         if ($('.main-header').length) {
+    //             var windowpos = $(window).scrollTop();
+    //             var siteHeader = $('.main-header');
+    //             var scrollLink = $('.scroll-top');
+    //             if (windowpos >= 100) {
+    //                 siteHeader.addClass('fixed-header');
+    //                 scrollLink.fadeIn(300);
+    //             } else {
+    //                 siteHeader.removeClass('fixed-header');
+    //                 scrollLink.fadeOut(300);
+    //             }
+    //         }
+    //     }
 
-        headerStyle();
+    //     headerStyle();
 
-    });
+    // });
 
     /* ==========================================================================
        When document is loaded, do

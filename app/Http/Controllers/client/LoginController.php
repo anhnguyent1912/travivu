@@ -43,7 +43,7 @@ class LoginController extends Controller
         $created = $this->login->registerAcount(data: [
             'username' => $username_regis,
             'email' => $email,
-            'password' => md5($password_regis),
+            'password' => Bcrypt($password_regis),
             'activation_token' => $activation_token
             // 'isActive' => 'n',
         ]);
@@ -70,6 +70,49 @@ class LoginController extends Controller
             return redirect()->route('login')->with('message', 'Tài khoản của bạn đã được kích hoạt');
         }else {
             return redirect()->route('login')->with('error', 'Liên kết kích hoạt không hợp lệ');
+        }
+    }
+    public function login(Request $request)
+    {
+        $username = $request->username;
+        $password = $request->password;
+
+        $data_login = [
+            'username' => $username,
+            'password' => Bcrypt($password)
+        ];
+
+        // Lấy thông tin user đăng nhập
+        $user_login = $this->login->login($data_login);
+
+        if ($user_login != null) {
+            // Kiểm tra xem tài khoản đã kích hoạt qua email chưa (nếu có cột isActive)
+            if (isset($user_login->isActive) && $user_login->isActive !== 'y') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Tài khoản chưa được kích hoạt qua email. Vui lòng kiểm tra hộp thư!',
+                ]);
+            }
+
+            // Lưu session trực tiếp từ kết quả trả về của user_login
+            $request->session()->put('username', $user_login->username);
+            $request->session()->put('avatar', $user_login->avatar ?? 'default-avatar.png');
+
+            if (function_exists('toastr')) {
+                toastr()->success("Đăng nhập thành công!", 'Thông báo');
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Đăng nhập thành công!',
+                'redirectUrl' => route('home'), // Đảm bảo trong routes/web.php đã có ->name('home')
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Thông tin tài khoản hoặc mật khẩu không chính xác!',
+            ]);
         }
     }
 

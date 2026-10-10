@@ -1,48 +1,5 @@
 @include('clients.block.header')
 @include('clients.block.banner')
-<!--Form Back Drop-->
-{{-- <div class="form-back-drop"></div>
-
-<!-- Hidden Sidebar -->
-<section class="hidden-bar">
-    <div class="inner-box text-center">
-        <div class="cross-icon"><span class="fa fa-times"></span></div>
-        <div class="title">
-            <h4>Get Appointment</h4>
-        </div>
-
-        <!--Appointment Form-->
-        <div class="appointment-form">
-            <form method="post" action="https://webtendtheme.net/html/2024/ravelo/contact.html">
-                <div class="form-group">
-                    <input type="text" name="text" value="" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" value="" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Message" rows="5"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="theme-btn style-two">
-                        <span data-hover="Submit now">Submit now</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <!--Social Icons-->
-        <div class="social-style-one">
-            <a href="contact.html"><i class="fab fa-twitter"></i></a>
-            <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
-            <a href="contact.html"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-        </div>
-    </div>
-</section>
-<!--End Hidden Sidebar --> --}}
-
 <!-- Destinations Area start -->
 <section class="destinations-area bgc-black pt-100 pb-70 rel z-1">
     <div class="container-fluid">
@@ -67,7 +24,7 @@
                     </div>
                     <div class="content">
                         <span class="location"><i class="fal fa-map-marker-alt"></i>{{ $tour->destination }}</span>
-                        <h5><a href="destination-details.html">{{ $tour->title }}</a></h5>
+                        <h5><a href="{{ route('tour-detail', ['id' => $tour->tourid]) }}">{{ $tour->title }}</a></h5>
                         <span class="time">{{ $tour->time }} </span>
                     </div>
                     <div class="destination-footer">
@@ -81,70 +38,13 @@
     </div>
 </section>
 <!-- Destinations Area end -->
-
-
-<!-- About Us Area start -->
-{{-- <section class="about-us-area py-100 rpb-90 rel z-1">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-5 col-lg-6">
-                <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500"
-                    data-aos-offset="50">
-                    <div class="section-title mb-25">
-                        <h2>Du lịch với sự tự tin Lý do hàng đầu để chọn công ty chúng tôi</h2>
-                    </div>
-                    <p>Chúng tôi sẽ nỗ lực hết mình để biến giấc mơ du lịch của bạn thành hiện thực những viên ngọc ẩn
-                        và những điểm tham quan không thể bỏ qua
-                    </p>
-                    <div class="divider counter-text-wrap mt-45 mb-55"><span>Chúng tôi có <span><span
-                                    class="count-text plus" data-speed="3000" data-stop="5">0</span> Năm</span>
-                            kinh nghiệm</span></div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="counter-item counter-text-wrap">
-                                <span class="count-text k-plus" data-speed="3000" data-stop="2">0</span>
-                                <span class="counter-title">Điểm đến phổ biến</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="counter-item counter-text-wrap">
-                                <span class="count-text m-plus" data-speed="3000" data-stop="3">0</span>
-                                <span class="counter-title">Khách hàng hài lòng</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="destination1.html" class="theme-btn mt-10 style-two">
-                        <span data-hover="Khám phá điểm đến">Khám phá Điểm đến</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-7 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                <div class="about-us-image">
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape1.png')}}" alt="Shape"></div>
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape2.png')}}" alt="Shape"></div>
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape3.png')}}" alt="Shape"></div>
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape4.png')}}" alt="Shape"></div>
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape5.png')}}" alt="Shape"></div>
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape6.png')}}" alt="Shape"></div>
-                    <div class="shape"><img src="{{asset('clients/assets/images/about/shape7.png')}}" alt="Shape"></div>
-                    <img src="{{asset('clients/assets/images/about/about.png')}}" alt="About">
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
-<!-- About Us Area end -->
-
-
 <!-- Popular Destinations Area start -->
 <section class="popular-destinations-area rel z-1">
     <div class="container-fluid">
         <div class="popular-destinations-wrap br-20 bgc-lighter pt-100 pb-70">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <div class="section-title text-center counter-text-wrap mb-70" data-aos="fade-up"
-                        data-aos-duration="1500" data-aos-offset="50">
+                    <div class="section-title text-center counter-text-wrap mb-70">
                         <h2>Khám phá các điểm đến phổ biến</h2>
                         <p>Website với <span class="count-text plus" data-speed="3000" data-stop="1240">0</span> trải
                             nghiệm phổ biến nhất</p>
@@ -154,8 +54,7 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-duration="1500"
-                            data-aos-offset="50">
+                        <div class="destination-item style-two">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <img src="{{asset('clients/assets/images/destinations/destination1.jpg')}}" alt="Destination">
@@ -168,8 +67,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="100"
-                            data-aos-duration="1500" data-aos-offset="50">
+                        <div class="destination-item style-two">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <img src="{{asset('clients/assets/images/destinations/destination2.jpg')}}" alt="Destination">
@@ -182,8 +80,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="200"
-                            data-aos-duration="1500" data-aos-offset="50">
+                        <div class="destination-item style-two">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <img src="{{asset('clients/assets/images/destinations/destination3.jpg')}}" alt="Destination">
@@ -196,8 +93,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-duration="1500"
-                            data-aos-offset="50">
+                        <div class="destination-item style-two">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <img src="{{asset('clients/assets/images/destinations/destination4.jpg')}}" alt="Destination">
@@ -210,8 +106,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="100"
-                            data-aos-duration="1500" data-aos-offset="50">
+                        <div class="destination-item style-two">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <img src="{{asset('clients/assets/images/destinations/destination5.jpg')}}" alt="Destination">
@@ -224,8 +119,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two" data-aos="flip-up" data-aos-delay="200"
-                            data-aos-duration="1500" data-aos-offset="50">
+                        <div class="destination-item style-two">
                             <div class="image">
                                 <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                 <img src="{{asset('clients/assets/images/destinations/destination6.jpg')}}" alt="Destination">
@@ -243,7 +137,6 @@
     </div>
 </section>
 <!-- Popular Destinations Area end -->
-
 
 <!-- Features Area start -->
 <section class="features-area pt-100 pb-45 rel z-1">
@@ -266,7 +159,7 @@
                                 <img src="{{asset('clients/assets/images/features/feature-author3.jpg')}}" alt="Author">
                                 <span>4k+</span>
                             </div>
-                            <h6>850K+ Khách hàng hài lòng</h6>
+                            <h6>1K+ Khách hàng hài lòng</h6>
                             <div class="divider style-two counter-text-wrap my-25"><span><span class="count-text plus"
                                         data-speed="3000" data-stop="5">0</span> Năm</span></div>
                             <p>Chúng tôi tự hào cung cấp các hành trình được cá nhân hóa</p>
@@ -314,81 +207,6 @@
     </div>
 </section>
 <!-- Features Area end -->
-
-<!-- Testimonials Area start -->
-{{-- <section class="testimonials-area rel z-1">
-    <div class="container">
-        <div class="testimonials-wrap bgc-lighter">
-            <div class="row">
-                <div class="col-lg-5 rel" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="testimonial-left-image rmb-55"
-                        style="background-image: url({{asset('clients/assets/images/testimonials/testimonial-left.jpg')}});"></div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="testimonial-right-content" data-aos="fade-left" data-aos-duration="1500"
-                        data-aos-offset="50">
-                        <div class="section-title mb-55">
-                            <h2><span>5280</span> Global Clients Say About Us Services</h2>
-                        </div>
-                        <div class="testimonials-active">
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <div class="quote"><i class="flaticon-double-quotes"></i></div>
-                                    <h4>Quality Services</h4>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="text">"Our trip was absolutely a perfect, thanks this travel agency! They
-                                    took care of every detail, from to accommodations, and even suggested incredible
-                                    experiences"</div>
-                                <div class="author">
-                                    <div class="image"><img src="{{asset('clients/assets/images/testimonials/author.jpg')}}"
-                                            alt="Author"></div>
-                                    <div class="content">
-                                        <h5>Randall V. Vasquez</h5>
-                                        <span>Graphics Designer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <div class="testi-header">
-                                    <div class="quote"><i class="flaticon-double-quotes"></i></div>
-                                    <h4>Quality Services</h4>
-                                    <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="text">"Our trip was absolutely a perfect, thanks this travel agency! They
-                                    took care of every detail, from to accommodations, and even suggested incredible
-                                    experiences"</div>
-                                <div class="author">
-                                    <div class="image"><img src="{{asset('clients/assets/images/testimonials/author.jpg')}}"
-                                            alt="Author"></div>
-                                    <div class="content">
-                                        <h5>Randall V. Vasquez</h5>
-                                        <span>Graphics Designer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
-<!-- Testimonials Area end -->
-
-
 <!-- CTA Area start -->
 <section class="cta-area pt-100 rel z-1">
     <div class="container-fluid">

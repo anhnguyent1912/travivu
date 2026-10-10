@@ -161,9 +161,9 @@ input[type=checkbox], input[type=radio] {
   height: auto;
   width: auto; }
 
-/*******************************************************/
-/******************  ## Common Classes *****************/
-/*******************************************************/
+
+/*** Common Classes **/
+
 .page-wrapper {
   position: relative;
   z-index: 9;
@@ -3997,19 +3997,22 @@ h6, .h6, blockquote {
       font-size: 35px; } }
 
 .main-hero-image {
-  height: 790px;
-  margin-top: -8%;
+  height: 520px;
+  margin-top: 10px;
   position: relative;
-  border-radius: 20px; }
+  background-position: center top;
+  background-size: cover;
+  border-radius: 10px; 
+}
   @media only screen and (max-width: 1399px) {
     .main-hero-image {
-      height: 555px; } }
+      height: 430px; } }
   @media only screen and (max-width: 991px) {
     .main-hero-image {
-      height: 450px; } }
+      height: 340px; } }
   @media only screen and (max-width: 575px) {
     .main-hero-image {
-      height: 400px; } }
+      height: 260px; } }
   .main-hero-image:before {
     position: absolute;
     left: 0;
@@ -4017,10 +4020,8 @@ h6, .h6, blockquote {
     content: '';
     width: 100%;
     height: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(#1D231F), to(rgba(29, 35, 31, 0)));
-    background: -webkit-linear-gradient(top, #1D231F 0%, rgba(29, 35, 31, 0) 100%);
-    background: -o-linear-gradient(top, #1D231F 0%, rgba(29, 35, 31, 0) 100%);
-    background: linear-gradient(180deg, #1D231F 0%, rgba(29, 35, 31, 0) 100%); }
+    background: transparent !important;
+  }
 
 .search-filter-inner {
   display: -webkit-box;
@@ -4409,9 +4410,9 @@ h6, .h6, blockquote {
         font-weight: 500;
         line-height: 0.9; }
 
-/*******************************************************/
-/**************** ## Destinations Area ****************/
-/*******************************************************/
+
+/*** Destinations Area ***/
+
 .destination-item {
   color: #92A498;
   margin-bottom: 30px;
@@ -5806,22 +5807,12 @@ h6, .h6, blockquote {
       .testimonial-left-content .happy-customer.bgc-black .feature-authors > span {
         background: var(--primary-color); }
 
-/*******************************************************/
-/***************** ## Instagram Area *****************/
-/*******************************************************/
-.footer-instagram .row {
-  --bs-gutter-x: 10px; }
-
-.instagram-item {
-  display: block;
-  margin-bottom: 10px; }
-  .instagram-item img {
     width: 100%;
     border-radius: 7px; }
 
-/*******************************************************/
-/***************** ## Newsletter Area *****************/
-/*******************************************************/
+
+/** ## Newsletter Area**/
+
 .newsletter-content-part {
   max-width: 545px; }
   .newsletter-content-part > p {
@@ -6551,216 +6542,10 @@ h6, .h6, blockquote {
     font-family: var(--heading-font);
     text-decoration: underline; }
 
-/* Video Section */
-.video-title-wrap {
-  z-index: 2;
-  position: relative;
-  margin-bottom: -7%; }
-  @media only screen and (max-width: 991px) {
-    .video-title-wrap {
-      margin-bottom: -5%; } }
 
-.video-title {
-  color: white;
-  display: block;
-  font-size: 180px;
-  line-height: 0.93;
-  font-family: var(--heading-font); }
-  @media only screen and (max-width: 1199px) {
-    .video-title {
-      font-size: 120px; } }
-  @media only screen and (max-width: 991px) {
-    .video-title {
-      font-size: 90px; } }
-  @media only screen and (max-width: 767px) {
-    .video-title {
-      font-size: 70px; } }
-  @media only screen and (max-width: 575px) {
-    .video-title {
-      font-size: 50px; } }
-  @media only screen and (max-width: 375px) {
-    .video-title {
-      font-size: 40px; } }
 
-.video-area .for-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 80%; }
 
-.video-area .shape {
-  position: absolute;
-  right: 4%;
-  bottom: 0;
-  max-width: 15%; }
-
-.video-wrap {
-  z-index: 1;
-  position: relative; }
-  .video-wrap::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-    background-color: var(--heading-color); }
-  .video-wrap:before {
-    z-index: 1;
-    border-radius: 20px; }
-  .video-wrap img {
-    border-radius: 20px; }
-  .video-wrap .video-play {
-    z-index: 2;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: var(--secondary-color);
-    font-size: 18px;
-    line-height: 100px;
-    background: white;
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
-    -webkit-animation: pulse 1.5s infinite linear;
-    animation: pulse 1.5s infinite linear; }
-    @media only screen and (max-width: 991px) {
-      .video-wrap .video-play {
-        width: 70px;
-        height: 70px;
-        line-height: 70px; } }
-    @media only screen and (max-width: 479px) {
-      .video-wrap .video-play {
-        width: 50px;
-        height: 50px;
-        font-size: 15px;
-        line-height: 50px; } }
-
-/*******************************************************/
-/****************** ## Gallery Area ******************/
-/*******************************************************/
-.gallery-item {
-  margin-bottom: 10px; }
-  .gallery-item img {
-    width: 100%; }
-
-.destination-map iframe {
-  height: 500px;
-  border-radius: 10px;
-  margin-bottom: -10px; }
-
-.gallery-two-item {
-  margin-bottom: 40px; }
-  .gallery-two-item .image {
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
-    border-radius: 10px; }
-    .gallery-two-item .image:after {
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0;
-      content: '';
-      width: 100%;
-      height: 0;
-      -webkit-transition: 0.5s;
-      -o-transition: 0.5s;
-      transition: 0.5s;
-      background: var(--heading-color); }
-    .gallery-two-item .image img {
-      width: 100%; }
-    .gallery-two-item .image .link {
-      z-index: 2;
-      top: -70px;
-      opacity: 0;
-      color: white;
-      font-size: 22px;
-      position: absolute;
-      left: calc(50% - 32.5px);
-      -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      width: 65px;
-      height: 65px;
-      background: var(--secondary-color);
-      line-height: 65px;
-      border-radius: 50%;
-      text-align: center; }
-  @media only screen and (max-width: 767px) {
-    .gallery-two-item .content h5 {
-      font-size: 22px; } }
-  .gallery-two-item:hover .image:after {
-    height: 100%;
-    opacity: 0.5; }
-  .gallery-two-item:hover .image .link {
-    opacity: 1;
-    top: calc(50% - 32.5px); }
-
-.gallery-slider-active {
-  margin-left: -5px;
-  margin-right: -5px; }
-  .gallery-slider-active .gallery-three-item {
-    margin-left: 5px;
-    margin-right: 5px; }
-  .gallery-slider-active .slick-dots {
-    margin-top: 45px; }
-
-.gallery-three-item {
-  margin-bottom: 10px; }
-  .gallery-three-item .image img {
-    width: 100%; }
-  .gallery-three-item .content {
-    opacity: 0;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
-    position: absolute;
-    left: 30px;
-    bottom: 60px;
-    background: white;
-    padding: 13px 30px;
-    border-radius: 10px; }
-    @media only screen and (max-width: 991px) {
-      .gallery-three-item .content {
-        left: 10px; } }
-    @media only screen and (max-width: 767px) {
-      .gallery-three-item .content {
-        padding-left: 15px;
-        padding-right: 15px; } }
-    @media only screen and (max-width: 479px) {
-      .gallery-three-item .content .category {
-        font-size: 14px; } }
-    .gallery-three-item .content h5 {
-      margin-bottom: 0;
-      line-height: 1.3; }
-      @media only screen and (max-width: 991px) {
-        .gallery-three-item .content h5 {
-          font-size: 20px; } }
-      @media only screen and (max-width: 479px) {
-        .gallery-three-item .content h5 {
-          font-size: 16px; } }
-      @media only screen and (max-width: 375px) {
-        .gallery-three-item .content h5 {
-          font-size: 14px; } }
-  .gallery-three-item:hover .content {
-    opacity: 1;
-    bottom: 30px; }
-    @media only screen and (max-width: 991px) {
-      .gallery-three-item:hover .content {
-        bottom: 10px; } }
-
-/*******************************************************/
 /******************** ## Blog Area ********************/
-/*******************************************************/
 .blog-meta {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7513,37 +7298,6 @@ blockquote {
     color: white; }
 
 /*******************************************************/
-/****************** ## Skillbar Area *******************/
-/*******************************************************/
-.skillbar {
-  height: 15px;
-  margin-top: 70p;
-  position: relative;
-  border-radius: 7.5px;
-  border: 1px solid var(--base-color); }
-  .skillbar .skillbar-title,
-  .skillbar .skill-bar-percent {
-    top: -40px;
-    color: white;
-    font-size: 18px;
-    font-weight: 500;
-    position: absolute;
-    color: var(--heading-color); }
-  .skillbar .skillbar-title {
-    z-index: 2; }
-  .skillbar .skill-bar-percent {
-    right: 0; }
-  .skillbar .skillbar-bar {
-    width: 0;
-    margin: 4px;
-    height: 5px;
-    position: relative;
-    border-radius: 2.5px;
-    background-image: none;
-    overflow: inherit !important;
-    background-color: var(--secondary-color); }
-
-/*******************************************************/
 /***************** ## Activity Area *****************/
 /*******************************************************/
 .popular-activity-area {
@@ -8081,9 +7835,9 @@ blockquote {
       top: 22%;
       max-width: 35%; }
 
-/*******************************************************/
-/******************* ## Main Footer *******************/
-/*******************************************************/
+
+/** ## Main Footer **/
+
 .main-footer {
   color: #B6CABC; }
   .main-footer a {
