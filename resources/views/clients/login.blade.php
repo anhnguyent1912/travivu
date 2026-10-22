@@ -7,6 +7,17 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/style.css')}}">
     <div class="main-login">
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
 
          <!-- Sing in  Form -->
         <section class="sign-in">
@@ -19,10 +30,11 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Đăng nhập</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        <form method="POST" action="{{ route('login.submit') }}" class="register-form" id="login-form">
+                            @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Tên đăng nhập hoặc SĐT"/>
+                                <input type="text" name="your_name" id="your_name" placeholder="Tên đăng nhập hoặc email"/>
                             </div>
                             <div class="invalid-feedback" style="margin-top: -15px" id="validate_username"></div>
                             <div class="form-group">
@@ -36,6 +48,20 @@
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
                             </div>
+                        </form>
+                        <form method="POST" action="{{ route('activation.resend') }}">
+                            @csrf
+                            <input
+                                type="email"
+                                id="activation-email"
+                                name="email"
+                                placeholder="Nhập email đã đăng ký"
+                                required
+                            >
+                            @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                            <button type="submit">Gửi lại email kích hoạt</button>
                         </form>
                         <div class="social-login">
                             <span class="social-label">Hoặc đăng nhập với</span>
@@ -93,6 +119,4 @@
             </div>
         </section>
     </div>
-</body>
-</html>
 @include('clients.block.footer_2')

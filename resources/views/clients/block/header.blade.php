@@ -116,14 +116,21 @@
                                     <i class='bx bxs-user icon-user' style="font-size: 36px; color: rgb(245, 243, 243);"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                                        @if (session()->has('username'))
-                                            <li class="dropdown-header">{{ session('username') }}</li>
+                                        @auth
+                                            <li class="dropdown-header">{{  auth()->user()->username }}</li>
                                             <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
                                             <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
-                                            <li><a href="{{ route('login') }}">Đăng xuất</a></li>
+                                            <li>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <button type="submit" class="dropdown-item">
+                                                        Đăng xuất
+                                                    </button>
+                                                </form>
+                                            </li>
                                              @else
                                              <li><a href="{{ route('login') }}">Đăng nhập</a></li>
-                                        @endif
+                                        @endauth
                                     </ul>
                                 </li>
                                  {{-- <button class="bg-transparent" type="button" onclick="window.location.href='{{ route('login') }}'">

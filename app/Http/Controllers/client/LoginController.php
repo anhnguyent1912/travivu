@@ -3,23 +3,25 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
-use App\Models\client\login;
+// use App\Models\client\login;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class LoginController extends Controller
 {
-    private $login;
+    // private $login;
 
-    public function __construct()
-    {
-        $this->login = new login();
-    }
+    // public function __construct()
+    // {
+    //     $this->login = new login();
+    // }
     public function index()
     {
         $title = 'Đăng nhập';
@@ -29,93 +31,227 @@ class LoginController extends Controller
 
     public function register(Request $request)
     {
-        $username_regis = $request->username_regis;
-        $email = $request->email;
-        $password_regis = $request->password_regis;
-        $checkAccountExist = $this->login->checkUserExist(username: $username_regis, email: $email);
-        if ($checkAccountExist) {
+       $data = $request->validate([
+            'username' => [
+                'required',
+                'string',
+                'max:50',
+                'unique:tbl_user,username',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                'unique:tbl_user,email',
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'confirmed',
+                function ($attribute, $value, $fail) {
+                    if (strlen($value) > 72) {
+                        $fail('Mật khẩu quá dài.');
+                    }
+                },
+            ],
+        ], [
+            'username.required' => 'Vui lòng nhập tên đăng nhập.',
+            'username.string' => 'Tên đăng nhập không hợp lệ.',
+            'username.max' => 'Tên đăng nhập không được vượt quá 50 ký tự.',
+            'username.unique' => 'Tên đăng nhập đã được sử dụng.',
+
+            'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
+            'email.max' => 'Email không được vượt quá 255 ký tự.',
+            'email.unique' => 'Email đã được đăng ký.',
+
+            'password.required' => 'Vui lòng nhập mật khẩu.',
+            'password.string' => 'Mật khẩu không hợp lệ.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'password.confirmed' => 'Mật khẩu nhập lại không khớp.',
+        ]);
+        $user = new User([
+            'username' => $data['username'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+                ]);
+
+        $user->isActive = 'n';
+        $user->save();
+        return $this->activationResponse($user);
+    }
+    private function sendActivationEmail(User $user): void
+    {
+        $token = Str::random(64);
+
+        $user->activation_token = hash('sha256', $token);
+        $user->save();
+
+        $link = URL::temporarySignedRoute(
+            'activate.account',
+            now()->addMinutes(60),
+            ['token' => $token]
+        );
+
+        Mail::send(
+            'clients.mail.mail_active',
+            ['link' => $link],
+            function ($message) use ($user) {
+                $message->to($user->email);
+                $message->subject('Kích hoạt tài khoản');
+            }
+        );
+    }
+    private function activationResponse(User $user): JsonResponse
+    {
+        try {
+            $this->sendActivationEmail($user);
+        } catch (\Throwable $exception) {
+            report($exception);
+
             return response()->json([
                 'success' => false,
-                'message' => 'Tên đăng nhập hoặc email đã tồn tại.',
-            ]);
+                'message' => 'Tài khoản đã được tạo nhưng chưa gửi được email. '
+                    . 'Vui lòng sử dụng chức năng gửi lại email kích hoạt.',
+            ], 503);
         }
-        $activation_token = Str::random(60);
-        $created = $this->login->registerAcount(data: [
-            'username' => $username_regis,
-            'email' => $email,
-            'password' => Bcrypt($password_regis),
-            'activation_token' => $activation_token
-            // 'isActive' => 'n',
-        ]);
-        $this->sendActivationEmail($email, $activation_token);
+
         return response()->json([
             'success' => true,
-            'message' => 'Đăng ký thành công! Vui lòng kiểm tra email để kích hoạt tài khoản.'
+            'message' => 'Đăng ký thành công! Vui lòng kiểm tra email '
+                . 'để kích hoạt tài khoản trong vòng 60 phút.',
+        ]);
+    }
+    public function activateAccount(Request $request, string $token)
+    {
+        if (! $request->hasValidSignature()) {
+            return redirect()->route('login')->with(
+                'error',
+                'Liên kết kích hoạt không hợp lệ hoặc đã hết hạn.'
+            );
+        }
+
+        $updated = User::where(
+            'activation_token',
+            hash('sha256', $token)
+        )
+            ->where('isActive', 'n')
+            ->whereNull('status')
+            ->update([
+                'isActive' => 'Y',
+                'activation_token' => null,
+            ]);
+
+        if ($updated === 0) {
+            return redirect()->route('login')->with(
+                'error',
+                'Liên kết đã được sử dụng hoặc tài khoản không thể kích hoạt.'
+            );
+        }
+
+        return redirect()->route('login')->with(
+            'message',
+            'Kích hoạt tài khoản thành công. Bạn có thể đăng nhập.'
+        );
+    }
+    public function login(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'username' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string'],
+        ], [
+            'username.required' => 'Vui lòng nhập tên đăng nhập hoặc email.',
+            'username.string' => 'Tên đăng nhập hoặc email không hợp lệ.',
+            'username.max' => 'Tên đăng nhập hoặc email không được vượt quá 255 ký tự.',
+            'password.required' => 'Vui lòng nhập mật khẩu.',
+            'password.string' => 'Mật khẩu không hợp lệ.',
         ]);
 
-    }
-    public function sendActivationEmail($email,$token)
-    {
-        $activation_link = route('activate.account', ['token' => $token]);
-        Mail::send('clients.mail.mail_active', ['link' => $activation_link], function ($message) use ($email) {
-            $message->to($email);
-            $message->subject('Kích hoạt tài khoản');
-        });
-    }
-    public function activateAccount($token)
-    {
-        $user = $this->login->getUserByToken(token: $token);
-        if ($user) {
-            $this->login->activateUserAccount(token: $token);
-            return redirect()->route('login')->with('message', 'Tài khoản của bạn đã được kích hoạt');
-        }else {
-            return redirect()->route('login')->with('error', 'Liên kết kích hoạt không hợp lệ');
-        }
-    }
-    public function login(Request $request)
-    {
-        $username = $request->username;
-        $password = $request->password;
+        $identifier = trim($data['username']);
 
-        $data_login = [
-            'username' => $username,
-            'password' => Bcrypt($password)
-        ];
+        $field = filter_var($identifier, FILTER_VALIDATE_EMAIL)
+            ? 'email'
+            : 'username';
 
-        // Lấy thông tin user đăng nhập
-        $user_login = $this->login->login($data_login);
+        $user = User::where($field, $identifier)->first();
 
-        if ($user_login != null) {
-            // Kiểm tra xem tài khoản đã kích hoạt qua email chưa (nếu có cột isActive)
-            if (isset($user_login->isActive) && $user_login->isActive !== 'y') {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Tài khoản chưa được kích hoạt qua email. Vui lòng kiểm tra hộp thư!',
-                ]);
-            }
-
-            // Lưu session trực tiếp từ kết quả trả về của user_login
-            $request->session()->put('username', $user_login->username);
-            $request->session()->put('avatar', $user_login->avatar ?? 'default-avatar.png');
-
-            if (function_exists('toastr')) {
-                toastr()->success("Đăng nhập thành công!", 'Thông báo');
-            }
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Đăng nhập thành công!',
-                'redirectUrl' => route('home'), // Đảm bảo trong routes/web.php đã có ->name('home')
-            ]);
-
-        } else {
+        if (! $user || ! Hash::check($data['password'], $user->password)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Thông tin tài khoản hoặc mật khẩu không chính xác!',
-            ]);
+                'message' => 'Tên đăng nhập, email hoặc mật khẩu không chính xác.',
+            ], 422);
         }
-    }
 
+        if ($user->status !== null) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Tài khoản hiện không được phép đăng nhập.',
+            ], 403);
+        }
+
+        if ($user->isActive !== 'Y') {
+            return response()->json([
+                'success' => false,
+                'message' => 'Bạn cần kích hoạt tài khoản qua email trước khi đăng nhập.',
+            ], 403);
+        }
+
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Đăng nhập thành công!',
+            'redirectUrl' => route('home'),
+        ]);
+    }
+    public function resendActivation(Request $request)
+    {
+        $data = $request->validate([
+            'email' => ['required', 'email', 'max:255'],
+        ], [
+            'email.required' => 'Vui lòng nhập email đã đăng ký.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
+            'email.max' => 'Email không được vượt quá 255 ký tự.',
+        ]);
+
+        $user = User::where('email', $data['email'])
+            ->where('isActive', 'n')
+            ->whereNull('status')
+            ->first();
+
+        if ($user) {
+            try {
+                $this->sendActivationEmail($user);
+            } catch (\Throwable $exception) {
+                report($exception);
+
+                return redirect()->route('login')->with(
+                    'error',
+                    'Chưa gửi được email. Vui lòng thử lại sau.'
+                );
+            }
+        }
+
+        return redirect()->route('login')->with(
+            'message',
+            'Nếu email thuộc tài khoản đang chờ kích hoạt, '
+                . 'hệ thống đã gửi liên kết mới.'
+        );
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home')->with(
+            'message',
+            'Bạn đã đăng xuất.'
+        );
+    }
     /**
      * Show the form for editing the specified resource.
      */

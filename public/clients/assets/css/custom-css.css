@@ -10,6 +10,19 @@
     background: var(--primary-color);
 }
 
+
+.page-wrapper > .main-header + .page-banner-area,
+.page-wrapper > .main-header + .page-banner-two {
+    margin-top: 170px;
+}
+
+@media (max-width: 991px) {
+    .page-wrapper > .main-header + .page-banner-area,
+    .page-wrapper > .main-header + .page-banner-two {
+        margin-top: 120px;
+    }
+}
+
 /* Style for dropdown for login */
 .menu-sidebar .dropdown-menu {
     padding: 0;
@@ -35,6 +48,40 @@
 }
 .dropdown-menu li:hover {
     background-color: var(--primary-color);
+}
+
+/* Đồng bộ liên kết và nút đăng xuất trong menu tài khoản. */
+.menu-sidebar .dropdown-menu li > form {
+    margin: 0;
+}
+
+.menu-sidebar .dropdown-menu li > a,
+.menu-sidebar .dropdown-menu li > form > button.dropdown-item {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--base-color);
+    font: inherit;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+
+.menu-sidebar .dropdown-menu li > a:hover,
+.menu-sidebar .dropdown-menu li > form > button.dropdown-item:hover {
+    color: var(--heading-color);
+}
+
+.menu-sidebar .dropdown-menu li > a:focus-visible,
+.menu-sidebar .dropdown-menu li > form > button.dropdown-item:focus-visible {
+    outline: 2px solid var(--heading-color);
+    outline-offset: 2px;
 }
 
 /* css tour in page home  */

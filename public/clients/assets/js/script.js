@@ -62,6 +62,10 @@
         if($('.menu-sidebar').length){
             //Show Form
             $('.menu-sidebar').on('click', function(e) {
+                if ($(e.target).closest('#userDropdown, .dropdown-menu').length) {
+                    return;
+                }
+
                 e.preventDefault();
                 $('body').toggleClass('side-content-visible');
             });

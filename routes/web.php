@@ -16,6 +16,7 @@ use App\Http\Controllers\client\Tour_guideController;
 use App\Http\Controllers\client\DestinationController;
 use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\LoginGoogleController;
+use App\Http\Controllers\client\SearchController;
 // Route::get('/', function () {
 //     return view('home');
 // });
@@ -30,9 +31,26 @@ Route::get(uri: '/Tour', action: [TourController::class, 'index'])->name('Tour')
 Route::get(uri: '/contact', action: [ContactController::class, 'index'])->name('contact');  
 Route::get(uri: '/checkout', action: [CheckoutController::class, 'index'])->name('checkout');
 Route::get(uri: '/infor', action: [InforController::class, 'index'])->name('infor');
-Route::get(uri: '/login', action: [LoginController::class, 'index'])->name('login');
-Route::post(uri: '/login', action: [LoginController::class, 'register'])->name('register');
-Route::get(uri: '/activate-account/{token}', action: [LoginController::class, 'activateAccount'])->name('activate.account');
+Route::get(uri: '/search', action: [SearchController::class, 'index'])->name('search');
+
+
+Route::get('/login', [LoginController::class, 'index'])
+    ->name('login');
+Route::post('/register', [LoginController::class, 'register'])
+    ->middleware('throttle:5,1,register')
+    ->name('register');
+Route::post('/login', [LoginController::class, 'login'])
+    ->middleware('throttle:10,1,login')
+    ->name('login.submit');
+Route::get('/activate-account/{token}',[LoginController::class, 'activateAccount'])
+    ->name('activate.account');
+Route::post('/activation/resend',[LoginController::class, 'resendActivation'])
+    ->middleware('throttle:3,1,activation.resend')
+    ->name('activation.resend');
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
+
 Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');

@@ -46,10 +46,12 @@
                         placeholder="Chọn ngày về" readonly>
                 </div>
                 <div class="search-button">
-                    <button class="theme-btn" type="submit">
+                    <a href="{{ route('search') }}">
+                        <button class="theme-btn" type="submit">
                         <span data-hover="Tìm kiếm">Tìm kiếm</span>
                         <i class="far fa-search"></i>
                     </button>
+                    </a>
                 </div>
             </div>
         </div>

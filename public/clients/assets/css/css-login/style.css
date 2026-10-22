@@ -1,5 +1,6 @@
 .main-login {
-    margin: 80px;
+    margin: 0 24px 60px;
+    padding-top: 180px;
 /* @extend display-flex; */
 display-flex, .display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {
   display: flex;

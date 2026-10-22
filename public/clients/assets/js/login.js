@@ -60,159 +60,96 @@
             }
         });
     });
-//ktra 
-$("#login-form").on("submit", function (e) {
-        e.preventDefault();
-        var userName = $("#your_name").val().trim();
-        var password = $("#your_pass").val().trim();
+// Việt hóa thông báo kiểm tra dữ liệu của trình duyệt trên trang tài khoản.
+const accountFieldLabels = {
+    your_name: "tên đăng nhập hoặc email",
+    your_pass: "mật khẩu",
+    username_register: "tên đăng nhập",
+    email_register: "email",
+    password_register: "mật khẩu",
+    re_pass: "mật khẩu xác nhận",
+    "activation-email": "email đã đăng ký",
+};
 
-        // Đặt lại nội dung thông báo lỗi và ẩn chúng
-        $("#validate_username").hide().text("");
-        $("#validate_password").hide().text("");
+Object.entries(accountFieldLabels).forEach(function ([id, label]) {
+    const input = document.getElementById(id);
+    if (!input) return;
 
-        var isValid = true;
+    input.addEventListener("invalid", function () {
+        this.setCustomValidity("");
 
-        // Kiểm tra độ dài mật khẩu
-        if (password.length < 6) {
-            isValid = false;
-            $("#validate_password")
-                .show()
-                .text("Mật khẩu phải có ít nhất 6 ký tự.");
-        }
-
-        // Kiểm tra tên đăng nhập và mật khẩu không chứa ký tự đặc biệt
-        
-        if (sqlInjectionPattern.test(userName)) {
-            isValid = false;
-            $("#validate_username")
-                .show()
-                .text("Tên đăng nhập không được chứa ký tự đặc biệt.");
-        }
-
-        if (sqlInjectionPattern.test(password)) {
-            isValid = false;
-            $("#validate_password")
-                .show()
-                .text("Mật khẩu không được chứa ký tự đặc biệt.");
-        }
-
-        if (isValid) {
-            var formData = {
-                username: userName,
-                password: password,
-                _token: $('input[name="_token"]').val(),
-            };
-            console.log(formData, $(this).attr("action"));
-
-            $.ajax({
-                type: "POST",
-                url: $(this).attr("action"),
-                data: formData,
-                success: function (response) {
-                    if (response.success) {
-                        window.location.href = "/";
-                    } else {
-                        toastr.error(response.message);
-                    }
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    toastr.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
-                },
-            });
+        if (this.validity.valueMissing) {
+            this.setCustomValidity(`Vui lòng nhập ${label}.`);
+        } else if (this.validity.typeMismatch && this.type === "email") {
+            this.setCustomValidity("Địa chỉ email không hợp lệ.");
         }
     });
 
-    //  signup
-    $("#register-form").on("submit", function (e) {
-        e.preventDefault();
-        $(".loader").show();
-        $("#register-form").addClass("hidden-content");
+    input.addEventListener("input", function () {
+        this.setCustomValidity("");
+    });
+});
 
-        // Lấy giá trị của các trường nhập liệu
-        var userName = $("#username_register").val().trim();
-        var email = $("#email_register").val().trim();
-        var password = $("#password_register").val().trim();
-        var rePass = $("#re_pass").val().trim();
+// Gửi dữ liệu đăng nhập và đăng ký.
+$("#login-form, #register-form").on("submit", function (e) {
+    e.preventDefault();
 
-        // Đặt lại nội dung thông báo lỗi và ẩn chúng
-        $("#validate_username_regis").hide().text("");
-        $("#validate_email_regis").hide().text("");
-        $("#validate_password_regis").hide().text("");
-        $("#validate_repass").hide().text("");
+    const $form = $(this);
+    const isRegister = this.id === "register-form";
+    const $button = $form.find(":submit");
 
-        // Kiểm tra lỗi
-        var isValid = true;
-
-        // Kiểm tra tên đăng nhập không chứa ký tự
-        var sqlInjectionPattern = /['"\\=;]/;
-        if (sqlInjectionPattern.test(userName)) {
-            isValid = false;
-            $("#validate_username_regis")
-                .show()
-                .text("Tên tài khoản không được chứa ký tự đặc biệt.");
+    const formData = isRegister
+        ? {
+            username: $("#username_register").val().trim(),
+            email: $("#email_register").val().trim(),
+            password: $("#password_register").val(),
+            password_confirmation: $("#re_pass").val(),
         }
+        : {
+            username: $("#your_name").val().trim(),
+            password: $("#your_pass").val(),
+        };
 
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            isValid = false;
-            $("#validate_email_regis").show().text("Email không hợp lệ.");
-        }
+    formData._token = $form.find('input[name="_token"]').val();
 
-        if (password.length < 6) {
-            isValid = false;
-            $("#validate_password_regis")
-                .show()
-                .text("Mật khẩu phải có ít nhất 6 ký tự.");
-        }
+    $button.prop("disabled", true);
 
-        if (sqlInjectionPattern.test(password)) {
-            isValid = false;
-            $("#validate_password_regis")
-                .show()
-                .text("Mật khẩu không được chứa ký tự đặc biệt.");
-        }
+    $.ajax({
+        type: "POST",
+        url: $form.attr("action"),
+        data: formData,
+        headers: {
+            Accept: "application/json"
+        },
+        success: function (response) {
+            if (!response.success) {
+                toastr.error(response.message);
+                return;
+            }
 
-        // Kiểm tra nhập lại mật khẩu
-        if (password !== rePass) {
-            isValid = false;
-            $("#validate_repass").show().text("Mật khẩu nhập lại không khớp.");
-        }
+            if (isRegister) {
+                toastr.success(response.message);
+                $form.trigger("reset");
+            } else {
+                window.location.href = response.redirectUrl;
+            }
+        },
+        error: function (xhr) {
+            const errors = xhr.responseJSON?.errors;
+            const firstError = errors
+                ? Object.values(errors).flat()[0]
+                : null;
 
-        if (isValid) {
-            $("#register-form").addClass("hidden-content");
-            var formData = {
-                username_regis: userName,
-                email: email,
-                password_regis: password,
-                _token: $('input[name="_token"]').val(),
-            };
-            console.log(formData, $(this).attr("action"));
-
-            $.ajax({
-                type: "POST",
-                url: $(this).attr("action"),
-                data: formData,
-                success: function (response) {
-                    console.log("Phản hồi đăng ký:", response);
-                    if (response.success) {
-                        console.log("Đăng ký thành công");
-                        toastr.success(response.message, { timeOut: 5000 });
-                    } else {
-                        toastr.error(response.message);
-                    }
-                    $("#register-form")
-                        .removeClass("hidden-content")
-                        .trigger("reset");
-                    $(".loader").hide();
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.error("Đăng ký thất bại:", xhr.responseJSON || xhr.responseText);
-                    toastr.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
-                    $("#register-form").removeClass("hidden-content");
-                    $(".loader").hide();
-                },
-            });
-        } else {
-            $(".loader").hide();
+            toastr.error(
+                xhr.status === 429
+                    ? "Bạn thao tác quá nhiều lần. Vui lòng thử lại sau."
+                    : firstError
+                        || xhr.responseJSON?.message
+                        || "Có lỗi xảy ra. Vui lòng thử lại."
+            );
+        },
+        complete: function () {
+            $button.prop("disabled", false);
         }
     });
+});
