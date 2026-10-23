@@ -50,4 +50,13 @@ class tour extends Model
 
         return $tourdetail;
     }
+    //lay khu vuc tour
+    public function getDomain()
+    {
+        return DB::table($this->table)
+            ->select('domain')
+            ->selectRaw('COUNT(*) AS total')
+            ->groupBy('domain')
+            ->pluck('total', 'domain');
+    }
 }

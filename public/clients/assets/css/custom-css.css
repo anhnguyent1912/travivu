@@ -406,11 +406,9 @@
         margin-top: 20px;
     }
 }
-
 .hide {
     display: none !important;
 }
-
 .comment-review-wrap .comment-ratting-item .ratting i {
     font-size: 36px;
 }
@@ -418,9 +416,7 @@
     color: var(--secondary-color);
 }
 
-/****************************************
-*             DESTINATION               *
-* ***************************************/
+/* DESTINATION*/
 .tour-title {
     height: 40px;
     line-height: 1.2;
@@ -429,16 +425,13 @@
     white-space: nowrap;
 }
 
-/****************************************
-*             HANDLE SEARCH            *
-* ***************************************/
+/*HANDLE SEARCH*/
 #search_form .list {
     width: 100%;
     height: 250px;
     overflow-y: auto;
 }
-/****************************************
-*             TOUR BOOKED            */
+/*TOUR BOOKED*/
 .truncate-3-lines {
     display: -webkit-box; 
     -webkit-line-clamp: 3; 
@@ -446,4 +439,17 @@
     overflow: hidden; 
     text-overflow: ellipsis; 
     word-break: break-word; 
+}
+//
+.tour-grid-page .price-filter-wrap .price {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.tour-grid-page .price-filter-wrap .price input {
+    width: 100%;
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.5;
 }

@@ -319,23 +319,39 @@
         
         // ## Price Range Fliter jQuery UI
         if ($('.price-slider-range').length) {
-            var formatPrice = function (price) {
-                return price.toLocaleString('vi-VN') + ' VND';
-            };
+    function formatPrice(price) {
+        return price.toLocaleString('vi-VN') + ' VND';
+    }
 
-            $(".price-slider-range").slider({
-                range: true,
-                min: 0,
-                max: 10000000,
-                step: 100000,
-                values: [0, 10000000],
-                slide: function (event, ui) {
-                    $("#price").val(formatPrice(ui.values[0]) + " - " + formatPrice(ui.values[1]));
-                }
-            });
-            var initialValues = $(".price-slider-range").slider("values");
-            $("#price").val(formatPrice(initialValues[0]) + " - " + formatPrice(initialValues[1]));
+    function updatePrice(minPrice, maxPrice) {
+        $('#price').val(
+            formatPrice(minPrice) + ' - ' + formatPrice(maxPrice)
+        );
+
+        $('#min_price').val(minPrice);
+        $('#max_price').val(maxPrice);
+    }
+
+    $('.price-slider-range').slider({
+        range: true,
+        min: 100000,
+        max: 10000000,
+        step: 100000,
+        values: [100000, 10000000],
+
+        slide: function (event, ui) {
+            updatePrice(ui.values[0], ui.values[1]);
+        },
+
+        change: function (event, ui) {
+            updatePrice(ui.values[0], ui.values[1]);
         }
+    });
+
+    const initialValues = $('.price-slider-range').slider('values');
+
+    updatePrice(initialValues[0], initialValues[1]);
+}
         
         
         // ## Hover Content
