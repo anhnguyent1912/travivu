@@ -6,11 +6,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
-                <div class="shop-sidebar">
+                <form class="shop-sidebar" method="GET" action="{{ route('Tour') }}">
+                    @if ($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
                     <div class="div_filter_clear">
-                        <button class="clear_filter" name="btn_clear">
-                            <a href="{{ route('Tour') }}">Clear</a>
-                        </button>
+                        <a href="{{ route('Tour') }}" class="clear_filter">Xóa bộ lọc</a>
                     </div>
                     <div class="widget widget-filter" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
                         data-aos-offset="50">
@@ -21,8 +24,10 @@
                                 <span>Giá tiền</span>
                                 <input type="text" id="price" readonly>
                             </div>
-                            <input type="hidden" name="min_price" id="min_price" value="100000">
-                            <input type="hidden" name="max_price" id="max_price" value="10000000">
+                            <input type="hidden" name="min_price" id="min_price"
+                                value="{{ request('min_price', 100000) }}">
+                            <input type="hidden" name="max_price" id="max_price"
+                                value="{{ request('max_price', 10000000) }}">
                         </div>
                     </div>
                     <div class="widget widget-activity" data-aos="fade-up" data-aos-duration="1500"
@@ -30,18 +35,23 @@
                         <h6 class="widget-title">Điểm đến</h6>
                         <ul class="radio-filter">
                             <li>
+                                <input class="form-check-input" type="radio" name="domain" id="domain_all"
+                                    value="" @checked(!request()->filled('domain'))>
+                                <label for="domain_all">Tất cả</label>
+                            </li>
+                            <li>
                                 <input class="form-check-input" type="radio" name="domain" id="domain_b"
-                                    value="b">
+                                    value="b" @checked(request('domain') === 'b')>
                                 <label for="domain_b">Miền Bắc <span>{{ $domain->get('b', 0) }}</span></label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="radio" name="domain" id="domain_t"
-                                    value="t">
+                                    value="t" @checked(request('domain') === 't')>
                                 <label for="domain_t">Miền Trung <span>{{ $domain->get('t', 0) }}</span></label>
                             </li>
                             <li>
                                 <input class="form-check-input" type="radio" name="domain" id="domain_n"
-                                    value="n">
+                                    value="n" @checked(request('domain') === 'n')>
                                 <label for="domain_n">Miền Nam <span>{{ $domain->get('n', 0) }}</span></label>
                             </li>
                         </ul>
@@ -66,7 +76,7 @@
                                             @endfor
                                         </span>
                                         <span>
-                                            {{ $star }} sao{{ $star < 5 ? ' trở lên' : '' }}
+                                            {{ $star }} sao
                                         </span>
                                     </label>
                                 </li>
@@ -84,6 +94,7 @@
                                 <label for="duration_all">Tất cả</label>
                             </li>
                             @foreach ([
+        '1n1d' => '1 ngày 1 đêm',
         '3n2d' => '3 ngày 2 đêm',
         '4n3d' => '4 ngày 3 đêm',
         '5n4d' => '5 ngày 4 đêm',
@@ -99,9 +110,14 @@
                             @endforeach
                         </ul>
                     </div>
-                </div>
+                    <button type="submit" class="theme-btn mt-20">
+                        <span data-hover="Lọc tour">Lọc tour</span>
+                        <i class="fal fa-filter"></i>
+                    </button>
+                </form>
 
-                <div class="widget widget-cta mt-30" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="widget widget-cta mt-30" data-aos="fade-up" data-aos-duration="1500"
+                    data-aos-offset="50">
                     <div class="content text-white">
                         <span class="h6">Khám phá Việt Nam</span>
                         <h3>Địa điểm du lịch tôt nhất</h3>
@@ -120,7 +136,7 @@
             <div class="col-lg-9">
                 <div class="shop-shorter rel z-3 mb-20">
                     <div class="sort-text mb-15 me-4 me-xl-auto">
-                        Tours tìm thấy
+                        Tìm thấy {{ $tours->total() }} tour
                     </div>
                     <div class="sort-text mb-15 me-4">
                         Sắp xếp theo
@@ -136,7 +152,7 @@
 
                 <div class="tour-grid-wrap">
                     <div class="row">
-                        @foreach ($tour as $tour)
+                        @forelse ($tours as $tour)
                             <div class="col-xl-4 col-md-6">
                                 <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                     data-aos-duration="1500" data-aos-offset="50">
@@ -151,11 +167,14 @@
                                             <span class="location"><i class="fal fa-map-marker-alt"></i>
                                                 {{ $tour->destination }}</span>
                                             <div class="ratting">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                                @if ($tour->average_rating !== null)
+                                                    <i class="fas fa-star"></i>
+                                                    <span>
+                                                        {{ number_format((float) $tour->average_rating, 1, ',', '.') }}/5
+                                                    </span>
+                                                @else
+                                                    <span>Chưa có đánh giá</span>
+                                                @endif
                                             </div>
                                         </div>
                                         <h6><a
@@ -177,26 +196,13 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                        <div class="col-lg-12">
-                            <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up"
-                                data-aos-duration="1500" data-aos-offset="50">
-                                <li class="page-item disabled">
-                                    <span class="page-link"><i class="far fa-chevron-left"></i></span>
-                                </li>
-                                <li class="page-item active">
-                                    <span class="page-link">
-                                        1
-                                        <span class="sr-only">(current)</span>
-                                    </span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="far fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
+                        @empty
+                            <div class="col-12">
+                                <p>Không tìm thấy tour phù hợp. Bạn hãy thử thay đổi bộ lọc.</p>
+                            </div>
+                        @endforelse
+                        <div class="col-12 mt-30">
+                            {{ $tours->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>

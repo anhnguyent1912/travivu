@@ -337,7 +337,10 @@
         min: 100000,
         max: 10000000,
         step: 100000,
-        values: [100000, 10000000],
+        values: [
+            Number($('#min_price').val()),
+            Number($('#max_price').val())
+        ],
 
         slide: function (event, ui) {
             updatePrice(ui.values[0], ui.values[1]);

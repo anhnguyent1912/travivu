@@ -33,7 +33,7 @@ Route::get(uri: '/checkout', action: [CheckoutController::class, 'index'])->name
 Route::get(uri: '/infor', action: [InforController::class, 'index'])->name('infor');
 Route::get(uri: '/search', action: [SearchController::class, 'index'])->name('search');
 
-
+//login, register, logout
 Route::get('/login', [LoginController::class, 'index'])
     ->name('login');
 Route::post('/register', [LoginController::class, 'register'])
@@ -50,11 +50,15 @@ Route::post('/activation/resend',[LoginController::class, 'resendActivation'])
 Route::post('/logout', [LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
+Route::get('auth/google', [LoginGoogleController::class, 'redirectToGoogle'])->name('login-google');
+Route::get('auth/google/callback', [LoginGoogleController::class, 'handleGoogleCallback']);
+//
 
 Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');
 
-Route::get('auth/google', [LoginGoogleController::class, 'redirectToGoogle'])->name('login-google');
-Route::get('auth/google/callback', [LoginGoogleController::class, 'handleGoogleCallback']);
+//get tour, filter-tour
+// Route::get(uri: '/tour', action: [TourController::class, 'Tour'])->name('Tour');
+// Route::get(uri: '/filter-tour', action: [TourController::class, 'FilterTour'])->name('filter-tour');
