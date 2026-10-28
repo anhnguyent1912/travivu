@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "1f83c6e7-c380-492f-a780-dd3156c8e0fa",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\tong-quan.json",
+  "output": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\tong-quan.html",
+  "specification": {
+    "sha256": "9974b92658738b1440bee861c4b9e2083d120df9bdcdc3f3ea98db172ee4ed08",
+    "bytes": 15394
+  },
+  "artifact": {
+    "sha256": "5f7860126c562bfac75aa5a37709aa4b0c5802afce1c9b81282473c2210b8a73",
+    "bytes": 858596
+  }
+}

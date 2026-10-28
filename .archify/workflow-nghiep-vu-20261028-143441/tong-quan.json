@@ -1,0 +1,529 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Travivu · Tổng quan nghiệp vụ hiện tại",
+    "locale": "vi",
+    "translations": {
+      "page.title": "Sơ đồ {title}",
+      "diagram.description.workflow": "Sơ đồ luồng nghiệp vụ được tạo bằng Archify.",
+      "node.context.workflow": "Bước nghiệp vụ",
+      "node.focus": "Xem {label}",
+      "node.focus.detail": "Xem {label}, {detail}",
+      "legend.title": "Chú thích",
+      "legend.workflow.frontend": "Thao tác / giao diện",
+      "legend.workflow.backend": "Xử lý nghiệp vụ",
+      "legend.workflow.database": "Dữ liệu",
+      "legend.workflow.security": "Kiểm tra / nhánh lỗi",
+      "legend.workflow.cloud": "Dịch vụ ngoài",
+      "legend.workflow.messagebus": "Gửi thông báo",
+      "legend.workflow.external": "Điểm vào / kết thúc",
+      "viewer.kind.frontend": "Giao diện",
+      "viewer.kind.backend": "Xử lý",
+      "viewer.kind.database": "Dữ liệu",
+      "viewer.kind.security": "Kiểm tra",
+      "viewer.kind.cloud": "Dịch vụ ngoài",
+      "viewer.kind.messagebus": "Thông báo",
+      "viewer.kind.external": "Điểm vào / ra",
+      "viewer.theme.dark": "Tối",
+      "viewer.theme.light": "Sáng",
+      "viewer.theme.toggle": "Đổi giao diện",
+      "viewer.theme.toggle.title": "Đổi sáng / tối (T)",
+      "viewer.motion.live": "Chuyển động",
+      "viewer.motion.still": "Tĩnh",
+      "viewer.motion.pause": "Dừng chuyển động",
+      "viewer.motion.resume": "Bật chuyển động",
+      "viewer.present.present": "Trình chiếu",
+      "viewer.present.exit.label": "Thoát",
+      "viewer.present.enter": "Mở trình chiếu",
+      "viewer.present.exit": "Thoát trình chiếu",
+      "viewer.export.button": "Xuất",
+      "viewer.export.menu": "Xuất sơ đồ",
+      "viewer.export.button.title": "Xuất sơ đồ (E)",
+      "viewer.export.diagram": "Xuất sơ đồ",
+      "viewer.export.copyDiagram": "Sao chép sơ đồ",
+      "viewer.export.image": "Hình ảnh",
+      "viewer.export.raster": "Ảnh điểm ảnh",
+      "viewer.export.subtitle": "Tải ảnh hoặc tệp để chia sẻ",
+      "viewer.guide.title": "Khám phá luồng nghiệp vụ",
+      "viewer.guide.eyebrow": "Hướng dẫn đọc",
+      "viewer.guide.find": "Tìm một bước",
+      "viewer.guide.route": "Theo dõi một nhánh",
+      "viewer.guide.map": "Xem toàn bộ sơ đồ",
+      "viewer.guide.open": "Mở hướng dẫn",
+      "viewer.guide.close": "Đóng hướng dẫn",
+      "viewer.guide.shortcuts": "Phím tắt",
+      "viewer.guide.shortcut.export": "Xuất",
+      "viewer.guide.shortcut.theme": "Giao diện",
+      "viewer.guide.shortcut.reset": "Đặt lại",
+      "viewer.guide.shortcut.zoomIn": "Phóng to",
+      "viewer.guide.shortcut.zoomOut": "Thu nhỏ",
+      "viewer.guide.shortcut.close": "Đóng",
+      "viewer.finder.title": "Tìm bước xử lý",
+      "viewer.finder.placeholder": "Nhập tên bước",
+      "viewer.finder.empty": "Không tìm thấy",
+      "viewer.finder.results": "Các bước",
+      "viewer.passport.eyebrow": "Chi tiết bước",
+      "viewer.passport.metadata": "Thông tin bước",
+      "viewer.passport.evidence": "Nguồn code đã đối chiếu",
+      "viewer.passport.verified": "Nguồn đã đối chiếu",
+      "viewer.passport.verificationScope": "Đối chiếu với Git cục bộ tại phiên bản cố định; chưa kiểm tra truy cập nguồn từ xa.",
+      "viewer.passport.relations": "Các kết nối",
+      "viewer.passport.close": "Đóng chi tiết",
+      "viewer.passport.copy": "Sao chép liên kết",
+      "viewer.passport.upstream": "Các bước trước",
+      "viewer.passport.downstream": "Các bước sau",
+      "viewer.passport.source.openLink": "Mở nguồn ↗",
+      "viewer.route.eyebrow": "Luồng xử lý",
+      "viewer.route.start": "Bấm bước bắt đầu",
+      "viewer.route.start.find": "Tìm điểm đầu",
+      "viewer.route.traced": "Luồng",
+      "viewer.route.pickTwo": "Chọn hai bước trên sơ đồ",
+      "viewer.route.pickOne": "Chọn một bước",
+      "viewer.route.play": "Chạy theo luồng",
+      "viewer.route.clear": "Xóa lựa chọn",
+      "viewer.nav.find": "Tìm bước",
+      "viewer.nav.find.title": "Tìm bước (/)",
+      "viewer.nav.guide": "Hướng dẫn",
+      "viewer.nav.guide.title": "Hướng dẫn (?)",
+      "viewer.nav.zoomIn": "Phóng to",
+      "viewer.nav.zoomOut": "Thu nhỏ",
+      "viewer.nav.reset": "Đặt lại góc nhìn",
+      "viewer.rail.show": "Ghi chú và mục lục",
+      "viewer.rail.controls": "Bảng bên",
+      "viewer.rail.collapse": "Thu gọn bảng bên",
+      "viewer.rail.bottom": "Đưa ghi chú xuống dưới",
+      "viewer.rail.right": "Đưa ghi chú sang phải",
+      "viewer.outline.title": "Danh sách bước",
+      "viewer.common.close": "Đóng",
+      "viewer.common.clear": "Xóa",
+      "viewer.common.copyLink": "Sao chép liên kết",
+      "viewer.common.copied": "Đã sao chép",
+      "viewer.preset.style": "Kiểu",
+      "viewer.preset.choose": "Chọn kiểu hiển thị",
+      "viewer.preset.menu": "Kiểu hiển thị"
+    },
+    "output": ".archify/workflow-nghiep-vu-20261028-143441/tong-quan.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/anhnguyent1912/travivu.git",
+      "revision": "d63c1294ccbb8e988099c02c72b218aeabdd2135"
+    }
+  },
+  "lanes": [
+    {
+      "id": "l0",
+      "label": "Khám phá tour · luồng chính"
+    },
+    {
+      "id": "l1",
+      "label": "Tài khoản · lựa chọn độc lập"
+    },
+    {
+      "id": "l2",
+      "label": "Tra cứu và nội dung"
+    },
+    {
+      "id": "l3",
+      "label": "Phần chưa hoàn thiện"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "home",
+      "lane": "l0",
+      "col": 0,
+      "label": "Mở trang chủ",
+      "sublabel": "Xem tour và ảnh",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/HomeController.php",
+          "line": 16,
+          "end_line": 21
+        }
+      ]
+    },
+    {
+      "id": "tours",
+      "lane": "l0",
+      "col": 1,
+      "label": "Mở danh sách tour",
+      "sublabel": "Không bắt buộc đăng nhập",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "routes/web.php",
+          "line": 29,
+          "end_line": 29
+        },
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 9,
+          "end_line": 30
+        }
+      ]
+    },
+    {
+      "id": "filter",
+      "lane": "l0",
+      "col": 2,
+      "label": "Lọc và xem kết quả",
+      "sublabel": "Khu vực · sao · ngày · giá",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/TourController.php",
+          "line": 17,
+          "end_line": 49
+        },
+        {
+          "path": "app/Models/client/tour.php",
+          "line": 61,
+          "end_line": 118
+        }
+      ]
+    },
+    {
+      "id": "detail",
+      "lane": "l0",
+      "col": 3,
+      "label": "Xem chi tiết tour",
+      "sublabel": "Mô tả · ảnh · lịch trình",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/Tour_detailController.php",
+          "line": 19,
+          "end_line": 25
+        },
+        {
+          "path": "app/Models/client/tour.php",
+          "line": 30,
+          "end_line": 50
+        }
+      ]
+    },
+    {
+      "id": "book",
+      "lane": "l0",
+      "col": 4,
+      "label": "Bấm đặt ngay",
+      "sublabel": "Dừng: chưa lưu đơn",
+      "type": "security",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 375,
+          "end_line": 415
+        },
+        {
+          "path": "routes/web.php",
+          "line": 30,
+          "end_line": 30
+        }
+      ],
+      "icon": "stop"
+    },
+    {
+      "id": "reg",
+      "lane": "l1",
+      "col": 1,
+      "label": "Đăng ký tài khoản",
+      "sublabel": "Kiểm tra và lưu chờ",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 32,
+          "end_line": 82
+        }
+      ]
+    },
+    {
+      "id": "activate",
+      "lane": "l1",
+      "col": 2,
+      "label": "Kích hoạt qua email",
+      "sublabel": "Link có hạn 60 phút",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 84,
+          "end_line": 104
+        },
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 126,
+          "end_line": 156
+        }
+      ]
+    },
+    {
+      "id": "login",
+      "lane": "l1",
+      "col": 3,
+      "label": "Đăng nhập",
+      "sublabel": "Mật khẩu · trạng thái",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 158,
+          "end_line": 198
+        }
+      ]
+    },
+    {
+      "id": "session",
+      "lane": "l1",
+      "col": 4,
+      "label": "Vào phiên tài khoản",
+      "sublabel": "Về trang chủ · đăng xuất",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 200,
+          "end_line": 207
+        },
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 243,
+          "end_line": 253
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "lane": "l2",
+      "col": 1,
+      "label": "Mở trang tìm kiếm",
+      "sublabel": "Chưa truy vấn từ form",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/SearchController.php",
+          "line": 10,
+          "end_line": 14
+        },
+        {
+          "path": "resources/views/clients/block/banner.blade.php",
+          "line": 10,
+          "end_line": 52
+        }
+      ],
+      "icon": "stop"
+    },
+    {
+      "id": "info",
+      "lane": "l2",
+      "col": 2,
+      "label": "Xem trang nội dung",
+      "sublabel": "Giới thiệu · blog · điểm đến",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "routes/web.php",
+          "line": 27,
+          "end_line": 31
+        },
+        {
+          "path": "routes/web.php",
+          "line": 59,
+          "end_line": 60
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "lane": "l2",
+      "col": 3,
+      "label": "Gửi liên hệ",
+      "sublabel": "Form trỏ sang web mẫu",
+      "type": "security",
+      "sources": [
+        {
+          "path": "resources/views/clients/contact.blade.php",
+          "line": 89,
+          "end_line": 91
+        }
+      ],
+      "icon": "stop"
+    },
+    {
+      "id": "review",
+      "lane": "l3",
+      "col": 3,
+      "label": "Gửi đánh giá",
+      "sublabel": "Form chưa nối nơi lưu",
+      "type": "security",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 275,
+          "end_line": 277
+        },
+        {
+          "path": "routes/web.php",
+          "line": 23,
+          "end_line": 64
+        }
+      ],
+      "icon": "stop"
+    },
+    {
+      "id": "pay",
+      "lane": "l3",
+      "col": 4,
+      "label": "Thanh toán / hồ sơ",
+      "sublabel": "Chỉ route và view trống",
+      "type": "security",
+      "sources": [
+        {
+          "path": "routes/web.php",
+          "line": 32,
+          "end_line": 33
+        },
+        {
+          "path": "app/Http/Controllers/client/CheckoutController.php",
+          "line": 13,
+          "end_line": 31
+        },
+        {
+          "path": "app/Http/Controllers/client/InforController.php",
+          "line": 13,
+          "end_line": 31
+        }
+      ],
+      "icon": "stop"
+    }
+  ],
+  "edges": [
+    {
+      "id": "home-tours",
+      "from": "home",
+      "to": "tours",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "tours-filter",
+      "from": "tours",
+      "to": "filter",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "filter-detail",
+      "from": "filter",
+      "to": "detail",
+      "label": "Chọn tour",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "detail-book",
+      "from": "detail",
+      "to": "book",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "home-reg",
+      "from": "home",
+      "to": "reg",
+      "label": "Tạo tài khoản",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "reg-activate",
+      "from": "reg",
+      "to": "activate",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "activate-login",
+      "from": "activate",
+      "to": "login",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "login-session",
+      "from": "login",
+      "to": "session",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "home-search",
+      "from": "home",
+      "to": "search",
+      "label": "Tra cứu",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "home-info",
+      "from": "home",
+      "to": "info",
+      "label": "Đọc thêm",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "info-contact",
+      "from": "info",
+      "to": "contact",
+      "label": "Liên hệ",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "detail-review",
+      "from": "detail",
+      "to": "review",
+      "label": "Viết đánh giá",
+      "role": "branch",
+      "variant": "default"
+    }
+  ],
+  "mainPath": [
+    "home",
+    "tours",
+    "filter",
+    "detail",
+    "book"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Cách đọc",
+      "items": [
+        "Mũi tên sáng: đường đi chính trong từng nghiệp vụ. Nhánh đỏ: lỗi hoặc điểm chưa hoàn thiện.",
+        "Bấm một bước để xem nguồn code; các sơ đồ chi tiết tách riêng ở trang mục lục."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Phạm vi thực tế",
+      "items": [
+        "Khách được xem và lọc tour khi chưa đăng nhập. Không suy diễn điều kiện đăng nhập để đặt tour vì luồng đặt chưa có.",
+        "Thanh toán / hồ sơ là điểm truy cập riêng, chưa nối thành hành trình đặt tour. Chưa thấy luồng quản trị trong các route hiện tại."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Các khoảng trống khác",
+      "items": [
+        "Nút yêu thích đang dùng href=\"#\"; menu Tour đã đặt và Thông tin cá nhân cùng dẫn về trang đăng nhập.",
+        "Google có route riêng nhưng dùng session username thay vì Auth::login; xem sơ đồ Google.",
+        "Phân tích mã nguồn tại d63c129; không phải kết quả chạy thử gửi email hay thanh toán."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Travivu · Nhánh Google hiện tại",
+    "locale": "vi",
+    "translations": {
+      "page.title": "Sơ đồ {title}",
+      "diagram.description.workflow": "Sơ đồ luồng nghiệp vụ được tạo bằng Archify.",
+      "node.context.workflow": "Bước nghiệp vụ",
+      "node.focus": "Xem {label}",
+      "node.focus.detail": "Xem {label}, {detail}",
+      "legend.title": "Chú thích",
+      "legend.workflow.frontend": "Thao tác / giao diện",
+      "legend.workflow.backend": "Xử lý nghiệp vụ",
+      "legend.workflow.database": "Dữ liệu",
+      "legend.workflow.security": "Kiểm tra / nhánh lỗi",
+      "legend.workflow.cloud": "Dịch vụ ngoài",
+      "legend.workflow.messagebus": "Gửi thông báo",
+      "legend.workflow.external": "Điểm vào / kết thúc",
+      "viewer.kind.frontend": "Giao diện",
+      "viewer.kind.backend": "Xử lý",
+      "viewer.kind.database": "Dữ liệu",
+      "viewer.kind.security": "Kiểm tra",
+      "viewer.kind.cloud": "Dịch vụ ngoài",
+      "viewer.kind.messagebus": "Thông báo",
+      "viewer.kind.external": "Điểm vào / ra",
+      "viewer.theme.dark": "Tối",
+      "viewer.theme.light": "Sáng",
+      "viewer.theme.toggle": "Đổi giao diện",
+      "viewer.theme.toggle.title": "Đổi sáng / tối (T)",
+      "viewer.motion.live": "Chuyển động",
+      "viewer.motion.still": "Tĩnh",
+      "viewer.motion.pause": "Dừng chuyển động",
+      "viewer.motion.resume": "Bật chuyển động",
+      "viewer.present.present": "Trình chiếu",
+      "viewer.present.exit.label": "Thoát",
+      "viewer.present.enter": "Mở trình chiếu",
+      "viewer.present.exit": "Thoát trình chiếu",
+      "viewer.export.button": "Xuất",
+      "viewer.export.menu": "Xuất sơ đồ",
+      "viewer.export.button.title": "Xuất sơ đồ (E)",
+      "viewer.export.diagram": "Xuất sơ đồ",
+      "viewer.export.copyDiagram": "Sao chép sơ đồ",
+      "viewer.export.image": "Hình ảnh",
+      "viewer.export.raster": "Ảnh điểm ảnh",
+      "viewer.export.subtitle": "Tải ảnh hoặc tệp để chia sẻ",
+      "viewer.guide.title": "Khám phá luồng nghiệp vụ",
+      "viewer.guide.eyebrow": "Hướng dẫn đọc",
+      "viewer.guide.find": "Tìm một bước",
+      "viewer.guide.route": "Theo dõi một nhánh",
+      "viewer.guide.map": "Xem toàn bộ sơ đồ",
+      "viewer.guide.open": "Mở hướng dẫn",
+      "viewer.guide.close": "Đóng hướng dẫn",
+      "viewer.guide.shortcuts": "Phím tắt",
+      "viewer.guide.shortcut.export": "Xuất",
+      "viewer.guide.shortcut.theme": "Giao diện",
+      "viewer.guide.shortcut.reset": "Đặt lại",
+      "viewer.guide.shortcut.zoomIn": "Phóng to",
+      "viewer.guide.shortcut.zoomOut": "Thu nhỏ",
+      "viewer.guide.shortcut.close": "Đóng",
+      "viewer.finder.title": "Tìm bước xử lý",
+      "viewer.finder.placeholder": "Nhập tên bước",
+      "viewer.finder.empty": "Không tìm thấy",
+      "viewer.finder.results": "Các bước",
+      "viewer.passport.eyebrow": "Chi tiết bước",
+      "viewer.passport.metadata": "Thông tin bước",
+      "viewer.passport.evidence": "Nguồn code đã đối chiếu",
+      "viewer.passport.verified": "Nguồn đã đối chiếu",
+      "viewer.passport.verificationScope": "Đối chiếu với Git cục bộ tại phiên bản cố định; chưa kiểm tra truy cập nguồn từ xa.",
+      "viewer.passport.relations": "Các kết nối",
+      "viewer.passport.close": "Đóng chi tiết",
+      "viewer.passport.copy": "Sao chép liên kết",
+      "viewer.passport.upstream": "Các bước trước",
+      "viewer.passport.downstream": "Các bước sau",
+      "viewer.passport.source.openLink": "Mở nguồn ↗",
+      "viewer.route.eyebrow": "Luồng xử lý",
+      "viewer.route.start": "Bấm bước bắt đầu",
+      "viewer.route.start.find": "Tìm điểm đầu",
+      "viewer.route.traced": "Luồng",
+      "viewer.route.pickTwo": "Chọn hai bước trên sơ đồ",
+      "viewer.route.pickOne": "Chọn một bước",
+      "viewer.route.play": "Chạy theo luồng",
+      "viewer.route.clear": "Xóa lựa chọn",
+      "viewer.nav.find": "Tìm bước",
+      "viewer.nav.find.title": "Tìm bước (/)",
+      "viewer.nav.guide": "Hướng dẫn",
+      "viewer.nav.guide.title": "Hướng dẫn (?)",
+      "viewer.nav.zoomIn": "Phóng to",
+      "viewer.nav.zoomOut": "Thu nhỏ",
+      "viewer.nav.reset": "Đặt lại góc nhìn",
+      "viewer.rail.show": "Ghi chú và mục lục",
+      "viewer.rail.controls": "Bảng bên",
+      "viewer.rail.collapse": "Thu gọn bảng bên",
+      "viewer.rail.bottom": "Đưa ghi chú xuống dưới",
+      "viewer.rail.right": "Đưa ghi chú sang phải",
+      "viewer.outline.title": "Danh sách bước",
+      "viewer.common.close": "Đóng",
+      "viewer.common.clear": "Xóa",
+      "viewer.common.copyLink": "Sao chép liên kết",
+      "viewer.common.copied": "Đã sao chép",
+      "viewer.preset.style": "Kiểu",
+      "viewer.preset.choose": "Chọn kiểu hiển thị",
+      "viewer.preset.menu": "Kiểu hiển thị"
+    },
+    "output": ".archify/workflow-nghiep-vu-20261028-143441/google.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/anhnguyent1912/travivu.git",
+      "revision": "d63c1294ccbb8e988099c02c72b218aeabdd2135"
+    }
+  },
+  "lanes": [
+    {
+      "id": "l0",
+      "label": "Lấy danh tính và tra cứu"
+    },
+    {
+      "id": "l1",
+      "label": "Tài khoản đã có"
+    },
+    {
+      "id": "l2",
+      "label": "Rẽ nhánh · tài khoản mới / lỗi",
+      "variant": "exception"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "click",
+      "lane": "l0",
+      "col": 0,
+      "label": "Chọn Google",
+      "sublabel": "Từ trang đăng nhập",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/login.blade.php",
+          "line": 68,
+          "end_line": 72
+        },
+        {
+          "path": "routes/web.php",
+          "line": 53,
+          "end_line": 54
+        }
+      ]
+    },
+    {
+      "id": "oauth",
+      "lane": "l0",
+      "col": 1,
+      "label": "Chuyển sang Google",
+      "sublabel": "Socialite chuyển hướng",
+      "type": "cloud",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 20,
+          "end_line": 23
+        }
+      ]
+    },
+    {
+      "id": "callback",
+      "lane": "l0",
+      "col": 2,
+      "label": "Nhận danh tính",
+      "sublabel": "Callback qua Socialite",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 24,
+          "end_line": 28
+        }
+      ]
+    },
+    {
+      "id": "exists",
+      "lane": "l0",
+      "col": 3,
+      "label": "Đã có googleid?",
+      "sublabel": "Tra trong tbl_user",
+      "type": "database",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 28,
+          "end_line": 30
+        },
+        {
+          "path": "app/Models/client/login.php",
+          "line": 64,
+          "end_line": 69
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "session",
+      "lane": "l1",
+      "col": 3,
+      "label": "Lưu username",
+      "sublabel": "Chỉ session thủ công",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 30,
+          "end_line": 32
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "lane": "l1",
+      "col": 4,
+      "label": "Chuyển về trang chủ",
+      "sublabel": "Chưa gọi Auth::login",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 30,
+          "end_line": 32
+        },
+        {
+          "path": "resources/views/clients/block/header_2.blade.php",
+          "line": 104,
+          "end_line": 119
+        }
+      ],
+      "icon": "stop"
+    },
+    {
+      "id": "new",
+      "lane": "l2",
+      "col": 3,
+      "label": "Thêm người dùng",
+      "sublabel": "Dùng model login cũ",
+      "type": "database",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 33,
+          "end_line": 42
+        },
+        {
+          "path": "app/Models/client/login.php",
+          "line": 16,
+          "end_line": 19
+        }
+      ]
+    },
+    {
+      "id": "fail",
+      "lane": "l2",
+      "col": 4,
+      "label": "Báo lỗi đăng ký",
+      "sublabel": "insert trả bool, không user",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 42,
+          "end_line": 50
+        },
+        {
+          "path": "app/Models/client/login.php",
+          "line": 16,
+          "end_line": 19
+        }
+      ],
+      "icon": "failure"
+    },
+    {
+      "id": "exception",
+      "lane": "l2",
+      "col": 2,
+      "label": "Ngoại lệ Google",
+      "sublabel": "dd() và dừng xử lý",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginGoogleController.php",
+          "line": 53,
+          "end_line": 55
+        }
+      ],
+      "icon": "stop"
+    }
+  ],
+  "edges": [
+    {
+      "id": "click-oauth",
+      "from": "click",
+      "to": "oauth",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "oauth-callback",
+      "from": "oauth",
+      "to": "callback",
+      "label": "Google trả về",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "callback-exists",
+      "from": "callback",
+      "to": "exists",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "exists-session",
+      "from": "exists",
+      "to": "session",
+      "label": "Có",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "session-home",
+      "from": "session",
+      "to": "home",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "exists-new",
+      "from": "exists",
+      "to": "new",
+      "label": "Chưa có",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "new-fail",
+      "from": "new",
+      "to": "fail",
+      "label": "Không có username",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "callback-exception",
+      "from": "callback",
+      "to": "exception",
+      "label": "Ngoại lệ",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "new-exception",
+      "from": "new",
+      "to": "exception",
+      "label": "Lỗi thêm user",
+      "role": "error",
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "click",
+    "oauth",
+    "callback",
+    "exists",
+    "session",
+    "home"
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "Chưa thể coi là đăng nhập hoàn chỉnh",
+      "items": [
+        "Nhánh tài khoản cũ chỉ lưu session username; menu lại dùng @auth. Không có Auth::login trong callback này.",
+        "Nhánh tài khoản mới: registerAcount() dùng insert() trả boolean nhưng callback đọc username như đối tượng."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Cần chỉnh trước khi sử dụng",
+      "items": [
+        "Code tạo tài khoản Google có mật khẩu cố định và isActive='y'; chưa kiểm tra trạng thái theo luồng đăng nhập thường.",
+        "Ngoại lệ đang dùng dd() thay vì thông báo lỗi có kiểm soát. Sơ đồ mô tả mã nguồn hiện tại, chưa chạy thử OAuth."
+      ]
+    }
+  ]
+}

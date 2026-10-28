@@ -1,0 +1,529 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Travivu · Lọc và xem tour",
+    "locale": "vi",
+    "translations": {
+      "page.title": "Sơ đồ {title}",
+      "diagram.description.workflow": "Sơ đồ luồng nghiệp vụ được tạo bằng Archify.",
+      "node.context.workflow": "Bước nghiệp vụ",
+      "node.focus": "Xem {label}",
+      "node.focus.detail": "Xem {label}, {detail}",
+      "legend.title": "Chú thích",
+      "legend.workflow.frontend": "Thao tác / giao diện",
+      "legend.workflow.backend": "Xử lý nghiệp vụ",
+      "legend.workflow.database": "Dữ liệu",
+      "legend.workflow.security": "Kiểm tra / nhánh lỗi",
+      "legend.workflow.cloud": "Dịch vụ ngoài",
+      "legend.workflow.messagebus": "Gửi thông báo",
+      "legend.workflow.external": "Điểm vào / kết thúc",
+      "viewer.kind.frontend": "Giao diện",
+      "viewer.kind.backend": "Xử lý",
+      "viewer.kind.database": "Dữ liệu",
+      "viewer.kind.security": "Kiểm tra",
+      "viewer.kind.cloud": "Dịch vụ ngoài",
+      "viewer.kind.messagebus": "Thông báo",
+      "viewer.kind.external": "Điểm vào / ra",
+      "viewer.theme.dark": "Tối",
+      "viewer.theme.light": "Sáng",
+      "viewer.theme.toggle": "Đổi giao diện",
+      "viewer.theme.toggle.title": "Đổi sáng / tối (T)",
+      "viewer.motion.live": "Chuyển động",
+      "viewer.motion.still": "Tĩnh",
+      "viewer.motion.pause": "Dừng chuyển động",
+      "viewer.motion.resume": "Bật chuyển động",
+      "viewer.present.present": "Trình chiếu",
+      "viewer.present.exit.label": "Thoát",
+      "viewer.present.enter": "Mở trình chiếu",
+      "viewer.present.exit": "Thoát trình chiếu",
+      "viewer.export.button": "Xuất",
+      "viewer.export.menu": "Xuất sơ đồ",
+      "viewer.export.button.title": "Xuất sơ đồ (E)",
+      "viewer.export.diagram": "Xuất sơ đồ",
+      "viewer.export.copyDiagram": "Sao chép sơ đồ",
+      "viewer.export.image": "Hình ảnh",
+      "viewer.export.raster": "Ảnh điểm ảnh",
+      "viewer.export.subtitle": "Tải ảnh hoặc tệp để chia sẻ",
+      "viewer.guide.title": "Khám phá luồng nghiệp vụ",
+      "viewer.guide.eyebrow": "Hướng dẫn đọc",
+      "viewer.guide.find": "Tìm một bước",
+      "viewer.guide.route": "Theo dõi một nhánh",
+      "viewer.guide.map": "Xem toàn bộ sơ đồ",
+      "viewer.guide.open": "Mở hướng dẫn",
+      "viewer.guide.close": "Đóng hướng dẫn",
+      "viewer.guide.shortcuts": "Phím tắt",
+      "viewer.guide.shortcut.export": "Xuất",
+      "viewer.guide.shortcut.theme": "Giao diện",
+      "viewer.guide.shortcut.reset": "Đặt lại",
+      "viewer.guide.shortcut.zoomIn": "Phóng to",
+      "viewer.guide.shortcut.zoomOut": "Thu nhỏ",
+      "viewer.guide.shortcut.close": "Đóng",
+      "viewer.finder.title": "Tìm bước xử lý",
+      "viewer.finder.placeholder": "Nhập tên bước",
+      "viewer.finder.empty": "Không tìm thấy",
+      "viewer.finder.results": "Các bước",
+      "viewer.passport.eyebrow": "Chi tiết bước",
+      "viewer.passport.metadata": "Thông tin bước",
+      "viewer.passport.evidence": "Nguồn code đã đối chiếu",
+      "viewer.passport.verified": "Nguồn đã đối chiếu",
+      "viewer.passport.verificationScope": "Đối chiếu với Git cục bộ tại phiên bản cố định; chưa kiểm tra truy cập nguồn từ xa.",
+      "viewer.passport.relations": "Các kết nối",
+      "viewer.passport.close": "Đóng chi tiết",
+      "viewer.passport.copy": "Sao chép liên kết",
+      "viewer.passport.upstream": "Các bước trước",
+      "viewer.passport.downstream": "Các bước sau",
+      "viewer.passport.source.openLink": "Mở nguồn ↗",
+      "viewer.route.eyebrow": "Luồng xử lý",
+      "viewer.route.start": "Bấm bước bắt đầu",
+      "viewer.route.start.find": "Tìm điểm đầu",
+      "viewer.route.traced": "Luồng",
+      "viewer.route.pickTwo": "Chọn hai bước trên sơ đồ",
+      "viewer.route.pickOne": "Chọn một bước",
+      "viewer.route.play": "Chạy theo luồng",
+      "viewer.route.clear": "Xóa lựa chọn",
+      "viewer.nav.find": "Tìm bước",
+      "viewer.nav.find.title": "Tìm bước (/)",
+      "viewer.nav.guide": "Hướng dẫn",
+      "viewer.nav.guide.title": "Hướng dẫn (?)",
+      "viewer.nav.zoomIn": "Phóng to",
+      "viewer.nav.zoomOut": "Thu nhỏ",
+      "viewer.nav.reset": "Đặt lại góc nhìn",
+      "viewer.rail.show": "Ghi chú và mục lục",
+      "viewer.rail.controls": "Bảng bên",
+      "viewer.rail.collapse": "Thu gọn bảng bên",
+      "viewer.rail.bottom": "Đưa ghi chú xuống dưới",
+      "viewer.rail.right": "Đưa ghi chú sang phải",
+      "viewer.outline.title": "Danh sách bước",
+      "viewer.common.close": "Đóng",
+      "viewer.common.clear": "Xóa",
+      "viewer.common.copyLink": "Sao chép liên kết",
+      "viewer.common.copied": "Đã sao chép",
+      "viewer.preset.style": "Kiểu",
+      "viewer.preset.choose": "Chọn kiểu hiển thị",
+      "viewer.preset.menu": "Kiểu hiển thị"
+    },
+    "output": ".archify/workflow-nghiep-vu-20261028-143441/loc-tour.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/anhnguyent1912/travivu.git",
+      "revision": "d63c1294ccbb8e988099c02c72b218aeabdd2135"
+    }
+  },
+  "lanes": [
+    {
+      "id": "l0",
+      "label": "Chọn điều kiện và truy vấn"
+    },
+    {
+      "id": "l1",
+      "label": "Rẽ nhánh · đầu vào / kết quả",
+      "variant": "exception"
+    },
+    {
+      "id": "l2",
+      "label": "Xem nội dung tour"
+    },
+    {
+      "id": "l3",
+      "label": "Rẽ nhánh · dữ liệu thiếu / chức năng dở",
+      "variant": "exception"
+    },
+    {
+      "id": "l4",
+      "label": "Gửi đánh giá · chưa hoàn thiện"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "form",
+      "lane": "l0",
+      "col": 0,
+      "label": "Chọn bộ lọc",
+      "sublabel": "Gửi GET /Tour",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 9,
+          "end_line": 30
+        },
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 34,
+          "end_line": 117
+        }
+      ]
+    },
+    {
+      "id": "valid",
+      "lane": "l0",
+      "col": 1,
+      "label": "Điều kiện hợp lệ?",
+      "sublabel": "Mã hợp lệ · min ≤ max",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/TourController.php",
+          "line": 19,
+          "end_line": 43
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "query",
+      "lane": "l0",
+      "col": 2,
+      "label": "Lọc trong dữ liệu",
+      "sublabel": "Kết hợp điều kiện AND",
+      "type": "database",
+      "sources": [
+        {
+          "path": "app/Models/client/tour.php",
+          "line": 64,
+          "end_line": 112
+        }
+      ]
+    },
+    {
+      "id": "found",
+      "lane": "l0",
+      "col": 3,
+      "label": "Trang có kết quả?",
+      "sublabel": "Tối đa 12 tour / trang",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Models/client/tour.php",
+          "line": 114,
+          "end_line": 132
+        },
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 155,
+          "end_line": 203
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "list",
+      "lane": "l0",
+      "col": 4,
+      "label": "Hiện tour phù hợp",
+      "sublabel": "Ảnh · giá · điểm trung bình",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 155,
+          "end_line": 205
+        }
+      ]
+    },
+    {
+      "id": "invalid",
+      "lane": "l1",
+      "col": 1,
+      "label": "Thông báo lỗi",
+      "sublabel": "Sửa lại điều kiện",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/TourController.php",
+          "line": 25,
+          "end_line": 43
+        },
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 9,
+          "end_line": 14
+        }
+      ]
+    },
+    {
+      "id": "empty",
+      "lane": "l1",
+      "col": 3,
+      "label": "Không có tour",
+      "sublabel": "Đổi hoặc xóa bộ lọc",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 199,
+          "end_line": 203
+        },
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 15,
+          "end_line": 16
+        }
+      ]
+    },
+    {
+      "id": "choose",
+      "lane": "l2",
+      "col": 4,
+      "label": "Chọn một tour",
+      "sublabel": "Lấy tour theo mã",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour.blade.php",
+          "line": 180,
+          "end_line": 193
+        },
+        {
+          "path": "app/Http/Controllers/client/Tour_detailController.php",
+          "line": 19,
+          "end_line": 25
+        },
+        {
+          "path": "app/Models/client/tour.php",
+          "line": 30,
+          "end_line": 38
+        }
+      ]
+    },
+    {
+      "id": "detail",
+      "lane": "l2",
+      "col": 5,
+      "label": "Hiện chi tiết",
+      "sublabel": "Ảnh · mô tả · lịch trình",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 7,
+          "end_line": 40
+        },
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 89,
+          "end_line": 90
+        },
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 119,
+          "end_line": 138
+        }
+      ]
+    },
+    {
+      "id": "book",
+      "lane": "l3",
+      "col": 5,
+      "label": "Chọn số khách",
+      "sublabel": "Đặt ngay chưa lưu đơn",
+      "type": "security",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 375,
+          "end_line": 415
+        },
+        {
+          "path": "app/Http/Controllers/client/BookingController.php",
+          "line": 29,
+          "end_line": 32
+        }
+      ],
+      "icon": "stop"
+    },
+    {
+      "id": "missing",
+      "lane": "l3",
+      "col": 4,
+      "label": "Thiếu tour / ảnh",
+      "sublabel": "Chưa xử lý an toàn",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Models/client/tour.php",
+          "line": 32,
+          "end_line": 43
+        },
+        {
+          "path": "app/Http/Controllers/client/Tour_detailController.php",
+          "line": 23,
+          "end_line": 25
+        },
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 7,
+          "end_line": 40
+        }
+      ],
+      "icon": "failure"
+    },
+    {
+      "id": "reviews",
+      "lane": "l4",
+      "col": 5,
+      "label": "Muốn gửi đánh giá",
+      "sublabel": "Chưa có route lưu",
+      "type": "security",
+      "sources": [
+        {
+          "path": "resources/views/clients/tour-detail.blade.php",
+          "line": 275,
+          "end_line": 277
+        },
+        {
+          "path": "routes/web.php",
+          "line": 23,
+          "end_line": 64
+        }
+      ],
+      "icon": "stop"
+    }
+  ],
+  "edges": [
+    {
+      "id": "form-valid",
+      "from": "form",
+      "to": "valid",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "valid-query",
+      "from": "valid",
+      "to": "query",
+      "label": "Hợp lệ",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "query-found",
+      "from": "query",
+      "to": "found",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "found-list",
+      "from": "found",
+      "to": "list",
+      "label": "Có",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "valid-invalid",
+      "from": "valid",
+      "to": "invalid",
+      "label": "Sai",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "invalid-form",
+      "from": "invalid",
+      "to": "form",
+      "label": "Sửa và gửi lại",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "found-empty",
+      "from": "found",
+      "to": "empty",
+      "label": "Không",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "empty-form",
+      "from": "empty",
+      "to": "form",
+      "label": "Đổi điều kiện",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "list-choose",
+      "from": "list",
+      "to": "choose",
+      "label": "Xem chi tiết",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "choose-detail",
+      "from": "choose",
+      "to": "detail",
+      "label": "Tour và ảnh đủ",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "choose-missing",
+      "from": "choose",
+      "to": "missing",
+      "label": "Không đủ",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "detail-book",
+      "from": "detail",
+      "to": "book",
+      "label": "Đặt tour",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "detail-reviews",
+      "from": "detail",
+      "to": "reviews",
+      "label": "Đánh giá",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "list-form",
+      "from": "list",
+      "to": "form",
+      "label": "Lọc lại / phân trang",
+      "role": "return",
+      "variant": "default",
+      "fromSide": "top",
+      "toSide": "top",
+      "route": "up-channel"
+    }
+  ],
+  "mainPath": [
+    "form",
+    "valid",
+    "query",
+    "found",
+    "list",
+    "choose",
+    "detail",
+    "book"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Bốn điều kiện",
+      "items": [
+        "Khu vực: b / t / n. Thời gian: quy đổi 1n1d, 3n2d, 4n3d, 5n4d sang chuỗi lưu trong cột time.",
+        "Sao: AVG(rating) bằng đúng số chọn; 4 sao không gồm 4,5. Tour chưa có đánh giá vẫn hiện khi không lọc sao.",
+        "Giá: priceAdult nằm giữa min_price và max_price, kể cả hai đầu. Truy vấn chưa lọc availability, ngày khởi hành hay số chỗ."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Hiển thị và giới hạn",
+      "items": [
+        "Giữ lựa chọn từ URL; phân trang giữ các tham số bằng withQueryString(). Đây là form GET tải lại trang, chưa có AJAX lọc.",
+        "Sắp xếp thực tế theo tourid giảm dần; ô chọn sắp xếp trên giao diện chưa được nối xử lý.",
+        "Mã tour không tồn tại trả null; view vẫn đọc thuộc tính và ảnh chỉ số 0–4 nên có nguy cơ lỗi. Đây là thiếu sót, không phải nhánh 404 đã hoàn thiện."
+      ]
+    }
+  ]
+}

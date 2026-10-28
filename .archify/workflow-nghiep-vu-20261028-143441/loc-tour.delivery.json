@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "f28a2910-ac2b-4603-b345-1dc54dfa00b3",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\loc-tour.json",
+  "output": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\loc-tour.html",
+  "specification": {
+    "sha256": "ab7c546eb1b60425da26b61713e5b09332d296674be0eef3c295d8733a1d0ef0",
+    "bytes": 15487
+  },
+  "artifact": {
+    "sha256": "1b148b0f6f799b1b56926049157809869cd56f6b6517407254541ff59814b883",
+    "bytes": 860556
+  }
+}

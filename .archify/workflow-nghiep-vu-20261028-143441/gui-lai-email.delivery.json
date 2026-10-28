@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ff9e01ac-e234-4020-9eca-f5f8ce8818f2",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\gui-lai-email.json",
+  "output": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\gui-lai-email.html",
+  "specification": {
+    "sha256": "502e820c09f04b9394fb4ffbc6c96ec9efa49dd2a5d2d0291ed319c5c17bd4ad",
+    "bytes": 11991
+  },
+  "artifact": {
+    "sha256": "4186498dde3f831d2a33c604e096d75cdf8e523a982ddd219e4386da65f6c23d",
+    "bytes": 850208
+  }
+}

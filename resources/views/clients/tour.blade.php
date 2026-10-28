@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
-                <form class="shop-sidebar" method="GET" action="{{ route('Tour') }}">
+                <form id="tour-filter-form" class="shop-sidebar" method="GET" action="{{ route('Tour') }}">
                     @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
                             {{ $errors->first() }}
@@ -141,12 +141,23 @@
                     <div class="sort-text mb-15 me-4">
                         Sắp xếp theo
                     </div>
-                    <select>
-                        <option value="default" selected="">Sắp xếp theo</option>
-                        <option value="new">Mới nhất</option>
-                        <option value="old">Cũ nhất</option>
-                        <option value="hight-to-low">Cao đến thấp</option>
-                        <option value="low-to-high">Thấp đến cao</option>
+                    <select name="sort" form="tour-filter-form" aria-label="Sắp xếp tour"
+                        onchange="this.form.requestSubmit()">
+                        <option value="default" @selected(request('sort', 'default') === 'default')>
+                            Mặc định
+                        </option>
+                        <option value="new" @selected(request('sort') === 'new')>
+                            Mới nhất
+                        </option>
+                        <option value="old" @selected(request('sort') === 'old')>
+                            Cũ nhất
+                        </option>
+                        <option value="high-to-low" @selected(request('sort') === 'high-to-low')>
+                            Giá cao đến thấp
+                        </option>
+                        <option value="low-to-high" @selected(request('sort') === 'low-to-high')>
+                            Giá thấp đến cao
+                        </option>
                     </select>
                 </div>
 

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "cf218453-7d0f-44f9-a985-e181a25d0026",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\google.json",
+  "output": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\google.html",
+  "specification": {
+    "sha256": "82c3d1f672543d04a37af8297285649bdbfb5e60a27c1e41c29adb4adbaeeee8",
+    "bytes": 12099
+  },
+  "artifact": {
+    "sha256": "d870da6ae573618d716f11a84f87e3b335bd09e92f2f7c8e1f2fc7d8bde18daa",
+    "bytes": 847827
+  }
+}

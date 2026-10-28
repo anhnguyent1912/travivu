@@ -1,0 +1,543 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Travivu · Đăng nhập và đăng xuất",
+    "locale": "vi",
+    "translations": {
+      "page.title": "Sơ đồ {title}",
+      "diagram.description.workflow": "Sơ đồ luồng nghiệp vụ được tạo bằng Archify.",
+      "node.context.workflow": "Bước nghiệp vụ",
+      "node.focus": "Xem {label}",
+      "node.focus.detail": "Xem {label}, {detail}",
+      "legend.title": "Chú thích",
+      "legend.workflow.frontend": "Thao tác / giao diện",
+      "legend.workflow.backend": "Xử lý nghiệp vụ",
+      "legend.workflow.database": "Dữ liệu",
+      "legend.workflow.security": "Kiểm tra / nhánh lỗi",
+      "legend.workflow.cloud": "Dịch vụ ngoài",
+      "legend.workflow.messagebus": "Gửi thông báo",
+      "legend.workflow.external": "Điểm vào / kết thúc",
+      "viewer.kind.frontend": "Giao diện",
+      "viewer.kind.backend": "Xử lý",
+      "viewer.kind.database": "Dữ liệu",
+      "viewer.kind.security": "Kiểm tra",
+      "viewer.kind.cloud": "Dịch vụ ngoài",
+      "viewer.kind.messagebus": "Thông báo",
+      "viewer.kind.external": "Điểm vào / ra",
+      "viewer.theme.dark": "Tối",
+      "viewer.theme.light": "Sáng",
+      "viewer.theme.toggle": "Đổi giao diện",
+      "viewer.theme.toggle.title": "Đổi sáng / tối (T)",
+      "viewer.motion.live": "Chuyển động",
+      "viewer.motion.still": "Tĩnh",
+      "viewer.motion.pause": "Dừng chuyển động",
+      "viewer.motion.resume": "Bật chuyển động",
+      "viewer.present.present": "Trình chiếu",
+      "viewer.present.exit.label": "Thoát",
+      "viewer.present.enter": "Mở trình chiếu",
+      "viewer.present.exit": "Thoát trình chiếu",
+      "viewer.export.button": "Xuất",
+      "viewer.export.menu": "Xuất sơ đồ",
+      "viewer.export.button.title": "Xuất sơ đồ (E)",
+      "viewer.export.diagram": "Xuất sơ đồ",
+      "viewer.export.copyDiagram": "Sao chép sơ đồ",
+      "viewer.export.image": "Hình ảnh",
+      "viewer.export.raster": "Ảnh điểm ảnh",
+      "viewer.export.subtitle": "Tải ảnh hoặc tệp để chia sẻ",
+      "viewer.guide.title": "Khám phá luồng nghiệp vụ",
+      "viewer.guide.eyebrow": "Hướng dẫn đọc",
+      "viewer.guide.find": "Tìm một bước",
+      "viewer.guide.route": "Theo dõi một nhánh",
+      "viewer.guide.map": "Xem toàn bộ sơ đồ",
+      "viewer.guide.open": "Mở hướng dẫn",
+      "viewer.guide.close": "Đóng hướng dẫn",
+      "viewer.guide.shortcuts": "Phím tắt",
+      "viewer.guide.shortcut.export": "Xuất",
+      "viewer.guide.shortcut.theme": "Giao diện",
+      "viewer.guide.shortcut.reset": "Đặt lại",
+      "viewer.guide.shortcut.zoomIn": "Phóng to",
+      "viewer.guide.shortcut.zoomOut": "Thu nhỏ",
+      "viewer.guide.shortcut.close": "Đóng",
+      "viewer.finder.title": "Tìm bước xử lý",
+      "viewer.finder.placeholder": "Nhập tên bước",
+      "viewer.finder.empty": "Không tìm thấy",
+      "viewer.finder.results": "Các bước",
+      "viewer.passport.eyebrow": "Chi tiết bước",
+      "viewer.passport.metadata": "Thông tin bước",
+      "viewer.passport.evidence": "Nguồn code đã đối chiếu",
+      "viewer.passport.verified": "Nguồn đã đối chiếu",
+      "viewer.passport.verificationScope": "Đối chiếu với Git cục bộ tại phiên bản cố định; chưa kiểm tra truy cập nguồn từ xa.",
+      "viewer.passport.relations": "Các kết nối",
+      "viewer.passport.close": "Đóng chi tiết",
+      "viewer.passport.copy": "Sao chép liên kết",
+      "viewer.passport.upstream": "Các bước trước",
+      "viewer.passport.downstream": "Các bước sau",
+      "viewer.passport.source.openLink": "Mở nguồn ↗",
+      "viewer.route.eyebrow": "Luồng xử lý",
+      "viewer.route.start": "Bấm bước bắt đầu",
+      "viewer.route.start.find": "Tìm điểm đầu",
+      "viewer.route.traced": "Luồng",
+      "viewer.route.pickTwo": "Chọn hai bước trên sơ đồ",
+      "viewer.route.pickOne": "Chọn một bước",
+      "viewer.route.play": "Chạy theo luồng",
+      "viewer.route.clear": "Xóa lựa chọn",
+      "viewer.nav.find": "Tìm bước",
+      "viewer.nav.find.title": "Tìm bước (/)",
+      "viewer.nav.guide": "Hướng dẫn",
+      "viewer.nav.guide.title": "Hướng dẫn (?)",
+      "viewer.nav.zoomIn": "Phóng to",
+      "viewer.nav.zoomOut": "Thu nhỏ",
+      "viewer.nav.reset": "Đặt lại góc nhìn",
+      "viewer.rail.show": "Ghi chú và mục lục",
+      "viewer.rail.controls": "Bảng bên",
+      "viewer.rail.collapse": "Thu gọn bảng bên",
+      "viewer.rail.bottom": "Đưa ghi chú xuống dưới",
+      "viewer.rail.right": "Đưa ghi chú sang phải",
+      "viewer.outline.title": "Danh sách bước",
+      "viewer.common.close": "Đóng",
+      "viewer.common.clear": "Xóa",
+      "viewer.common.copyLink": "Sao chép liên kết",
+      "viewer.common.copied": "Đã sao chép",
+      "viewer.preset.style": "Kiểu",
+      "viewer.preset.choose": "Chọn kiểu hiển thị",
+      "viewer.preset.menu": "Kiểu hiển thị"
+    },
+    "output": ".archify/workflow-nghiep-vu-20261028-143441/dang-nhap-dang-xuat.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/anhnguyent1912/travivu.git",
+      "revision": "d63c1294ccbb8e988099c02c72b218aeabdd2135"
+    }
+  },
+  "lanes": [
+    {
+      "id": "l0",
+      "label": "Đăng nhập · luồng chính"
+    },
+    {
+      "id": "l1",
+      "label": "Rẽ nhánh · từ chối đăng nhập",
+      "variant": "exception"
+    },
+    {
+      "id": "l2",
+      "label": "Phiên tài khoản và đăng xuất"
+    },
+    {
+      "id": "l3",
+      "label": "Kết thúc phiên đăng nhập"
+    },
+    {
+      "id": "l4",
+      "label": "Trở về chế độ khách"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "form",
+      "lane": "l0",
+      "col": 0,
+      "label": "Nhập tài khoản",
+      "sublabel": "Tên hoặc email · mật khẩu",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/login.blade.php",
+          "line": 33,
+          "end_line": 51
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 108,
+          "end_line": 123
+        }
+      ]
+    },
+    {
+      "id": "valid",
+      "lane": "l0",
+      "col": 1,
+      "label": "Dữ liệu hợp lệ?",
+      "sublabel": "Bắt buộc · đúng kiểu",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 160,
+          "end_line": 169
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "password",
+      "lane": "l0",
+      "col": 2,
+      "label": "Tài khoản đúng?",
+      "sublabel": "Có user · Hash::check đúng",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 171,
+          "end_line": 183
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "status",
+      "lane": "l0",
+      "col": 3,
+      "label": "Được phép truy cập?",
+      "sublabel": "status phải là null",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 186,
+          "end_line": 190
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "active",
+      "lane": "l0",
+      "col": 4,
+      "label": "Đã kích hoạt?",
+      "sublabel": "isActive phải bằng Y",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 193,
+          "end_line": 197
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "invalid",
+      "lane": "l1",
+      "col": 1,
+      "label": "Thông báo lỗi nhập",
+      "sublabel": "Sửa thông tin",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 160,
+          "end_line": 169
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 137,
+          "end_line": 149
+        }
+      ]
+    },
+    {
+      "id": "wrong",
+      "lane": "l1",
+      "col": 2,
+      "label": "Sai thông tin",
+      "sublabel": "Không xác thực · mã 422",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 179,
+          "end_line": 183
+        }
+      ]
+    },
+    {
+      "id": "blocked",
+      "lane": "l1",
+      "col": 3,
+      "label": "Tài khoản bị chặn",
+      "sublabel": "Không xác thực · mã 403",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 186,
+          "end_line": 190
+        }
+      ]
+    },
+    {
+      "id": "pending",
+      "lane": "l1",
+      "col": 4,
+      "label": "Cần kích hoạt email",
+      "sublabel": "Không xác thực · mã 403",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 193,
+          "end_line": 197
+        },
+        {
+          "path": "resources/views/clients/login.blade.php",
+          "line": 52,
+          "end_line": 65
+        }
+      ]
+    },
+    {
+      "id": "limit",
+      "lane": "l1",
+      "col": 0,
+      "label": "Tạm giới hạn",
+      "sublabel": "Vượt 10 lần / phút",
+      "type": "security",
+      "sources": [
+        {
+          "path": "routes/web.php",
+          "line": 42,
+          "end_line": 44
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 143,
+          "end_line": 148
+        }
+      ]
+    },
+    {
+      "id": "session",
+      "lane": "l2",
+      "col": 4,
+      "label": "Tạo phiên đăng nhập",
+      "sublabel": "Auth::login · đổi mã phiên",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 200,
+          "end_line": 201
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "lane": "l2",
+      "col": 5,
+      "label": "Về trang chủ",
+      "sublabel": "Hiện menu tài khoản",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 203,
+          "end_line": 207
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 133,
+          "end_line": 135
+        },
+        {
+          "path": "resources/views/clients/block/header_2.blade.php",
+          "line": 104,
+          "end_line": 119
+        }
+      ]
+    },
+    {
+      "id": "logout",
+      "lane": "l3",
+      "col": 5,
+      "label": "Bấm đăng xuất",
+      "sublabel": "POST · cần đã xác thực",
+      "type": "security",
+      "sources": [
+        {
+          "path": "resources/views/clients/block/header_2.blade.php",
+          "line": 109,
+          "end_line": 115
+        },
+        {
+          "path": "routes/web.php",
+          "line": 50,
+          "end_line": 52
+        }
+      ]
+    },
+    {
+      "id": "guest",
+      "lane": "l4",
+      "col": 5,
+      "label": "Kết thúc phiên",
+      "sublabel": "Hủy phiên · về trang chủ",
+      "type": "backend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 243,
+          "end_line": 253
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "form-valid",
+      "from": "form",
+      "to": "valid",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "valid-password",
+      "from": "valid",
+      "to": "password",
+      "label": "Đúng",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "password-status",
+      "from": "password",
+      "to": "status",
+      "label": "Khớp",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "status-active",
+      "from": "status",
+      "to": "active",
+      "label": "Cho phép",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "active-session",
+      "from": "active",
+      "to": "session",
+      "label": "Đã kích hoạt",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "session-home",
+      "from": "session",
+      "to": "home",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "home-logout",
+      "from": "home",
+      "to": "logout",
+      "label": "Người dùng chọn",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "logout-guest",
+      "from": "logout",
+      "to": "guest",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "form-limit",
+      "from": "form",
+      "to": "limit",
+      "label": "Quá giới hạn",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "valid-invalid",
+      "from": "valid",
+      "to": "invalid",
+      "label": "Sai",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "invalid-form",
+      "from": "invalid",
+      "to": "form",
+      "label": "Sửa lại",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "password-wrong",
+      "from": "password",
+      "to": "wrong",
+      "label": "Không khớp",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "wrong-form",
+      "from": "wrong",
+      "to": "form",
+      "label": "Thử lại",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "status-blocked",
+      "from": "status",
+      "to": "blocked",
+      "label": "Có trạng thái",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "active-pending",
+      "from": "active",
+      "to": "pending",
+      "label": "Chưa kích hoạt",
+      "role": "error",
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "form",
+    "valid",
+    "password",
+    "status",
+    "active",
+    "session",
+    "home",
+    "logout",
+    "guest"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Thứ tự kiểm tra",
+      "items": [
+        "Thiếu / sai kiểu dữ liệu → kiểm tra tài khoản và mật khẩu → kiểm tra trạng thái → kiểm tra kích hoạt.",
+        "Chỉ khi vượt tất cả điều kiện mới tạo phiên Auth và chuyển về trang chủ."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Đăng xuất và menu",
+      "items": [
+        "Đăng xuất gọi Auth::logout(), hủy session, tạo lại CSRF token và về trang chủ.",
+        "Thông tin cá nhân và Tour đã đặt hiện cùng dẫn về login; chưa phải chức năng quản lý hồ sơ hay lịch sử đơn."
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Hai kiểu gửi yêu cầu",
+      "items": [
+        "Đăng ký / đăng nhập gửi AJAX POST và nhận JSON. Gửi lại email / đăng xuất dùng form POST thông thường.",
+        "Google là luồng khác, chưa dùng phiên Auth thống nhất; xem sơ đồ riêng."
+      ]
+    }
+  ]
+}

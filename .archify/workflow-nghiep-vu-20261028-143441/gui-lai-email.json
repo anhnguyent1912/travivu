@@ -1,0 +1,394 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Travivu · Gửi lại email kích hoạt",
+    "locale": "vi",
+    "translations": {
+      "page.title": "Sơ đồ {title}",
+      "diagram.description.workflow": "Sơ đồ luồng nghiệp vụ được tạo bằng Archify.",
+      "node.context.workflow": "Bước nghiệp vụ",
+      "node.focus": "Xem {label}",
+      "node.focus.detail": "Xem {label}, {detail}",
+      "legend.title": "Chú thích",
+      "legend.workflow.frontend": "Thao tác / giao diện",
+      "legend.workflow.backend": "Xử lý nghiệp vụ",
+      "legend.workflow.database": "Dữ liệu",
+      "legend.workflow.security": "Kiểm tra / nhánh lỗi",
+      "legend.workflow.cloud": "Dịch vụ ngoài",
+      "legend.workflow.messagebus": "Gửi thông báo",
+      "legend.workflow.external": "Điểm vào / kết thúc",
+      "viewer.kind.frontend": "Giao diện",
+      "viewer.kind.backend": "Xử lý",
+      "viewer.kind.database": "Dữ liệu",
+      "viewer.kind.security": "Kiểm tra",
+      "viewer.kind.cloud": "Dịch vụ ngoài",
+      "viewer.kind.messagebus": "Thông báo",
+      "viewer.kind.external": "Điểm vào / ra",
+      "viewer.theme.dark": "Tối",
+      "viewer.theme.light": "Sáng",
+      "viewer.theme.toggle": "Đổi giao diện",
+      "viewer.theme.toggle.title": "Đổi sáng / tối (T)",
+      "viewer.motion.live": "Chuyển động",
+      "viewer.motion.still": "Tĩnh",
+      "viewer.motion.pause": "Dừng chuyển động",
+      "viewer.motion.resume": "Bật chuyển động",
+      "viewer.present.present": "Trình chiếu",
+      "viewer.present.exit.label": "Thoát",
+      "viewer.present.enter": "Mở trình chiếu",
+      "viewer.present.exit": "Thoát trình chiếu",
+      "viewer.export.button": "Xuất",
+      "viewer.export.menu": "Xuất sơ đồ",
+      "viewer.export.button.title": "Xuất sơ đồ (E)",
+      "viewer.export.diagram": "Xuất sơ đồ",
+      "viewer.export.copyDiagram": "Sao chép sơ đồ",
+      "viewer.export.image": "Hình ảnh",
+      "viewer.export.raster": "Ảnh điểm ảnh",
+      "viewer.export.subtitle": "Tải ảnh hoặc tệp để chia sẻ",
+      "viewer.guide.title": "Khám phá luồng nghiệp vụ",
+      "viewer.guide.eyebrow": "Hướng dẫn đọc",
+      "viewer.guide.find": "Tìm một bước",
+      "viewer.guide.route": "Theo dõi một nhánh",
+      "viewer.guide.map": "Xem toàn bộ sơ đồ",
+      "viewer.guide.open": "Mở hướng dẫn",
+      "viewer.guide.close": "Đóng hướng dẫn",
+      "viewer.guide.shortcuts": "Phím tắt",
+      "viewer.guide.shortcut.export": "Xuất",
+      "viewer.guide.shortcut.theme": "Giao diện",
+      "viewer.guide.shortcut.reset": "Đặt lại",
+      "viewer.guide.shortcut.zoomIn": "Phóng to",
+      "viewer.guide.shortcut.zoomOut": "Thu nhỏ",
+      "viewer.guide.shortcut.close": "Đóng",
+      "viewer.finder.title": "Tìm bước xử lý",
+      "viewer.finder.placeholder": "Nhập tên bước",
+      "viewer.finder.empty": "Không tìm thấy",
+      "viewer.finder.results": "Các bước",
+      "viewer.passport.eyebrow": "Chi tiết bước",
+      "viewer.passport.metadata": "Thông tin bước",
+      "viewer.passport.evidence": "Nguồn code đã đối chiếu",
+      "viewer.passport.verified": "Nguồn đã đối chiếu",
+      "viewer.passport.verificationScope": "Đối chiếu với Git cục bộ tại phiên bản cố định; chưa kiểm tra truy cập nguồn từ xa.",
+      "viewer.passport.relations": "Các kết nối",
+      "viewer.passport.close": "Đóng chi tiết",
+      "viewer.passport.copy": "Sao chép liên kết",
+      "viewer.passport.upstream": "Các bước trước",
+      "viewer.passport.downstream": "Các bước sau",
+      "viewer.passport.source.openLink": "Mở nguồn ↗",
+      "viewer.route.eyebrow": "Luồng xử lý",
+      "viewer.route.start": "Bấm bước bắt đầu",
+      "viewer.route.start.find": "Tìm điểm đầu",
+      "viewer.route.traced": "Luồng",
+      "viewer.route.pickTwo": "Chọn hai bước trên sơ đồ",
+      "viewer.route.pickOne": "Chọn một bước",
+      "viewer.route.play": "Chạy theo luồng",
+      "viewer.route.clear": "Xóa lựa chọn",
+      "viewer.nav.find": "Tìm bước",
+      "viewer.nav.find.title": "Tìm bước (/)",
+      "viewer.nav.guide": "Hướng dẫn",
+      "viewer.nav.guide.title": "Hướng dẫn (?)",
+      "viewer.nav.zoomIn": "Phóng to",
+      "viewer.nav.zoomOut": "Thu nhỏ",
+      "viewer.nav.reset": "Đặt lại góc nhìn",
+      "viewer.rail.show": "Ghi chú và mục lục",
+      "viewer.rail.controls": "Bảng bên",
+      "viewer.rail.collapse": "Thu gọn bảng bên",
+      "viewer.rail.bottom": "Đưa ghi chú xuống dưới",
+      "viewer.rail.right": "Đưa ghi chú sang phải",
+      "viewer.outline.title": "Danh sách bước",
+      "viewer.common.close": "Đóng",
+      "viewer.common.clear": "Xóa",
+      "viewer.common.copyLink": "Sao chép liên kết",
+      "viewer.common.copied": "Đã sao chép",
+      "viewer.preset.style": "Kiểu",
+      "viewer.preset.choose": "Chọn kiểu hiển thị",
+      "viewer.preset.menu": "Kiểu hiển thị"
+    },
+    "output": ".archify/workflow-nghiep-vu-20261028-143441/gui-lai-email.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/anhnguyent1912/travivu.git",
+      "revision": "d63c1294ccbb8e988099c02c72b218aeabdd2135"
+    }
+  },
+  "lanes": [
+    {
+      "id": "l0",
+      "label": "Yêu cầu và kiểm tra"
+    },
+    {
+      "id": "l1",
+      "label": "Gửi thư và phản hồi"
+    },
+    {
+      "id": "l2",
+      "label": "Rẽ nhánh · dữ liệu / gửi thư",
+      "variant": "exception"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ask",
+      "lane": "l0",
+      "col": 1,
+      "label": "Nhập email",
+      "sublabel": "Gửi lại link kích hoạt",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/login.blade.php",
+          "line": 52,
+          "end_line": 65
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "lane": "l0",
+      "col": 2,
+      "label": "Email hợp lệ?",
+      "sublabel": "Bắt buộc · đúng định dạng",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 209,
+          "end_line": 217
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "find",
+      "lane": "l0",
+      "col": 3,
+      "label": "Có tài khoản chờ?",
+      "sublabel": "isActive=n · status=null",
+      "type": "database",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 219,
+          "end_line": 224
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "send",
+      "lane": "l1",
+      "col": 3,
+      "label": "Tạo và gửi link mới",
+      "sublabel": "Thay token trước khi gửi",
+      "type": "messagebus",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 224,
+          "end_line": 226
+        },
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 84,
+          "end_line": 104
+        }
+      ]
+    },
+    {
+      "id": "notice",
+      "lane": "l1",
+      "col": 4,
+      "label": "Thông báo chung",
+      "sublabel": "Về trang đăng nhập",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 237,
+          "end_line": 241
+        }
+      ]
+    },
+    {
+      "id": "activate",
+      "lane": "l1",
+      "col": 5,
+      "label": "Mở link mới",
+      "sublabel": "Sang luồng kích hoạt",
+      "type": "external",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 91,
+          "end_line": 104
+        },
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 126,
+          "end_line": 156
+        }
+      ]
+    },
+    {
+      "id": "bad",
+      "lane": "l2",
+      "col": 0,
+      "label": "Email không hợp lệ",
+      "sublabel": "Sửa rồi gửi lại",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 211,
+          "end_line": 217
+        }
+      ],
+      "yOffset": -46
+    },
+    {
+      "id": "fail",
+      "lane": "l2",
+      "col": 0,
+      "label": "Chưa gửi được thư",
+      "sublabel": "Báo lỗi · thử lại sau",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 227,
+          "end_line": 233
+        }
+      ],
+      "yOffset": 46
+    },
+    {
+      "id": "limit",
+      "lane": "l2",
+      "col": 2,
+      "label": "Tạm chặn yêu cầu",
+      "sublabel": "Vượt 3 lần / phút",
+      "type": "security",
+      "sources": [
+        {
+          "path": "routes/web.php",
+          "line": 47,
+          "end_line": 49
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "ask-check",
+      "from": "ask",
+      "to": "check",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "check-find",
+      "from": "check",
+      "to": "find",
+      "label": "Hợp lệ",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "find-send",
+      "from": "find",
+      "to": "send",
+      "label": "Có",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "send-notice",
+      "from": "send",
+      "to": "notice",
+      "label": "Gửi được",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "notice-activate",
+      "from": "notice",
+      "to": "activate",
+      "label": "Nếu nhận được thư",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "find-notice",
+      "from": "find",
+      "to": "notice",
+      "label": "Không: không gửi",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "check-bad",
+      "from": "check",
+      "to": "bad",
+      "label": "Sai",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "bad-ask",
+      "from": "bad",
+      "to": "ask",
+      "label": "Sửa email",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "send-fail",
+      "from": "send",
+      "to": "fail",
+      "label": "Ngoại lệ",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "fail-ask",
+      "from": "fail",
+      "to": "ask",
+      "label": "Thử lại",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "ask-limit",
+      "from": "ask",
+      "to": "limit",
+      "label": "Quá giới hạn",
+      "role": "error",
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "ask",
+    "check",
+    "find",
+    "send",
+    "notice",
+    "activate"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Vì sao thông báo chung?",
+      "items": [
+        "Không có tài khoản phù hợp: không gửi mail nhưng vẫn trả thông báo có điều kiện.",
+        "Tài khoản phù hợp và gửi được: cũng dùng thông báo đó, tránh công khai email nào đã đăng ký."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Link cũ và lỗi gửi thư",
+      "items": [
+        "Mỗi lần gửi tạo token mới và lưu trước khi gọi Mail::send; link cũ sẽ không còn khớp.",
+        "Nếu gửi thất bại, người dùng cần thử lại sau; không coi thông báo chung là bằng chứng đã nhận mail."
+      ]
+    }
+  ]
+}

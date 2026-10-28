@@ -22,6 +22,7 @@ class TourController extends Controller
             'duration' => ['nullable', 'in:1n1d,3n2d,4n3d,5n4d'],
             'min_price' => ['nullable', 'numeric', 'between:100000,10000000'],
             'max_price' => ['nullable', 'numeric', 'between:100000,10000000'],
+            'sort' => ['nullable', 'in:default,new,old,high-to-low,low-to-high'],
         ], [
             'domain.in' => 'Khu vực không hợp lệ.',
             'rating.integer' => 'Số sao phải là số nguyên.',
@@ -31,6 +32,8 @@ class TourController extends Controller
             'max_price.numeric' => 'Giá cao nhất phải là số.',
             'min_price.between' => 'Giá phải từ 100.000 đến 10.000.000 VND.',
             'max_price.between' => 'Giá phải từ 100.000 đến 10.000.000 VND.',
+            'sort.in' => 'Cách sắp xếp không hợp lệ.',
+            
         ]);
 
         if (

@@ -111,9 +111,27 @@ class tour extends Model
             $query->where('tours.priceAdult', '<=', $filters['max_price']);
         }
 
-        // Phân trang và giữ các tham số lọc.
+        // Sắp xếp toàn bộ kết quả trước khi phân trang.
+        switch ($filters['sort'] ?? 'default') {
+            case 'old':
+                $query->orderBy('tours.tourid', 'asc');
+                break;
+            case 'high-to-low':
+                $query->orderBy('tours.priceAdult', 'desc')
+                    ->orderBy('tours.tourid', 'desc');
+                break;
+            case 'low-to-high':
+                $query->orderBy('tours.priceAdult', 'asc')
+                    ->orderBy('tours.tourid', 'desc');
+                break;
+            case 'new':
+            default:
+                $query->orderBy('tours.tourid', 'desc');
+                break;
+        }
+
+        // Phân trang và giữ cả bộ lọc lẫn lựa chọn sắp xếp.
         $tours = $query
-            ->orderBy('tours.tourid', 'desc')
             ->paginate(12)
             ->withQueryString();
 

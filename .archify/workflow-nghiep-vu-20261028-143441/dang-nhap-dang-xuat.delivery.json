@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "f2e0da37-3436-45b8-a139-ce89442b3189",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\dang-nhap-dang-xuat.json",
+  "output": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\dang-nhap-dang-xuat.html",
+  "specification": {
+    "sha256": "0462603876504849e8b42f0849c5ff0dabb4f03ef69e58c04fecbef1a9eb5a62",
+    "bytes": 15603
+  },
+  "artifact": {
+    "sha256": "1f711fa7760e0509e9ffd08a8ea07ec14a312f141380d2f66c5b4596f3c6dad7",
+    "bytes": 861372
+  }
+}

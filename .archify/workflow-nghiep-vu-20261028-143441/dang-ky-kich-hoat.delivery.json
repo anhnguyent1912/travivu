@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "24cd507d-7994-4dab-9720-023e769bfc54",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\dang-ky-kich-hoat.json",
+  "output": "D:\\travivu\\.archify\\workflow-nghiep-vu-20261028-143441\\dang-ky-kich-hoat.html",
+  "specification": {
+    "sha256": "6730e5bd69e4beee9d867f6351d693d07048af5684aa29c9452f4b29e3dfb2d1",
+    "bytes": 16856
+  },
+  "artifact": {
+    "sha256": "4c2e1564f7ef8893345613b47c2be5d3850117c9bbfaab20242dcadd3d303d7e",
+    "bytes": 867329
+  }
+}

@@ -1,0 +1,592 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Travivu · Đăng ký và kích hoạt email",
+    "locale": "vi",
+    "translations": {
+      "page.title": "Sơ đồ {title}",
+      "diagram.description.workflow": "Sơ đồ luồng nghiệp vụ được tạo bằng Archify.",
+      "node.context.workflow": "Bước nghiệp vụ",
+      "node.focus": "Xem {label}",
+      "node.focus.detail": "Xem {label}, {detail}",
+      "legend.title": "Chú thích",
+      "legend.workflow.frontend": "Thao tác / giao diện",
+      "legend.workflow.backend": "Xử lý nghiệp vụ",
+      "legend.workflow.database": "Dữ liệu",
+      "legend.workflow.security": "Kiểm tra / nhánh lỗi",
+      "legend.workflow.cloud": "Dịch vụ ngoài",
+      "legend.workflow.messagebus": "Gửi thông báo",
+      "legend.workflow.external": "Điểm vào / kết thúc",
+      "viewer.kind.frontend": "Giao diện",
+      "viewer.kind.backend": "Xử lý",
+      "viewer.kind.database": "Dữ liệu",
+      "viewer.kind.security": "Kiểm tra",
+      "viewer.kind.cloud": "Dịch vụ ngoài",
+      "viewer.kind.messagebus": "Thông báo",
+      "viewer.kind.external": "Điểm vào / ra",
+      "viewer.theme.dark": "Tối",
+      "viewer.theme.light": "Sáng",
+      "viewer.theme.toggle": "Đổi giao diện",
+      "viewer.theme.toggle.title": "Đổi sáng / tối (T)",
+      "viewer.motion.live": "Chuyển động",
+      "viewer.motion.still": "Tĩnh",
+      "viewer.motion.pause": "Dừng chuyển động",
+      "viewer.motion.resume": "Bật chuyển động",
+      "viewer.present.present": "Trình chiếu",
+      "viewer.present.exit.label": "Thoát",
+      "viewer.present.enter": "Mở trình chiếu",
+      "viewer.present.exit": "Thoát trình chiếu",
+      "viewer.export.button": "Xuất",
+      "viewer.export.menu": "Xuất sơ đồ",
+      "viewer.export.button.title": "Xuất sơ đồ (E)",
+      "viewer.export.diagram": "Xuất sơ đồ",
+      "viewer.export.copyDiagram": "Sao chép sơ đồ",
+      "viewer.export.image": "Hình ảnh",
+      "viewer.export.raster": "Ảnh điểm ảnh",
+      "viewer.export.subtitle": "Tải ảnh hoặc tệp để chia sẻ",
+      "viewer.guide.title": "Khám phá luồng nghiệp vụ",
+      "viewer.guide.eyebrow": "Hướng dẫn đọc",
+      "viewer.guide.find": "Tìm một bước",
+      "viewer.guide.route": "Theo dõi một nhánh",
+      "viewer.guide.map": "Xem toàn bộ sơ đồ",
+      "viewer.guide.open": "Mở hướng dẫn",
+      "viewer.guide.close": "Đóng hướng dẫn",
+      "viewer.guide.shortcuts": "Phím tắt",
+      "viewer.guide.shortcut.export": "Xuất",
+      "viewer.guide.shortcut.theme": "Giao diện",
+      "viewer.guide.shortcut.reset": "Đặt lại",
+      "viewer.guide.shortcut.zoomIn": "Phóng to",
+      "viewer.guide.shortcut.zoomOut": "Thu nhỏ",
+      "viewer.guide.shortcut.close": "Đóng",
+      "viewer.finder.title": "Tìm bước xử lý",
+      "viewer.finder.placeholder": "Nhập tên bước",
+      "viewer.finder.empty": "Không tìm thấy",
+      "viewer.finder.results": "Các bước",
+      "viewer.passport.eyebrow": "Chi tiết bước",
+      "viewer.passport.metadata": "Thông tin bước",
+      "viewer.passport.evidence": "Nguồn code đã đối chiếu",
+      "viewer.passport.verified": "Nguồn đã đối chiếu",
+      "viewer.passport.verificationScope": "Đối chiếu với Git cục bộ tại phiên bản cố định; chưa kiểm tra truy cập nguồn từ xa.",
+      "viewer.passport.relations": "Các kết nối",
+      "viewer.passport.close": "Đóng chi tiết",
+      "viewer.passport.copy": "Sao chép liên kết",
+      "viewer.passport.upstream": "Các bước trước",
+      "viewer.passport.downstream": "Các bước sau",
+      "viewer.passport.source.openLink": "Mở nguồn ↗",
+      "viewer.route.eyebrow": "Luồng xử lý",
+      "viewer.route.start": "Bấm bước bắt đầu",
+      "viewer.route.start.find": "Tìm điểm đầu",
+      "viewer.route.traced": "Luồng",
+      "viewer.route.pickTwo": "Chọn hai bước trên sơ đồ",
+      "viewer.route.pickOne": "Chọn một bước",
+      "viewer.route.play": "Chạy theo luồng",
+      "viewer.route.clear": "Xóa lựa chọn",
+      "viewer.nav.find": "Tìm bước",
+      "viewer.nav.find.title": "Tìm bước (/)",
+      "viewer.nav.guide": "Hướng dẫn",
+      "viewer.nav.guide.title": "Hướng dẫn (?)",
+      "viewer.nav.zoomIn": "Phóng to",
+      "viewer.nav.zoomOut": "Thu nhỏ",
+      "viewer.nav.reset": "Đặt lại góc nhìn",
+      "viewer.rail.show": "Ghi chú và mục lục",
+      "viewer.rail.controls": "Bảng bên",
+      "viewer.rail.collapse": "Thu gọn bảng bên",
+      "viewer.rail.bottom": "Đưa ghi chú xuống dưới",
+      "viewer.rail.right": "Đưa ghi chú sang phải",
+      "viewer.outline.title": "Danh sách bước",
+      "viewer.common.close": "Đóng",
+      "viewer.common.clear": "Xóa",
+      "viewer.common.copyLink": "Sao chép liên kết",
+      "viewer.common.copied": "Đã sao chép",
+      "viewer.preset.style": "Kiểu",
+      "viewer.preset.choose": "Chọn kiểu hiển thị",
+      "viewer.preset.menu": "Kiểu hiển thị"
+    },
+    "output": ".archify/workflow-nghiep-vu-20261028-143441/dang-ky-kich-hoat.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/anhnguyent1912/travivu.git",
+      "revision": "d63c1294ccbb8e988099c02c72b218aeabdd2135"
+    }
+  },
+  "lanes": [
+    {
+      "id": "l0",
+      "label": "Đăng ký"
+    },
+    {
+      "id": "l1",
+      "label": "Rẽ nhánh · đăng ký",
+      "variant": "exception"
+    },
+    {
+      "id": "l2",
+      "label": "Nhận và mở email"
+    },
+    {
+      "id": "l3",
+      "label": "Kiểm tra chữ ký và thời hạn"
+    },
+    {
+      "id": "l4",
+      "label": "Kiểm tra tài khoản và cập nhật"
+    },
+    {
+      "id": "l5",
+      "label": "Kết thúc kích hoạt"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "submit",
+      "lane": "l0",
+      "col": 0,
+      "label": "Gửi đăng ký",
+      "sublabel": "Tên · email · mật khẩu",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/login.blade.php",
+          "line": 83,
+          "end_line": 112
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 94,
+          "end_line": 123
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "lane": "l0",
+      "col": 1,
+      "label": "Dữ liệu hợp lệ?",
+      "sublabel": "Chưa trùng · xác nhận đúng",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 34,
+          "end_line": 73
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "save",
+      "lane": "l0",
+      "col": 2,
+      "label": "Tạo tài khoản chờ",
+      "sublabel": "Băm mật khẩu · isActive=n",
+      "type": "database",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 74,
+          "end_line": 82
+        }
+      ]
+    },
+    {
+      "id": "mail",
+      "lane": "l0",
+      "col": 3,
+      "label": "Tạo link và gửi thư",
+      "sublabel": "Token băm · hạn 60 phút",
+      "type": "messagebus",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 84,
+          "end_line": 104
+        },
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 106,
+          "end_line": 124
+        }
+      ]
+    },
+    {
+      "id": "notice",
+      "lane": "l0",
+      "col": 4,
+      "label": "Thông báo thành công",
+      "sublabel": "Yêu cầu kiểm tra email",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 120,
+          "end_line": 124
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 130,
+          "end_line": 132
+        }
+      ]
+    },
+    {
+      "id": "bad",
+      "lane": "l1",
+      "col": 0,
+      "label": "Báo lỗi đăng ký",
+      "sublabel": "Sửa thông tin và gửi lại",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 34,
+          "end_line": 73
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 137,
+          "end_line": 149
+        }
+      ]
+    },
+    {
+      "id": "mailfail",
+      "lane": "l1",
+      "col": 3,
+      "label": "Gửi thư thất bại",
+      "sublabel": "Tài khoản vẫn đã tạo",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 110,
+          "end_line": 117
+        }
+      ]
+    },
+    {
+      "id": "resend",
+      "lane": "l1",
+      "col": 4,
+      "label": "Gửi lại kích hoạt",
+      "sublabel": "Xem sơ đồ gửi lại email",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "resources/views/clients/login.blade.php",
+          "line": 52,
+          "end_line": 65
+        },
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 209,
+          "end_line": 241
+        }
+      ]
+    },
+    {
+      "id": "click",
+      "lane": "l2",
+      "col": 4,
+      "label": "Mở link từ email",
+      "sublabel": "GET kèm token và chữ ký",
+      "type": "external",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 91,
+          "end_line": 104
+        },
+        {
+          "path": "routes/web.php",
+          "line": 45,
+          "end_line": 46
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "lane": "l3",
+      "col": 4,
+      "label": "Link còn hợp lệ?",
+      "sublabel": "Chữ ký đúng · chưa hết hạn",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 126,
+          "end_line": 133
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "match",
+      "lane": "l4",
+      "col": 4,
+      "label": "Tài khoản phù hợp?",
+      "sublabel": "Token khớp · chờ · không khóa",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 135,
+          "end_line": 150
+        }
+      ],
+      "icon": "decision"
+    },
+    {
+      "id": "active",
+      "lane": "l4",
+      "col": 5,
+      "label": "Kích hoạt thành công",
+      "sublabel": "isActive=Y · xóa token",
+      "type": "database",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 135,
+          "end_line": 155
+        }
+      ]
+    },
+    {
+      "id": "login",
+      "lane": "l5",
+      "col": 5,
+      "label": "Về trang đăng nhập",
+      "sublabel": "Người dùng tự đăng nhập",
+      "type": "frontend",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 153,
+          "end_line": 156
+        }
+      ]
+    },
+    {
+      "id": "expired",
+      "lane": "l3",
+      "col": 2,
+      "label": "Link sai / hết hạn",
+      "sublabel": "Về đăng nhập, báo lỗi",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 128,
+          "end_line": 132
+        }
+      ]
+    },
+    {
+      "id": "used",
+      "lane": "l4",
+      "col": 2,
+      "label": "Không thể kích hoạt",
+      "sublabel": "Link cũ / dùng rồi / khóa",
+      "type": "security",
+      "sources": [
+        {
+          "path": "app/Http/Controllers/client/LoginController.php",
+          "line": 135,
+          "end_line": 150
+        }
+      ]
+    },
+    {
+      "id": "rate",
+      "lane": "l1",
+      "col": 1,
+      "label": "Thao tác quá nhiều",
+      "sublabel": "Tạm dừng và thử lại",
+      "type": "security",
+      "sources": [
+        {
+          "path": "routes/web.php",
+          "line": 39,
+          "end_line": 41
+        },
+        {
+          "path": "public/clients/assets/js/login.js",
+          "line": 143,
+          "end_line": 148
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "submit-check",
+      "from": "submit",
+      "to": "check",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "check-save",
+      "from": "check",
+      "to": "save",
+      "label": "Đúng",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "save-mail",
+      "from": "save",
+      "to": "mail",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "mail-notice",
+      "from": "mail",
+      "to": "notice",
+      "label": "Gửi được",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "notice-click",
+      "from": "notice",
+      "to": "click",
+      "label": "Người dùng mở",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "click-signature",
+      "from": "click",
+      "to": "signature",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "signature-match",
+      "from": "signature",
+      "to": "match",
+      "label": "Đúng",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "match-active",
+      "from": "match",
+      "to": "active",
+      "label": "Cập nhật được",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "active-login",
+      "from": "active",
+      "to": "login",
+      "role": "main",
+      "variant": "emphasis"
+    },
+    {
+      "id": "submit-rate",
+      "from": "submit",
+      "to": "rate",
+      "label": "Vượt giới hạn",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "check-bad",
+      "from": "check",
+      "to": "bad",
+      "label": "Sai / trùng",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "bad-submit",
+      "from": "bad",
+      "to": "submit",
+      "label": "Sửa lại",
+      "role": "return",
+      "variant": "default"
+    },
+    {
+      "id": "mail-mailfail",
+      "from": "mail",
+      "to": "mailfail",
+      "label": "Ngoại lệ",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "mailfail-resend",
+      "from": "mailfail",
+      "to": "resend",
+      "label": "Yêu cầu lại",
+      "role": "branch",
+      "variant": "default"
+    },
+    {
+      "id": "signature-expired",
+      "from": "signature",
+      "to": "expired",
+      "label": "Sai / hết hạn",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "match-used",
+      "from": "match",
+      "to": "used",
+      "label": "Không cập nhật",
+      "role": "error",
+      "variant": "security"
+    },
+    {
+      "id": "expired-resend",
+      "from": "expired",
+      "to": "resend",
+      "label": "Yêu cầu link mới",
+      "role": "branch",
+      "variant": "default"
+    }
+  ],
+  "mainPath": [
+    "submit",
+    "check",
+    "save",
+    "mail",
+    "notice",
+    "click",
+    "signature",
+    "match",
+    "active",
+    "login"
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Điều kiện đăng ký",
+      "items": [
+        "Tên đăng nhập và email chưa có trong tbl_user. Mật khẩu tối thiểu 8 ký tự, xác nhận trùng và không quá 72 byte.",
+        "Đăng ký tạo tài khoản chờ, không tự đăng nhập. Mail gửi lỗi vẫn giữ tài khoản đã tạo; sử dụng chức năng gửi lại."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Điều kiện kích hoạt",
+      "items": [
+        "Link có chữ ký và hạn 60 phút. Chỉ cập nhật khi token băm khớp, isActive=n và status=null.",
+        "Thành công: đặt isActive=Y, xóa activation_token rồi chuyển tới trang đăng nhập. Link dùng lại không kích hoạt lần hai."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Rẽ nhánh có kiểm soát",
+      "items": [
+        "POST đăng ký bị giới hạn 5 yêu cầu / phút theo cấu hình throttle. Lỗi dữ liệu và lỗi server được JavaScript hiển thị.",
+        "Sơ đồ mô tả logic code; chưa xác nhận khả năng gửi thư của cấu hình mail thực tế."
+      ]
+    }
+  ]
+}
