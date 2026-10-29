@@ -35,14 +35,11 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-    <!-- login -->
-        <!-- Font Icon -->
-    {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/fonts/material-icon/css/material-design-iconic-font.min.css')}}"> --}}
 
-    <!-- Main css -->
-    {{-- <link rel="stylesheet" href="{{ asset('clients/assets/css/css-login/style.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery.datetimepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
+    //pro5
+    <link rel="stylesheet" href="{{ asset('clients/assets/css/profile.css') }}">
 </head>
 <body>
     <div class="page-wrapper">
@@ -118,7 +115,7 @@
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                         @auth
                                             <li class="dropdown-header">{{  auth()->user()->username }}</li>
-                                            <li><a href="{{ route('login') }}">Thông tin cá nhân</a></li>
+                                            <li><a href="{{ route('user-profile') }}">Thông tin cá nhân</a></li>
                                             <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">

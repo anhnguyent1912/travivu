@@ -17,6 +17,7 @@ use App\Http\Controllers\client\DestinationController;
 use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\LoginGoogleController;
 use App\Http\Controllers\client\SearchController;
+use App\Http\Controllers\InformationController;
 // Route::get('/', function () {
 //     return view('home');
 // });
@@ -59,6 +60,4 @@ Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('si
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');
 
-//get tour, filter-tour
-// Route::get(uri: '/tour', action: [TourController::class, 'Tour'])->name('Tour');
-// Route::get(uri: '/filter-tour', action: [TourController::class, 'FilterTour'])->name('filter-tour');
+Route::get('/user-profile', [InformationController::class, 'index']) ->middleware('auth') ->name('user-profile');
