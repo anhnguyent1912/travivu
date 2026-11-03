@@ -93,7 +93,7 @@
                                 <span data-hover="Đặt ngay">Đặt ngay</span>
                                 <i class="fal fa-arrow-right"></i>
                             </a>
-                            <!-- menu sidbar -->
+                            <!-- menu user -->
                             <div class="menu-sidebar">
                                 <li class="drop-dow">
                                     <button class="dropdown-toggle bg-transparent" id="userDropdown">
@@ -101,7 +101,7 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                         @auth
-                                            <li class="dropdown-header">{{ auth()->user()->username }}</li>
+                                            <li class="dropdown-header">{{ auth()->user()->fullname ?: auth()->user()->username }}</li>
                                             <li><a href="{{ route('user-profile') }}">Thông tin cá nhân</a></li>
                                             <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
                                             <li>

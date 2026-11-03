@@ -17,13 +17,6 @@ class login extends Model
     {
 
         return DB::table(table: $this->table)->insert($data);
-        // $userid = DB::table($this->table)->insertGetId($data);
-
-        // if ($userid) {
-        //     return DB::table($this->table)->where('userid', $userid)->first();
-        // }
-
-        // return null;
     }
      public function checkUserExist($username, $email)
     {

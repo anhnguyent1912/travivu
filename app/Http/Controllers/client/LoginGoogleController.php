@@ -71,6 +71,7 @@ class LoginGoogleController extends Controller
             // 5. Đăng nhập vào website.
             Auth::login($user);
             $request->session()->regenerate();
+            $request->session()->put('login_method', 'google');
 
             return redirect()->route('home');
         } catch (Exception $e) {

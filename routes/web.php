@@ -59,5 +59,7 @@ Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'in
 Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');
-
+//user
 Route::get('/user-profile', [InformationController::class, 'index']) ->middleware('auth') ->name('user-profile');
+Route::patch('/user-profile', [InformationController::class, 'update'])->middleware('auth')->name('user-profile.update');
+Route::patch('/user-profile/password', [InformationController::class, 'updatePassword']) ->middleware(['auth', 'throttle:5,1']) ->name('user-profile.password');

@@ -199,6 +199,7 @@ class LoginController extends Controller
 
         Auth::login($user);
         $request->session()->regenerate();
+        $request->session()->put('login_method', 'password');
 
         return response()->json([
             'success' => true,
