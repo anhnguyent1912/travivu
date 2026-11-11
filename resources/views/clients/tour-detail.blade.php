@@ -1,43 +1,50 @@
 @include('clients.block.header_2')
- <section class="page-banner-two rel z-1">
-            <div class="container-fluid">
-                <hr class="mt-0">
-                <div class="container">
-                    <div class="banner-inner pt-15 pb-25">
-                        <h2 class="page-title mb-10" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">{{$tourdetail->destination}}</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center mb-20" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                                <li class="breadcrumb-item active">{{$title}}</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
+<section class="page-banner-two rel z-1">
+    <div class="container-fluid">
+        <hr class="mt-0">
+        <div class="container">
+            <div class="banner-inner pt-15 pb-25">
+                <h2 class="page-title mb-10" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+                    {{ $tourdetail->destination }}</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center mb-20" data-aos="fade-right" data-aos-delay="200"
+                        data-aos-duration="1500" data-aos-offset="50">
+                        <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">{{ $title }}</li>
+                    </ol>
+                </nav>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 <!-- Tour Gallery start -->
 <div class="tour-gallery">
     <div class="container-fluid">
         <div class="row gap-10 justify-content-center rel">
             <div class="col-lg-4 col-md-6">
                 <div class="gallery-item">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[0]) }}" alt="Destination">
+                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[0]) }}"
+                        alt="Destination">
                 </div>
                 <div class="gallery-item ">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[1]) }}" alt="Destination">
+                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[1]) }}"
+                        alt="Destination">
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="gallery-item gallery-between">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[2]) }}" alt="Destination">
+                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[2]) }}"
+                        alt="Destination">
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="gallery-item">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[3]) }}" alt="Destination">
+                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[3]) }}"
+                        alt="Destination">
                 </div>
                 <div class="gallery-item">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[4]) }}" alt="Destination">
+                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[4]) }}"
+                        alt="Destination">
                 </div>
             </div>
         </div>
@@ -53,7 +60,8 @@
             <div class="col-xl-6 col-lg-7">
                 <div class="tour-header-content mb-15" data-aos="fade-left" data-aos-duration="1500"
                     data-aos-offset="50">
-                    <span class="location d-inline-block mb-10"><i class="fal fa-map-marker-alt"></i>{{ $tourdetail->destination }}</span>
+                    <span class="location d-inline-block mb-10"><i
+                            class="fal fa-map-marker-alt"></i>{{ $tourdetail->destination }}</span>
                     <div class="section-title pb-5">
                         <h2>{{ $tourdetail->title }}</h2>
                     </div>
@@ -123,21 +131,21 @@
                         $day = 1;
                     @endphp
                     @foreach ($tourdetail->timeline as $timeline)
-                    <div class="accordion-item">
-                        <h5 class="accordion-header">
-                            <button class="accordion-button collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo{{ $timeline->timeLineid }}">
-                                Ngày {{ $day++ }} - {{ $timeline->title }}
-                            </button>
-                        </h5>
-                        
-                        <div id="collapseTwo{{ $timeline->timeLineid }}" class="accordion-collapse collapse"
-                            data-bs-parent="#faq-accordion-two">
-                            <div class="accordion-body">
-                                <p>{{ $timeline->description }}</p>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header">
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo{{ $timeline->timeLineid }}">
+                                    Ngày {{ $day++ }} - {{ $timeline->title }}
+                                </button>
+                            </h5>
+
+                            <div id="collapseTwo{{ $timeline->timeLineid }}" class="accordion-collapse collapse"
+                                data-bs-parent="#faq-accordion-two">
+                                <div class="accordion-body">
+                                    <p>{{ $timeline->description }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
 
@@ -145,7 +153,7 @@
                 <div class="clients-reviews bgc-black mt-30 mb-60">
                     <div class="left">
                         <b>4.8</b>
-                            <span>(586 đánh giá)</span>
+                        <span>(586 đánh giá)</span>
                         <div class="ratting">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -229,7 +237,8 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <span class="time">Tour: {{ $tourdetail->title }}</span>
-                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm vui khám phá.</p>
+                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm
+                                vui khám phá.</p>
                             <a class="read-more" href="#">Trả lời <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
@@ -248,7 +257,8 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <span class="time">Tour: {{ $tourdetail->title }}</span>
-                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm vui khám phá.</p>
+                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm
+                                vui khám phá.</p>
                             <a class="read-more" href="#">Trả lời <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
@@ -266,7 +276,8 @@
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
                             <span class="time">Tour: {{ $tourdetail->title }}</span>
-                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm vui khám phá.</p>
+                            <p>Các chuyến du lịch mang đến những trải nghiệm độc đáo, cơ hội giao lưu văn hóa và niềm
+                                vui khám phá.</p>
                             <a class="read-more" href="#">Trả lời <i class="far fa-angle-right"></i></a>
                         </div>
                     </div>
@@ -374,41 +385,142 @@
 
                     <div class="widget widget-booking" data-aos="fade-up" data-aos-duration="1500"
                         data-aos-offset="50">
-                        <h5 class="widget-title">Tour Booking</h5>
-                        <form action="#">
+                        <h5 class="widget-title">Đặt tour</h5>
+                        <form id="booking-form"
+                            action="{{ route('booking.store', ['tourid' => $tourdetail->tourid]) }}" method="POST"
+                            novalidate>
+                            @csrf
+
+                            {{-- Thông báo lưu đơn thành công --}}
+                            @if (session('booking_success'))
+                                <div class="alert alert-success" role="status">
+                                    {{ session('booking_success') }}
+                                </div>
+                            @endif
+
+                            {{-- Lỗi chung: tour đóng, hết hạn hoặc không đủ chỗ --}}
+                            @error('booking')
+                                <p class="text-danger" role="alert">{{ $message }}</p>
+                            @enderror
+
                             <div class="date mb-25">
                                 <b>Ngày bắt đầu</b>
-                                <input type="text" value = "{{ date('d-m-Y', strtotime($tourdetail->startDate)) }}" disabled>
+                                <input type="text"
+                                    value="{{ $tourdetail->startDate ? date('d-m-Y', strtotime($tourdetail->startDate)) : 'Chưa cập nhật' }}"
+                                    disabled>
                             </div>
+
                             <div class="date mb-25">
                                 <b>Ngày kết thúc</b>
-                                <input type="text" value = "{{ date('d-m-Y', strtotime($tourdetail->endDate)) }}" disabled>
+                                <input type="text"
+                                    value="{{ $tourdetail->endDate ? date('d-m-Y', strtotime($tourdetail->endDate)) : 'Chưa cập nhật' }}"
+                                    disabled>
                             </div>
+
+                            <p>Thời gian: {{ $tourdetail->time }}</p>
+
                             <hr>
-                            <div class="time py-5">
-                                <b>Thời gian :</b>
-                                <p>{{ $tourdetail->time }} </p>
+
+                            <div class="form-group">
+                                <label for="adult_quantity">
+                                    Người lớn —
+                                    {{ number_format($tourdetail->priceAdult, 0, ',', '.') }} VND/người
+                                </label>
+
+                                <input type="number" id="adult_quantity" name="adult_quantity" class="form-control"
+                                    min="1" max="100" step="1"
+                                    value="{{ old('adult_quantity', 1) }}" required>
+
+                                @error('adult_quantity')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
-                            <hr class="mb-25">
-                            <h6>Vé:</h6>
-                            <ul class="tickets clearfix">
-                                <li>
-                                    Người lớn <span class="price">{{ number_format($tourdetail->priceAdult, 0, ',', '.') }} VND</span>
-                                    <input type="number" name="adult_quantity" id="adult_quantity"
-                                        class="quantity-input" min="0" value="1">
-                                </li>
-                                <li>
-                                    Trẻ em  <span class="price">{{ number_format($tourdetail->priceChild, 0, ',', '.') }} VND</span>
-                                    <input type="number" name="child_quantity" id="child_quantity"
-                                        class="quantity-input" min="0" value="0">
-                                </li>
-                            </ul>
-                            <hr class="mb-25">
-                            <h6>Tổng tiền: <span class="price">74</span></h6>
-                            <button type="submit" class="theme-btn style-two w-100 mt-15 mb-5">
-                                <span data-hover="Đặt ngay">Đặt ngay</span>
-                                <i class="fal fa-arrow-right"></i>
-                            </button>
+
+                            <div class="form-group">
+                                <label for="child_quantity">
+                                    Trẻ em —
+                                    {{ number_format($tourdetail->priceChild, 0, ',', '.') }} VND/người
+                                </label>
+
+                                <input type="number" id="child_quantity" name="child_quantity" class="form-control"
+                                    min="0" max="100" step="1"
+                                    value="{{ old('child_quantity', 0) }}" required>
+
+                                @error('child_quantity')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <hr>
+
+                            <h6>Thông tin liên hệ</h6>
+
+                            <div class="form-group">
+                                <label for="booking-contact-name">Họ và tên</label>
+
+                                <input type="text" id="booking-contact-name" name="contactName"
+                                    class="form-control" value="{{ old('contactName', auth()->user()?->fullname) }}"
+                                    maxlength="100" autocomplete="name" required>
+
+                                @error('contactName')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="booking-contact-email">Email</label>
+
+                                <input type="email" id="booking-contact-email" name="contactEmail"
+                                    class="form-control" value="{{ old('contactEmail', auth()->user()?->email) }}"
+                                    maxlength="255" autocomplete="email" required>
+
+                                @error('contactEmail')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="booking-contact-phone">Số điện thoại</label>
+
+                                <input type="tel" id="booking-contact-phone" name="contactPhone"
+                                    class="form-control"
+                                    value="{{ old('contactPhone', auth()->user()?->phoneNumber) }}" maxlength="10"
+                                    inputmode="numeric" autocomplete="tel" required>
+
+                                @error('contactPhone')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="booking-special-requests">
+                                    Yêu cầu thêm (không bắt buộc)
+                                </label>
+
+                                <textarea id="booking-special-requests" name="specialRequests" class="form-control" rows="3" maxlength="255">{{ old('specialRequests') }}</textarea>
+
+                                @error('specialRequests')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            @auth
+                                <button type="submit" class="theme-btn style-two w-100 mt-15 mb-5">
+                                    <span data-hover="Gửi yêu cầu đặt tour">
+                                        Gửi yêu cầu đặt tour
+                                    </span>
+                                    <i class="fal fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            @else
+                                <p>Vui lòng đăng nhập trước khi đặt tour.</p>
+
+                                <a href="{{ route('login') }}" class="theme-btn style-two w-100 mt-15 mb-5">
+                                    <span data-hover="Đăng nhập để đặt tour">
+                                        Đăng nhập để đặt tour
+                                    </span>
+                                </a>
+                            @endauth
+
                             <div class="text-center">
                                 <a href="{{ route('contact') }}">Cần giúp đỡ?</a>
                             </div>
@@ -417,12 +529,11 @@
 
                     <div class="widget widget-contact" data-aos="fade-up" data-aos-duration="1500"
                         data-aos-offset="50">
-                        <h5 class="widget-title">Need Help?</h5>
+                        <h5 class="widget-title">Cần hỗ trợ thêm liên hệ ngay</h5>
                         <ul class="list-style-one">
                             <li><i class="far fa-envelope"></i> <a
-                                    href="emilto:helpxample@gmail.com">helpxample@gmail.com</a></li>
-                            <li><i class="far fa-phone-volume"></i> <a href="callto:+000(123)45688">+000 (123) 456
-                                    88</a></li>
+                                    href="emilto:helpxample@gmail.com">lienhe@gmail.com</a></li>
+                            <li><i class="far fa-phone-volume"></i> <a href="callto:+000(123)45688">+84 123 456 789</a></li>
                         </ul>
                     </div>
                 </div>

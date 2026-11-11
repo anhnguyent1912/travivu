@@ -79,6 +79,6 @@ class InformationController extends Controller
 
         return redirect()
             ->route('user-profile')
-            ->with('success', 'Cập nhật mật khẩu thành công.');
+            ->with('password_success', 'Cập nhật mật khẩu thành công.');
     }
 }

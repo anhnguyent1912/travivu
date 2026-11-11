@@ -57,7 +57,7 @@
                                     aria-hidden="true"></i></span>
                             <div>
                                 <h2>Thông tin tài khoản</h2>
-                                <p>Thông tin hiện tại của bạn trên Travivu.</p>
+                                <p>Thông tin hiện tại của bạn trên Web.</p>
                             </div>
                         </div>
                         <form class="profile-card-body" method="POST" action="{{ route('user-profile.update') }}">
