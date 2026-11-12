@@ -49,20 +49,6 @@
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
                             </div>
                         </form>
-                        <form method="POST" action="{{ route('activation.resend') }}">
-                            @csrf
-                            <input
-                                type="email"
-                                id="activation-email"
-                                name="email"
-                                placeholder="Nhập email đã đăng ký"
-                                required
-                            >
-                            @error('email')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                            <button type="submit">Gửi lại email kích hoạt</button>
-                        </form>
                         <div class="social-login">
                             <span class="social-label">Hoặc đăng nhập với</span>
                             <ul class="socials">

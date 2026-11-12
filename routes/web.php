@@ -46,9 +46,6 @@ Route::post('/login', [LoginController::class, 'login'])
     ->name('login.submit');
 Route::get('/activate-account/{token}', [LoginController::class, 'activateAccount'])
     ->name('activate.account');
-Route::post('/activation/resend', [LoginController::class, 'resendActivation'])
-    ->middleware('throttle:3,1,activation.resend')
-    ->name('activation.resend');
 Route::post('/logout', [LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');

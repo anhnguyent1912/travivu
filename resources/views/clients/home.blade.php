@@ -15,10 +15,9 @@
         </div>
         <div class="row justify-content-center">
             @foreach ($Tour as $tour)
-            <div class="col-xxl-3 col-xl-4 col-md-6">
-                <div class="destination-item" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+            <div class="col-xxl-3 col-xl-4 col-md-6 d-flex">
+                <div class="destination-item block_tours" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                     <div class="image">
-                        <div class="ratting"><i class="fas fa-star"></i> 4.8</div>
                         <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                         <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}" alt="Destination">
                     </div>
@@ -211,7 +210,7 @@
 <section class="cta-area pt-100 rel z-1">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-4 col-md-6" data-aos="zoom-in-down" data-aos-duration="1500" data-aos-offset="50">
+            <div class="col-xl-4 col-md-6">
                 <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta1.jpg')}});">
                     <span class="category">Khám Phá Vẻ Đẹp Văn Hóa Việt</span>
                     <h2>Tìm hiểu những giá trị văn hóa độc đáo của các vùng miền Việt Nam.</h2>
@@ -221,8 +220,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6" data-aos="zoom-in-down" data-aos-delay="50" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-xl-4 col-md-6">
                 <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta2.jpg')}});">
                     <span class="category">Bãi biển</span>
                     <h2>Bãi trong xanh dạt dào ở Việt Nam</h2>
@@ -232,8 +230,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6" data-aos="zoom-in-down" data-aos-delay="100" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-xl-4 col-md-6">
                 <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta3.jpg')}});">
                     <span class="category">Thác nước</span>
                     <h2>Thác nước lớn nhất Việt NamKhám phá</h2>

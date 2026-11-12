@@ -1,4 +1,46 @@
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const fields = document.querySelectorAll(
+            '#login-form input[type="password"], ' +
+            '#register-form input[type="password"], ' +
+            '#profile-security input[type="password"]'
+        );
+
+        fields.forEach(function (input) {
+            let wrapper = input.closest('.form-group');
+
+            if (!wrapper) {
+                wrapper = document.createElement('div');
+                input.before(wrapper);
+                wrapper.append(input);
+            }
+
+            wrapper.classList.add('password-visibility');
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'password-visibility-toggle';
+            button.setAttribute('aria-controls', input.id);
+            button.setAttribute('aria-label', 'Hiện mật khẩu');
+            button.title = 'Hiện mật khẩu';
+
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-eye';
+            icon.setAttribute('aria-hidden', 'true');
+            button.append(icon);
+            wrapper.append(button);
+
+            button.addEventListener('click', function () {
+                const show = input.type === 'password';
+                input.type = show ? 'text' : 'password';
+                icon.className = show ? 'fas fa-eye-slash' : 'fas fa-eye';
+                const label = show ? 'Ẩn mật khẩu' : 'Hiện mật khẩu';
+                button.setAttribute('aria-label', label);
+                button.title = label;
+            });
+        });
+    });
+
     document.addEventListener("DOMContentLoaded", function() {
         const signInForm = document.querySelector('.sign-in');
         const signUpForm = document.querySelector('.signup');

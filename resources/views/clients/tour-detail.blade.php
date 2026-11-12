@@ -1,7 +1,6 @@
 @include('clients.block.header_2')
-<section class="page-banner-two rel z-1">
+<section class="page-banner-two tour-detail-banner rel z-1">
     <div class="container-fluid">
-        <hr class="mt-0">
         <div class="container">
             <div class="banner-inner pt-15 pb-25">
                 <h2 class="page-title mb-10" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
@@ -76,10 +75,6 @@
             </div>
             <div class="col-xl-4 col-lg-5 text-lg-end" data-aos="fade-right" data-aos-duration="1500"
                 data-aos-offset="50">
-                <div class="tour-header-social mb-10">
-                    <a href="#"><i class="far fa-share-alt"></i>Share tours</a>
-                    <a href="#"><i class="fas fa-heart bgc-secondary"></i>Wish list</a>
-                </div>
             </div>
         </div>
         <hr class="mt-50 mb-70">
@@ -149,7 +144,7 @@
                     @endforeach
                 </div>
 
-                <h3>Đánh giá trải nghiệm</h3>
+                {{-- <h3>Đánh giá trải nghiệm</h3>
                 <div class="clients-reviews bgc-black mt-30 mb-60">
                     <div class="left">
                         <b>4.8</b>
@@ -377,15 +372,14 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                </form> --}}
 
             </div>
             <div class="col-lg-4 col-md-8 col-sm-10 rmt-75">
                 <div class="blog-sidebar tour-sidebar">
 
-                    <div class="widget widget-booking" data-aos="fade-up" data-aos-duration="1500"
-                        data-aos-offset="50">
-                        <h5 class="widget-title">Đặt tour</h5>
+                    <div class="widget widget-booking">
+                        <h5 class="widget-title">Thông tin tour</h5>
                         <form id="booking-form"
                             action="{{ route('booking.store', ['tourid' => $tourdetail->tourid]) }}" method="POST"
                             novalidate>
@@ -398,7 +392,7 @@
                                 </div>
                             @endif
 
-                            {{-- Lỗi chung: tour đóng, hết hạn hoặc không đủ chỗ --}}
+                            {{--tour đóng, hết hạn hoặc không đủ chỗ --}}
                             @error('booking')
                                 <p class="text-danger" role="alert">{{ $message }}</p>
                             @enderror
@@ -451,10 +445,8 @@
                                 @enderror
                             </div>
 
-                            <hr>
-
+                            {{-- <hr>
                             <h6>Thông tin liên hệ</h6>
-
                             <div class="form-group">
                                 <label for="booking-contact-name">Họ và tên</label>
 
@@ -466,7 +458,6 @@
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-
                             <div class="form-group">
                                 <label for="booking-contact-email">Email</label>
 
@@ -478,7 +469,6 @@
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
-
                             <div class="form-group">
                                 <label for="booking-contact-phone">Số điện thoại</label>
 
@@ -490,9 +480,8 @@
                                 @error('contactPhone')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
+                            </div> --}}
+                            {{-- <div class="form-group">
                                 <label for="booking-special-requests">
                                     Yêu cầu thêm (không bắt buộc)
                                 </label>
@@ -502,7 +491,7 @@
                                 @error('specialRequests')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             @auth
                                 <button type="submit" class="theme-btn style-two w-100 mt-15 mb-5">
@@ -527,8 +516,7 @@
                         </form>
                     </div>
 
-                    <div class="widget widget-contact" data-aos="fade-up" data-aos-duration="1500"
-                        data-aos-offset="50">
+                    <div class="widget widget-contact">
                         <h5 class="widget-title">Cần hỗ trợ thêm liên hệ ngay</h5>
                         <ul class="list-style-one">
                             <li><i class="far fa-envelope"></i> <a

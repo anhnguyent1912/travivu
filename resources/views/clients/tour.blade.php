@@ -15,8 +15,7 @@
                     <div class="div_filter_clear">
                         <a href="{{ route('Tour') }}" class="clear_filter">Xóa bộ lọc</a>
                     </div>
-                    <div class="widget widget-filter" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                        data-aos-offset="50">
+                    <div class="widget widget-filter">
                         <h6 class="widget-title">Lọc theo giá</h6>
                         <div class="price-filter-wrap">
                             <div class="price-slider-range"></div>
@@ -30,8 +29,7 @@
                                 value="{{ request('max_price', 10000000) }}">
                         </div>
                     </div>
-                    <div class="widget widget-activity" data-aos="fade-up" data-aos-duration="1500"
-                        data-aos-offset="50">
+                    <div class="widget widget-activity">
                         <h6 class="widget-title">Điểm đến</h6>
                         <ul class="radio-filter">
                             <li>
@@ -56,7 +54,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="widget widget-reviews" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                    {{-- <div class="widget widget-reviews">
                         <h6 class="widget-title">Đánh giá</h6>
                         <ul class="radio-filter">
                             <li>
@@ -82,10 +80,9 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
+                    </div> --}}
 
-                    <div class="widget widget-languages" data-aos="fade-up" data-aos-duration="1500"
-                        data-aos-offset="50">
+                    <div class="widget widget-languages">
                         <h6 class="widget-title">Thời gian</h6>
                         <ul class="radio-filter">
                             <li>
@@ -94,11 +91,11 @@
                                 <label for="duration_all">Tất cả</label>
                             </li>
                             @foreach ([
-        '1n1d' => '1 ngày 1 đêm',
-        '3n2d' => '3 ngày 2 đêm',
-        '4n3d' => '4 ngày 3 đêm',
-        '5n4d' => '5 ngày 4 đêm',
-    ] as $value => $label)
+                                        '1n1d' => '1 ngày 1 đêm',
+                                        '3n2d' => '3 ngày 2 đêm',
+                                        '4n3d' => '4 ngày 3 đêm',
+                                        '5n4d' => '5 ngày 4 đêm',
+                                    ] as $value => $label)
                                 <li>
                                     <input class="form-check-input" type="radio" name="duration"
                                         id="duration_{{ $value }}" value="{{ $value }}"
@@ -116,8 +113,7 @@
                     </button>
                 </form>
 
-                <div class="widget widget-cta mt-30" data-aos="fade-up" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="widget widget-cta mt-30">
                     <div class="content text-white">
                         <span class="h6">Khám phá Việt Nam</span>
                         <h3>Địa điểm du lịch tôt nhất</h3>
@@ -164,12 +160,10 @@
                 <div class="tour-grid-wrap">
                     <div class="row">
                         @forelse ($tours as $tour)
-                            <div class="col-xl-4 col-md-6">
-                                <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                                    data-aos-duration="1500" data-aos-offset="50">
+                            <div class="col-xl-4 col-md-6 d-flex">
+                                <div class="destination-item tour-grid style-three bgc-lighter">
                                     <div class="image">
                                         <span class="badge bgc-pink">yêu thích</span>
-                                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
                                         <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}"
                                             alt="Tour List">
                                     </div>
@@ -223,4 +217,4 @@
     </div>
 </section>
 <!-- Tour Grid Area end -->
-@include('clients.block.footer_2')
+@include('clients.block.footer_2', ['disableAos' => true])

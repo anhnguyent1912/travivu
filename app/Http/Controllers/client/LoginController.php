@@ -113,7 +113,7 @@ class LoginController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Tài khoản đã được tạo nhưng chưa gửi được email. '
-                    . 'Vui lòng sử dụng chức năng gửi lại email kích hoạt.',
+                    . 'Vui lòng liên hệ quản trị viên để được hỗ trợ kích hoạt tài khoản.',
             ], 503);
         }
 
@@ -206,40 +206,6 @@ class LoginController extends Controller
             'message' => 'Đăng nhập thành công!',
             'redirectUrl' => route('home'),
         ]);
-    }
-    public function resendActivation(Request $request)
-    {
-        $data = $request->validate([
-            'email' => ['required', 'email', 'max:255'],
-        ], [
-            'email.required' => 'Vui lòng nhập email đã đăng ký.',
-            'email.email' => 'Địa chỉ email không hợp lệ.',
-            'email.max' => 'Email không được vượt quá 255 ký tự.',
-        ]);
-
-        $user = User::where('email', $data['email'])
-            ->where('isActive', 'n')
-            ->whereNull('status')
-            ->first();
-
-        if ($user) {
-            try {
-                $this->sendActivationEmail($user);
-            } catch (\Throwable $exception) {
-                report($exception);
-
-                return redirect()->route('login')->with(
-                    'error',
-                    'Chưa gửi được email. Vui lòng thử lại sau.'
-                );
-            }
-        }
-
-        return redirect()->route('login')->with(
-            'message',
-            'Nếu email thuộc tài khoản đang chờ kích hoạt, '
-                . 'hệ thống đã gửi liên kết mới.'
-        );
     }
     public function logout(Request $request)
     {

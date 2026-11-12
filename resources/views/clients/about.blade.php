@@ -5,11 +5,11 @@
 <section class="about-area-two py-100 rel z-1">
     <div class="container">
         <div class="row justify-content-between">
-            <div class="col-xl-3" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
+            <div class="col-xl-3">
                 <span class="subtitle mb-35">Về chúng tôi</span>
             </div>
             <div class="col-xl-9">
-                <div class="about-page-content" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+                <div class="about-page-content">
                     <div class="row">
                         <div class="col-lg-8 pe-lg-5 me-lg-5">
                             <div class="section-title mb-25">
@@ -54,19 +54,17 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-4 col-md-6">
-                <div class="about-feature-image" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="about-feature-image">
                     <img src="{{asset('clients/assets/images/about/about-feature1.jpg')}}" alt="About">
                 </div>
             </div>
             <div class="col-xl-4 col-md-6">
-                <div class="about-feature-image" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="about-feature-image">
                     <img src="{{asset('clients/assets/images/about/about-feature2.jpg')}}" alt="About">
                 </div>
             </div>
             <div class="col-xl-4 col-md-8">
-                <div class="about-feature-boxes" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="about-feature-boxes">
                     <div class="feature-item style-three bgc-secondary">
                         <div class="icon-title">
                             <div class="icon"><i class="flaticon-award-symbol"></i></div>
@@ -99,8 +97,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-5 col-lg-6">
-                <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="about-us-content rmb-55">
                     <div class="section-title mb-25">
                         <h2>Du lịch với sự tự tin Lý do hàng đầu để chọn công ty của chúng tôi</h2>
                     </div>
@@ -127,7 +124,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-xl-7 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
+            <div class="col-xl-7 col-lg-6">
                 <div class="about-us-page">
                     <img src="{{asset('clients/assets/images/about/about-page.jpg')}}" alt="About">
                 </div>
@@ -143,8 +140,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-                <div class="section-title text-center counter-text-wrap mb-50" data-aos="fade-up"
-                    data-aos-duration="1500" data-aos-offset="50">
+                <div class="section-title text-center counter-text-wrap mb-50">
                     <h2>Gặp gỡ những hướng dẫn viên du lịch giàu kinh nghiệm của chúng tôi</h2>
                     <p>Website với <span class="count-text plus bgc-primary" data-speed="3000"
                             data-stop="1024">0</span> trải nghiệm phổ biến nhất mà bạn sẽ nhớ</p>
@@ -153,8 +149,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item hover-content" data-aos="fade-up" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="team-item hover-content">
                     <img src="assets/images/team/guide1.jpg" alt="Guide">
                     <div class="content">
                         <h6>John L. Simmons</h6>
@@ -169,8 +164,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item hover-content" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="team-item hover-content">
                     <img src="assets/images/team/guide2.jpg" alt="Guide">
                     <div class="content">
                         <h6>Andrew K. Manley</h6>
@@ -185,8 +179,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item hover-content" data-aos="fade-up" data-aos-delay="100"
-                    data-aos-duration="1500" data-aos-offset="50">
+                <div class="team-item hover-content">
                     <img src="assets/images/team/guide3.jpg" alt="Guide">
                     <div class="content">
                         <h6>Drew J. Bridges</h6>
@@ -201,8 +194,7 @@
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="team-item hover-content" data-aos="fade-up" data-aos-delay="150"
-                    data-aos-duration="1500" data-aos-offset="50">
+                <div class="team-item hover-content">
                     <img src="assets/images/team/guide4.jpg" alt="Guide">
                     <div class="content">
                         <h6>Byron F. Simpson</h6>
@@ -225,14 +217,12 @@
 <!-- Features Area start -->
 <section class="about-feature-two bgc-black pt-100 pb-45 rel z-1">
     <div class="container">
-        <div class="section-title text-center text-white counter-text-wrap mb-50" data-aos="fade-up"
-            data-aos-duration="1500" data-aos-offset="50">
+        <div class="section-title text-center text-white counter-text-wrap mb-50">
             <h2>Làm thế nào để hưởng lợi từ các chuyến du lịch của chúng tôi</h2>
             <p>Website với <span class="count-text plus" data-speed="3000" data-stop="2040">0</span> trải nghiệm phổ biến nhất mà bạn sẽ nhớ</p>
         </div>
         <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="feature-item style-two">
                     <div class="icon"><i class="flaticon-save-money"></i></div>
                     <div class="content">
@@ -241,8 +231,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="feature-item style-two">
                     <div class="icon"><i class="flaticon-travel-1"></i></div>
                     <div class="content">
@@ -251,8 +240,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="feature-item style-two">
                     <div class="icon"><i class="flaticon-booking"></i></div>
                     <div class="content">
@@ -261,8 +249,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="feature-item style-two">
                     <div class="icon"><i class="flaticon-guidepost"></i></div>
                     <div class="content">
@@ -284,27 +271,23 @@
 {{-- <div class="client-logo-area mb-100">
     <div class="container">
         <div class="client-logo-wrap pt-60 pb-55">
-            <div class="text-center mb-40" data-aos="zoom-in" data-aos-duration="1500" data-aos-offset="50">
+            <div class="text-center mb-40">
                 <h6>We’re recommended by:</h6>
             </div>
             <div class="client-logo-active">
-                <div class="client-logo-item" data-aos="flip-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="client-logo-item">
                     <a href="#"><img src="assets/images/client-logos/client-logo1.png" alt="Client Logo"></a>
                 </div>
-                <div class="client-logo-item" data-aos="flip-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="client-logo-item">
                     <a href="#"><img src="assets/images/client-logos/client-logo2.png" alt="Client Logo"></a>
                 </div>
-                <div class="client-logo-item" data-aos="flip-up" data-aos-delay="100" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="client-logo-item">
                     <a href="#"><img src="assets/images/client-logos/client-logo3.png" alt="Client Logo"></a>
                 </div>
-                <div class="client-logo-item" data-aos="flip-up" data-aos-delay="150" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="client-logo-item">
                     <a href="#"><img src="assets/images/client-logos/client-logo4.png" alt="Client Logo"></a>
                 </div>
-                <div class="client-logo-item" data-aos="flip-up" data-aos-delay="200" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="client-logo-item">
                     <a href="#"><img src="assets/images/client-logos/client-logo5.png" alt="Client Logo"></a>
                 </div>
             </div>
@@ -313,4 +296,4 @@
 </div> --}}
 <!-- Client Logo Area end -->
 
-@include('clients.block.footer')
+@include('clients.block.footer', ['disableAos' => true])

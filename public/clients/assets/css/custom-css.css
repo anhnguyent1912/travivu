@@ -1,3 +1,43 @@
+/* Nút hiện/ẩn mật khẩu cho đăng nhập, đăng ký và hồ sơ */
+.password-visibility {
+    position: relative;
+    width: 100%;
+}
+
+.password-visibility input[type="password"],
+.password-visibility input[type="text"] {
+    padding-right: 46px;
+}
+
+.password-visibility .password-visibility-toggle {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #52665a;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.password-visibility-toggle:focus-visible {
+    outline: 2px solid #63ab45;
+    outline-offset: -2px;
+}
+
+.password-visibility input::-ms-reveal {
+    display: none;
+}
+
 .datetimepicker-custom {
     padding: 0;
 }
@@ -88,8 +128,22 @@
 .block_tours {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    width: 100%;
+}
+
+.block_tours .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.block_tours .time {
+    margin-top: auto;
+}
+
+.block_tours .image img {
+    aspect-ratio: 8 / 5;
+    object-fit: cover;
 }
 
 /* css tourdetail  */
@@ -126,9 +180,7 @@
     margin: 0 0 0 20px;
     text-align: right;
 }
-/****************************************
-*              PAGE TOURS              *
-* ***************************************/
+/*PAGE TOURS*/
 .div_filter_clear {
     display: flex;
     justify-content: end;
@@ -185,16 +237,12 @@
     flex-grow: 1;
     flex-direction: column;
 }
-/****************************************
-*              PAGE USER PROFILE        *
-* ***************************************/
+/* PAGE USER PROFILE */
 #card_change_password {
     display: none;
 }
 
-/****************************************
-*              PAGE CHECKOUT            *
-* ***************************************/
+/* PAGE CHECKOUT */
 .booking-container {
     max-width: 1200px;
     margin: auto;
@@ -432,15 +480,15 @@
     overflow-y: auto;
 }
 /*TOUR BOOKED*/
-.truncate-3-lines {
+/* .truncate-3-lines {
     display: -webkit-box; 
     -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical; 
     overflow: hidden; 
     text-overflow: ellipsis; 
     word-break: break-word; 
-}
-//
+} */
+/*tour grid */
 .tour-grid-page .price-filter-wrap .price {
     flex-direction: column;
     align-items: flex-start;
@@ -452,4 +500,48 @@
     min-width: 0;
     font-size: 12px;
     line-height: 1.5;
+}
+/*kc trang chi tiet */
+@media (min-width: 992px) {
+    .page-wrapper > .main-header + .tour-detail-banner {
+        margin-top: 130px;
+    }
+}
+/* Căn đều thẻ ở trang Tours */
+.tour-grid-wrap .destination-item.tour-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+.tour-grid-wrap .tour-grid .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tour-grid-wrap .tour-grid .content .blog-meta {
+    margin-top: auto;
+}
+
+.tour-grid-wrap .tour-grid .image img {
+    display: block;
+    aspect-ratio: 8 / 5;
+    object-fit: cover;
+}
+
+/* Căn giữa các biểu tượng mạng xã hội trong footer */
+.main-footer .social-style-one a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+}
+
+.main-footer .social-style-one a i {
+    display: block;
+    margin: 0;
+    line-height: 1;
 }

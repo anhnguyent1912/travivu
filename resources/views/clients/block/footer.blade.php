@@ -4,7 +4,7 @@
     <div class="container">
         <div class="footer-top pt-100 pb-30">
             <div class="row justify-content-between">
-                <div class="col-xl-5 col-lg-6" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="col-xl-5 col-lg-6" @unless($disableAos ?? false) data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-text">
                         <div class="footer-logo mb-25">
                             {{-- <a href="index.html"><img src="{{ asset('clients/assets/images/logos/logo.png') }}"
@@ -21,8 +21,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-5 col-lg-6" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col-xl-5 col-lg-6" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="section-title counter-text-wrap mb-35">
                         <h2>Đăng ký nhận bản tin</h2>
                         <p>Website <span class="count-text plus" data-speed="3000" data-stop="34500">0</span> trải
@@ -42,7 +42,7 @@
     <div class="widget-area pt-95 pb-45">
         <div class="container">
             <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2">
-                <div class="col col-small" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links">
                         <div class="footer-title">
                             <h5>Dịch vụ</h5>
@@ -54,8 +54,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-small" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links">
                         <div class="footer-title">
                             <h5>Công ty</h5>
@@ -67,8 +67,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-small" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links">
                         <div class="footer-title">
                             <h5>Điểm đến</h5>
@@ -80,8 +80,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-small" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links">
                         <div class="footer-title">
                             <h5>Thể loại</h5>
@@ -93,8 +93,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-md-6 col-10 col-small" data-aos="fade-up" data-aos-delay="200"
-                    data-aos-duration="1500" data-aos-offset="50">
+                <div class="col col-md-6 col-10 col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="200"
+                    data-aos-duration="1500" data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-contact">
                         <div class="footer-title">
                             <h5>Liên hệ</h5>

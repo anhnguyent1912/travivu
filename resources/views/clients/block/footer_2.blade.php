@@ -4,10 +4,10 @@
     <div class="widget-area">
         <div class="container">
             <div class="row row-cols-xxl-5 row-cols-xl-4 row-cols-md-3 row-cols-2">
-                <div class="col col-small" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-text">
                         <div class="footer-logo mb-40">
-                            <a href="{{ route('home') }}"><img src="{{ asset('clients/assets/images/logos/logo.png') }}" alt="Tralavivu"></a>
+                            {{-- <a href="{{ route('home') }}"><img src="{{ asset('clients/assets/images/logos/logo.png') }}" alt="Tralavivu"></a> --}}
                         </div>
                         <div class="footer-map">
                             <iframe
@@ -17,8 +17,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-small" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links ms-sm-5">
                         <div class="footer-title">
                             <h5>Dịch vụ</h5>
@@ -31,8 +31,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-small" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links ms-md-4">
                         <div class="footer-title">
                             <h5>Công ty</h5>
@@ -45,8 +45,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-small" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500"
-                    data-aos-offset="50">
+                <div class="col col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500"
+                    data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-links ms-lg-4">
                         <div class="footer-title">
                             <h5>Điểm đến</h5>
@@ -59,8 +59,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col col-md-6 col-10 col-small" data-aos="fade-up" data-aos-delay="200"
-                    data-aos-duration="1500" data-aos-offset="50">
+                <div class="col col-md-6 col-10 col-small" @unless($disableAos ?? false) data-aos="fade-up" data-aos-delay="200"
+                    data-aos-duration="1500" data-aos-offset="50" @endunless>
                     <div class="footer-widget footer-contact">
                         <div class="footer-title">
                             <h5>Liên hệ</h5>
