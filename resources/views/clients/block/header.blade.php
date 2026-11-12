@@ -35,10 +35,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-
     <link rel="stylesheet" href="{{ asset('clients/assets/css/jquery.datetimepicker.min.css')}}">
-    <link rel="stylesheet" href="{{asset('clients/assets/css/custom-css.css')}}">
-    //pro5
+    /* pro5 */
     <link rel="stylesheet" href="{{ asset('clients/assets/css/profile.css') }}">
 </head>
 <body>

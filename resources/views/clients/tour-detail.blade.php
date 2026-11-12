@@ -55,8 +55,8 @@
 <!-- Tour Header Area start -->
 <section class="tour-header-area pt-70 rel z-1">
     <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-xl-6 col-lg-7">
+        <div class="row align-items-center justify-content-between gy-4">
+            <div class="col-lg-7">
                 <div class="tour-header-content mb-15" data-aos="fade-left" data-aos-duration="1500"
                     data-aos-offset="50">
                     <span class="location d-inline-block mb-10"><i
@@ -73,8 +73,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-5 text-lg-end" data-aos="fade-right" data-aos-duration="1500"
-                data-aos-offset="50">
+            <div class="col-lg-4">
+                <div class="tour-header-booking">
+                    <p class="mb-5">Giá người lớn / người</p>
+                    <p class="tour-header-price mb-20">
+                        <strong>{{ number_format($tourdetail->priceAdult, 0, ',', '.') }}</strong>
+                        <span>VND</span>
+                    </p>
+                    <a href="#tour-booking" class="theme-btn style-two bgc-secondary w-100 justify-content-center">
+                        <span data-hover="Đặt ngay">Đặt ngay</span>
+                        <i class="fal fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <hr class="mt-50 mb-70">
@@ -378,14 +388,10 @@
             <div class="col-lg-4 col-md-8 col-sm-10 rmt-75">
                 <div class="blog-sidebar tour-sidebar">
 
-                    <div class="widget widget-booking">
+                    <div id="tour-booking" class="widget widget-booking" tabindex="-1">
                         <h5 class="widget-title">Thông tin tour</h5>
-                        <form id="booking-form"
-                            action="{{ route('booking.store', ['tourid' => $tourdetail->tourid]) }}" method="POST"
-                            novalidate>
-                            @csrf
-
-                            {{-- Thông báo lưu đơn thành công --}}
+                        <form id="booking-form" action="{{ route('checkout', ['tourid' => $tourdetail->tourid]) }}"method="GET">
+                            {{-- Thông báo lưu đơn--}}
                             @if (session('booking_success'))
                                 <div class="alert alert-success" role="status">
                                     {{ session('booking_success') }}

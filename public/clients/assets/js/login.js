@@ -110,7 +110,6 @@ const accountFieldLabels = {
     email_register: "email",
     password_register: "mật khẩu",
     re_pass: "mật khẩu xác nhận",
-    "activation-email": "email đã đăng ký",
 };
 
 Object.entries(accountFieldLabels).forEach(function ([id, label]) {

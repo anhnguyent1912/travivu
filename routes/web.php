@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\AboutController;
-use App\Http\Controllers\client\ServiceController;
 use App\Http\Controllers\client\TourController;
 use App\Http\Controllers\client\BookingController;
 use App\Http\Controllers\client\ContactController;
@@ -12,7 +11,6 @@ use App\Http\Controllers\client\InforController;
 use App\Http\Controllers\client\LoginController;
 use App\Http\Controllers\client\Tour_detailController;
 use App\Http\Controllers\client\SignupController;
-use App\Http\Controllers\client\Tour_guideController;
 use App\Http\Controllers\client\DestinationController;
 use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\LoginGoogleController;
@@ -31,8 +29,7 @@ Route::get(uri: '/about', action: [AboutController::class, 'index'])->name('abou
 Route::get(uri: '/Tour', action: [TourController::class, 'index'])->name('Tour');
 // Route::get(uri: '/booking', action: [BookingController::class, 'index'])->name('booking');  
 Route::get(uri: '/contact', action: [ContactController::class, 'index'])->name('contact');
-Route::get(uri: '/checkout', action: [CheckoutController::class, 'index'])->name('checkout');
-Route::get(uri: '/infor', action: [InforController::class, 'index'])->name('infor');
+Route::get('/checkout/{tourid}', [CheckoutController::class, 'index'])->whereNumber('tourid')->middleware('auth')->name('checkout');
 Route::get(uri: '/search', action: [SearchController::class, 'index'])->name('search');
 
 //login, register, logout
@@ -54,7 +51,6 @@ Route::get('auth/google/callback', [LoginGoogleController::class, 'handleGoogleC
 //
 Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::post('/tour-detail/{tourid}/booking', [BookingController::class, 'store'])->whereNumber('tourid')->middleware('auth')->name('booking.store');
-Route::get(uri: '/signup', action: [SignupController::class, 'index'])->name('signup');
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');
 //user

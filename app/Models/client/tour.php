@@ -15,17 +15,17 @@ class tour extends Model
     protected $table = 'tbl_tour';
 
     //Lay danh sach tour
-    public function getAllTour()
-    {
-        $AllTour = DB::table($this->table)
-            ->get();
-        foreach ($AllTour as $tour) {
-            $tour->images = DB::table('tbl_images')
-                ->where('tourid', $tour->tourid)
-                ->pluck('imageUrl');
-        }
-        return  $AllTour;
-    }
+    // public function getAllTour()
+    // {
+    //     $AllTour = DB::table($this->table)
+    //         ->get();
+    //     foreach ($AllTour as $tour) {
+    //         $tour->images = DB::table('tbl_images')
+    //             ->where('tourid', $tour->tourid)
+    //             ->pluck('imageUrl');
+    //     }
+    //     return  $AllTour;
+    // }
     //Lay chi tiet tour
     public function gettourdetail($id)
     {
