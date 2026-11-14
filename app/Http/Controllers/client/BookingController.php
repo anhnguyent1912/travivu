@@ -27,6 +27,8 @@ class BookingController extends Controller
             'contactEmail' => ['required', 'email', 'max:255'],
             'contactPhone' => ['required', 'string', 'regex:/\A[0-9]{10}\z/'],
             'specialRequests' => ['nullable', 'string', 'max:255'],
+            'contactAddress' => ['nullable', 'string', 'max:255'],
+            'paymentMethod' => ['required', 'in:office,bank'],
         ], [
             'required' => 'Vui lòng nhập :attribute.',
             'integer' => ':attribute phải là một số nguyên.',
@@ -42,6 +44,8 @@ class BookingController extends Controller
             'contactEmail.max' => 'Email không được vượt quá 255 ký tự.',
             'contactPhone.regex' => 'Số điện thoại phải gồm 10 chữ số.',
             'specialRequests.max' => 'Yêu cầu đặc biệt không được vượt quá 255 ký tự.',
+            'contactAddress.max' => 'Địa chỉ không được vượt quá 255 ký tự.',
+            'paymentMethod.in' => 'Phương thức thanh toán không hợp lệ.',
         ], [
             'adult_quantity' => 'số lượng người lớn',
             'child_quantity' => 'số lượng trẻ em',
@@ -49,6 +53,8 @@ class BookingController extends Controller
             'contactEmail' => 'email',
             'contactPhone' => 'số điện thoại',
             'specialRequests' => 'yêu cầu thêm',
+            'contactAddress' => 'địa chỉ liên hệ',
+            'paymentMethod' => 'phương thức thanh toán',
         ]);
         //Mặc định người đặt là tk đăng nhập
         $user = $request->user();
@@ -113,6 +119,8 @@ class BookingController extends Controller
             $booking->contactName = $data['contactName'];
             $booking->contactEmail = $data['contactEmail'];
             $booking->contactPhone = $data['contactPhone'];
+            $booking->contactAddress = $data['contactAddress'] ?? null;
+            $booking->paymentMethod = $data['paymentMethod'];
             $booking->specialRequests = $data['specialRequests'] ?? null;
 
             $booking->bookingStatus = 'pending';

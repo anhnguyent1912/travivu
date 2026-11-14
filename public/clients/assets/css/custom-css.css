@@ -22,7 +22,7 @@
     text-underline-offset: 3px;
 }
 
-/* Nút hiện/ẩn mật khẩu cho đăng nhập, đăng ký và hồ sơ */
+/* Nút hiện/ẩn mật khẩu  */
 .password-visibility {
     position: relative;
     width: 100%;
@@ -269,31 +269,157 @@
 }
 
 /* PAGE CHECKOUT */
-.booking-container {
-    max-width: 1200px;
+/* Khung trang */
+.checkout-page {
+    padding: 170px 0 50px;
+    background: #f7f8f5;
+    color: #1c231f;
+}
+
+.checkout-container {
+    width: 92%;
+    max-width: 1140px;
     margin: auto;
-    padding-top: 20px;
+}
+
+.checkout-description {
+    margin-bottom: 25px;
+}
+
+/* Chia hai phần */
+.checkout-layout {
     display: flex;
+    align-items: flex-start;
     gap: 24px;
 }
 
-.booking-container {
-    .booking__infor {
-        background-color: #f6f8fa;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border: none;
-        gap: 16px;
-        padding: 30px;
+.checkout-content {
+    width: 65%;
+}
+
+.checkout-summary {
+    width: 35%;
+}
+
+.checkout-box {
+    padding: 24px;
+    margin-bottom: 20px;
+    background: white;
+    border: 1px solid #e5e9e2;
+    border-radius: 12px;
+}
+
+.checkout-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.checkout-box h3 {
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+/* Ô nhập thông tin */
+.checkout-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.checkout-fields label {
+    flex: 1 1 200px;
+}
+
+.checkout-page label {
+    display: block;
+}
+
+.checkout-page input:not([type="radio"]),
+.checkout-page textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafbf9;
+    font: inherit;
+}
+
+.checkout-page textarea {
+    resize: vertical;
+}
+
+.checkout-page input:focus,
+.checkout-page textarea:focus,
+.checkout-page button:focus-visible {
+    outline: 2px solid #63ab45;
+}
+
+/* Thanh toán và giá */
+.checkout-page .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.payment-option input {
+    accent-color: #63ab45;
+}
+
+.checkout-price-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.checkout-total {
+    margin: 10px 0 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #d66a00;
+}
+
+.checkout-total span {
+    font-size: 16px;
+}
+
+.checkout-submit {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #f7921e;
+    color: #1c231f;
+    font: inherit;
+    cursor: pointer;
+}
+
+.checkout-page small,
+.checkout-page .payment-note {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #657068;
+}
+
+/* Màn hình nhỏ */
+@media (max-width: 991px) {
+    .checkout-page {
+        padding-top: 130px;
     }
 
-    .booking-info {
-        flex: 1;
+    .checkout-layout {
+        display: block;
     }
 
-    .booking-summary {
-        width: 400px;
+    .checkout-content,
+    .checkout-summary {
+        width: 100%;
     }
+}
 
     /* Header */
     .booking-header {

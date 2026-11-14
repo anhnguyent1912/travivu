@@ -317,12 +317,46 @@
 		});
         
         
-        // ## Price Range Fliter jQuery UI
-        if ($('.price-slider-range').length) {
-    function formatPrice(price) {
+        // ## sắp xếp theo giá
+        function formatPrice(price) {
         return price.toLocaleString('vi-VN') + ' VND';
-    }
+        }
+        //Cập nhật tiền khi thay đổi ở trang checkout
+        const checkout = $('.checkout-page');
+        if (checkout.length) {
+            const adultInput = checkout.find('[name="adult_quantity"]');
+            const childInput = checkout.find('[name="child_quantity"]');
+            const adultPrice = Number(adultInput.data('price'));
+            const childPrice = Number(childInput.data('price'));
 
+            function updateCheckout() {
+                // Không hiển thị tiền sai khi ô trống hoặc số khách không hợp lệ.
+                if (!adultInput[0].checkValidity() || !childInput[0].checkValidity()) {
+                    checkout.find(
+                        '#checkout-adults, #checkout-children, ' +
+                        '#checkout-adult-total, #checkout-child-total, ' +
+                        '#checkout-total-price'
+                    ).text('—');
+                    return;
+                }
+                const adults = Number(adultInput.val());
+                const children = Number(childInput.val());
+                const adultTotal = adults * adultPrice;
+                const childTotal = children * childPrice;
+                const total = adultTotal + childTotal;
+                checkout.find('#checkout-adults').text(adults);
+                checkout.find('#checkout-children').text(children);
+                checkout.find('#checkout-adult-total').text(formatPrice(adultTotal));
+                checkout.find('#checkout-child-total').text(formatPrice(childTotal));
+                checkout.find('#checkout-total-price').text(
+                    total.toLocaleString('vi-VN')
+                );
+            }
+            adultInput.add(childInput).on('input change', updateCheckout);
+
+            updateCheckout();
+        }
+        if ($('.price-slider-range').length) {
     function updatePrice(minPrice, maxPrice) {
         $('#price').val(
             formatPrice(minPrice) + ' - ' + formatPrice(maxPrice)
