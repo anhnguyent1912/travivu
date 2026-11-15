@@ -271,9 +271,9 @@
 /* PAGE CHECKOUT */
 /* Khung trang */
 .checkout-page {
-    padding: 170px 0 50px;
+    padding: 170px 0 60px;
     background: #f7f8f5;
-    color: #1c231f;
+    color: var(--heading-color);
 }
 
 .checkout-container {
@@ -282,30 +282,34 @@
     margin: auto;
 }
 
-.checkout-description {
-    margin-bottom: 25px;
+.checkout-page h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
 }
 
 /* Chia hai phần */
 .checkout-layout {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    align-items: start;
     gap: 24px;
 }
 
-.checkout-content {
-    width: 65%;
+/* Cho bảng tổng tiền bám theo cửa sổ */
+.page-wrapper:has(.checkout-page) {
+    overflow: clip;
 }
 
 .checkout-summary {
-    width: 35%;
+    position: sticky;
+    top: 150px;
 }
 
 .checkout-box {
     padding: 24px;
     margin-bottom: 20px;
     background: white;
-    border: 1px solid #e5e9e2;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
 }
 
@@ -337,11 +341,11 @@
 .checkout-page input:not([type="radio"]),
 .checkout-page textarea {
     width: 100%;
-    padding: 12px;
+    padding: 12px 16px;
     margin-top: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    background: #fafbf9;
+    background: var(--lighter-color);
     font: inherit;
 }
 
@@ -352,7 +356,7 @@
 .checkout-page input:focus,
 .checkout-page textarea:focus,
 .checkout-page button:focus-visible {
-    outline: 2px solid #63ab45;
+    outline: 2px solid var(--primary-color);
 }
 
 /* Thanh toán và giá */
@@ -363,8 +367,8 @@
     margin-bottom: 15px;
 }
 
-.payment-option input {
-    accent-color: #63ab45;
+.checkout-page .payment-option input {
+    accent-color: var(--primary-color);
 }
 
 .checkout-price-row {
@@ -386,17 +390,6 @@
     font-size: 16px;
 }
 
-.checkout-submit {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #f7921e;
-    color: #1c231f;
-    font: inherit;
-    cursor: pointer;
-}
-
 .checkout-page small,
 .checkout-page .payment-note {
     display: block;
@@ -415,9 +408,16 @@
         display: block;
     }
 
-    .checkout-content,
     .checkout-summary {
-        width: 100%;
+        position: static;
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 575px) {
+    .checkout-page h1 {
+        font-size: 28px;
     }
 }
 

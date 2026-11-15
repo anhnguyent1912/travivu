@@ -18,6 +18,18 @@ class CheckoutController extends Controller
         $tour = DB::table('tbl_tour')->where('tourid', $tourid)->first();
 
         abort_if(!$tour, 404, 'Tour không tồn tại.');
+        //Kiểm tra tour đã kết thúc chưa
+        if (
+            (int) $tour->availability !== 1 ||
+            !$tour->startDate ||
+            $tour->startDate <= today()->toDateString()
+        ) {
+            return redirect()
+                ->route('tour-detail', ['id' => $tourid])
+                ->withErrors([
+                    'booking' => 'Tour hiện không mở đặt hoặc đã hết hạn đặt.',
+                ]);
+        }
         //Lấy số khách từ trang chi tiết
         $data = $request->validate([
             'adult_quantity' => 'required|integer|min:1|max:100',
@@ -27,7 +39,7 @@ class CheckoutController extends Controller
             'integer' => ':attribute phải là số nguyên.',
             'min' => ':attribute phải lớn hơn hoặc bằng :min.',
             'max' => ':attribute phải nhỏ hơn hoặc bằng :max.',
-        ],[
+        ], [
             'adult_quantity' => 'Số lượng người lớn',
             'child_quantity' => 'Số lượng trẻ em',
         ]);
@@ -43,10 +55,15 @@ class CheckoutController extends Controller
         $totalPrice = $adultTotal + $childTotal;
 
         return view('clients.checkout', compact(
-            'title', 'tour',
-            'numAdults', 'numChildren',
-            'unitPriceAdult','unitPriceChild',
-            'adultTotal','childTotal','totalPrice'
+            'title',
+            'tour',
+            'numAdults',
+            'numChildren',
+            'unitPriceAdult',
+            'unitPriceChild',
+            'adultTotal',
+            'childTotal',
+            'totalPrice'
         ));
     }
 

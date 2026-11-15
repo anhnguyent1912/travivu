@@ -37,4 +37,4 @@
     </div>
 </main>
 
-@include('clients.block.footer_2', ['disableAos' => true])
+@include('clients.block.footer', ['disableAos' => true])

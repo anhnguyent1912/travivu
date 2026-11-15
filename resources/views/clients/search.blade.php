@@ -98,4 +98,4 @@
             </div>
         </section>
         <!-- Tour Grid Area end -->
-@include('clients.block.footer_2')
+@include('clients.block.footer')
