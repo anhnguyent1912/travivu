@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\AboutController;
@@ -25,7 +25,6 @@ Route::fallback(function () {
     return response()->view('clients.errors.404', [], 404);
 });
 Route::get(uri: '/about', action: [AboutController::class, 'index'])->name('about');
-// Route::get(uri: '/service', action: [ServiceController::class, 'index'])->name('service');
 Route::get(uri: '/Tour', action: [TourController::class, 'index'])->name('Tour');
 // Route::get(uri: '/booking', action: [BookingController::class, 'index'])->name('booking');  
 Route::get(uri: '/contact', action: [ContactController::class, 'index'])->name('contact');
@@ -51,9 +50,18 @@ Route::get('auth/google/callback', [LoginGoogleController::class, 'handleGoogleC
 //
 Route::get(uri: '/tour-detail/{id?}', action: [Tour_detailController::class, 'index'])->name('tour-detail');
 Route::post('/tour-detail/{tourid}/booking', [BookingController::class, 'store'])->whereNumber('tourid')->middleware('auth')->name('booking.store');
+Route::get('/booking/{bookingid}/success', [BookingController::class, 'show'])->whereNumber('bookingid')->middleware('auth')->name('booking.success');
+Route::get('/booking', [BookingController::class, 'index'])->middleware('auth')->name('booking.index');
+Route::patch('/booking/{bookingid}/cancel', [BookingController::class, 'cancel'])->whereNumber('bookingid')->middleware('auth')->name('booking.cancel');
+
 Route::get(uri: '/destination', action: [DestinationController::class, 'index'])->name('destination');
 Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name('blog');
 //user
 Route::get('/user-profile', [InformationController::class, 'index'])->middleware('auth')->name('user-profile');
 Route::patch('/user-profile', [InformationController::class, 'update'])->middleware('auth')->name('user-profile.update');
 Route::patch('/user-profile/password', [InformationController::class, 'updatePassword'])->middleware(['auth', 'throttle:5,1'])->name('user-profile.password');
+//admin
+Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
+Route::post('/admin/login', [AdminLoginController::class, 'login'])->middleware('throttle:5,1,admin-login')->name('admin.login.submit');
+Route::get('/admin/dashboard', [AdminLoginController::class, 'dashboard'])->middleware('auth:admin')->name('admin.dashboard');
+Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');

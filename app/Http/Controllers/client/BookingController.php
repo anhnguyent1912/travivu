@@ -8,14 +8,32 @@ use App\Models\client\Booking;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
+
 class BookingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        return view('clients.booking');
+        $title = 'Tour đã đặt';
+
+        $bookings = Booking::query()
+            ->leftJoin('tbl_tour', 'tbl_booking.tourid', '=', 'tbl_tour.tourid')
+            ->where('tbl_booking.userid', $request->user()->userid)
+            ->select('tbl_booking.*', 'tbl_tour.title as tour_title')
+            ->orderByDesc('tbl_booking.bookingDate')
+            ->orderByDesc('tbl_booking.bookingid')
+            ->paginate(5);
+
+        $statusLabels = [
+            'pending' => 'Chờ xác nhận',
+            'confirmed' => 'Đã xác nhận',
+            'cancelled' => 'Đã hủy',
+        ];
+
+        return view('clients.booking', compact(
+            'title',
+            'bookings',
+            'statusLabels'
+        ));
     }
 
     public function store(Request $request, string $tourid)
@@ -65,7 +83,7 @@ class BookingController extends Controller
             abort_if(!$tour, 404, 'Tour không tồn tại.');
 
             //Kiểm tra tour đã mở đặt chưa
-            if((int)$tour->availability !==1) {
+            if ((int)$tour->availability !== 1) {
                 throw ValidationException::withMessages([
                     'booking' => 'Tour hiện không mở đặt.',
                 ]);
@@ -84,7 +102,7 @@ class BookingController extends Controller
             //Tính số chỗ đã được giữ
             $reservedSeats = (int) DB::table('tbl_booking')
                 ->where('tourid', $tourid)
-                ->whereIn('bookingStatus', ['pending','confirmed'])
+                ->whereIn('bookingStatus', ['pending', 'confirmed'])
                 ->sum(DB::raw('numAdults + numChildren'));
 
             $remainingSeats = max(0, (int) $tour->quantity - $reservedSeats);
@@ -129,24 +147,54 @@ class BookingController extends Controller
             return $booking;
         });
         return redirect()
-    ->route('tour-detail', ['id' => $tourid])
-    ->with('booking_success',"Đã tạo đơn #{$booking->bookingid}. Đơn đang chờ xác nhận.");
+            ->route('booking.success', ['bookingid' => $booking->bookingid])
+            ->with('booking_success', 'Đặt tour thành công! Đơn của bạn đang chờ xác nhận.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, string $bookingid)
     {
-        //
+        $title = 'Thông tin đặt hàng';
+
+        $booking = Booking::where('userid', $request->user()->userid) //ng dat
+            ->where('bookingid', $bookingid) //don
+            ->firstOrFail();
+
+        $tour = DB::table('tbl_tour')->where('tourid', $booking->tourid)->first();
+
+        $statusLabels = [
+            'pending' => 'Chờ xác nhận',
+            'confirmed' => 'Đã xác nhận',
+            'cancelled' => 'Đã hủy',
+        ];
+
+        $statusText = $statusLabels[$booking->bookingStatus] ?? 'Đang cập nhật';
+
+        return view('clients.booking-status', compact('title', 'booking', 'tour', 'statusText'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function cancel(Request $request, string $bookingid)
     {
-        //
+        $booking = Booking::where('userid', $request->user()->userid)->where('bookingid', $bookingid)->firstOrFail();
+        //CHỉ hủy khi đang chờ xác nhận
+        $updated = Booking::where('bookingid', $booking->bookingid)
+            ->where('userid', $request->user()->userid)
+            ->where('bookingStatus', 'pending')
+            ->update(['bookingStatus' => 'cancelled',]);
+
+        if (!$updated){
+            return back()->with(
+                'booking_error', 'Chỉ có thể hủy đơn hàng khi chưa xác nhận.'
+            );
+        }
+        return back()->with(
+            'booking_success', 'Đã hủy đơn đặt tour thành công.'
+        );
     }
 
     /**

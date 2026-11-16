@@ -743,3 +743,14 @@
     margin: 0;
     line-height: 1;
 }
+/* Trang kết quả đặt tour */
+.booking-success-page {
+    padding: 170px 0 60px;
+    background: #f7f8f5;
+}
+
+@media (max-width: 991px) {
+    .booking-success-page {
+        padding-top: 130px;
+    }
+}

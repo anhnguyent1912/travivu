@@ -114,7 +114,7 @@
                                         @auth
                                             <li class="dropdown-header">{{ auth()->user()->fullname ?: auth()->user()->username }}</li>
                                             <li><a href="{{ route('user-profile') }}">Thông tin cá nhân</a></li>
-                                            <li><a href="{{ route('login') }}">Tour đã đặt</a></li>
+                                            <li><a href="{{ route('booking.index') }}">Tour đã đặt</a></li>
                                             <li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf

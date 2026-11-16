@@ -4,7 +4,6 @@
     $profile = auth()->user();
     $displayName = $profile?->fullname ?: ($profile?->username ?: 'Tài khoản của bạn');
     $initial = mb_strtoupper(mb_substr(trim($displayName), 0, 1));
-    $hasGoogle = filled($profile?->googleid);
     $isActive = $profile?->isActive === 'Y';
 @endphp
 
@@ -13,17 +12,19 @@
         <div class="profile-heading">
             <div>
                 <h1>Thông tin cá nhân</h1>
-                <p>Xem thông tin tài khoản và phương thức đăng nhập.</p>
+                <p>Cập nhật thông tin cá nhân và quản lý bảo mật tài khoản.</p>
             </div>
-            <a class="profile-explore" href="{{ route('Tour') }}">Khám phá tour <i class="fal fa-arrow-up-right"
-                    aria-hidden="true"></i><span aria-hidden="true">↗</span></a>
+            <a class="theme-btn style-three" href="{{ route('Tour') }}">
+                <span data-hover="Khám phá tour">Khám phá tour</span>
+                <i class="fal fa-arrow-right" aria-hidden="true"></i>
+            </a>
         </div>
 
         @if ($profile)
             <div class="profile-layout">
                 <aside class="profile-sidebar" aria-label="Tóm tắt tài khoản">
                     <section class="profile-card profile-identity">
-                        <div class="profile-cover" aria-hidden="true"><span>TRAVIVU</span></div>
+                        <div class="profile-cover" aria-hidden="true"><span>VIVUTRAVEL</span></div>
                         <div class="profile-identity-content">
                             <div class="profile-avatar" aria-hidden="true">{{ $initial }}</div>
                             <h2>{{ $displayName }}</h2>
@@ -57,7 +58,7 @@
                                     aria-hidden="true"></i></span>
                             <div>
                                 <h2>Thông tin tài khoản</h2>
-                                <p>Thông tin hiện tại của bạn trên Web.</p>
+                                <p>Tên đăng nhập và email chỉ dùng để xem.</p>
                             </div>
                         </div>
                         <form class="profile-card-body" method="POST" action="{{ route('user-profile.update') }}">
@@ -73,10 +74,10 @@
                             <div class="profile-fields">
                                 <div class="profile-field"><label for="profile-fullname">Họ và tên</label>
                                     <input id="profile-fullname" type="text"
-                                        value="{{ old('fullname', $profile->fullname) }}" placeholder="Nhập học và tên"
+                                        value="{{ old('fullname', $profile->fullname) }}" placeholder="Nhập họ và tên"
                                         maxlength="70" name="fullname">
                                     @error('fullname')
-                                        <small class="alert alert-danger">{{ $message }}</small>
+                                        <small class="text-danger" role="alert">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="profile-field"><label for="profile-username">Tên đăng nhập</label><input
@@ -89,9 +90,9 @@
                                 <div class="profile-field"><label for="profile-phone">Số điện thoại</label>
                                     <input id="profile-phone" type="tel"
                                         value="{{ old('phoneNumber', $profile->phoneNumber) }}"
-                                        placeholder="Nhập số điện thoại" maxlength="10"name="phoneNumber">
+                                        placeholder="Nhập số điện thoại" maxlength="10" name="phoneNumber">
                                     @error('phoneNumber')
-                                        <small class="alert alert-danger">{{ $message }}</small>
+                                        <small class="text-danger" role="alert">{{ $message }}</small>
                                     @enderror
                                 </div>
                                 <div class="profile-field"><label for="profile-address">Địa chỉ</label><input
@@ -99,19 +100,27 @@
                                         value="{{ old('address', $profile->address) }}" placeholder="Nhập địa chỉ"
                                         maxlength="255" name="address">
                                     @error('address')
-                                        <small class="alert alert-danger">{{ $message }}</small>
+                                        <small class="text-danger" role="alert">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button type="submit" class="profile-explore">
-                                    Lưu thay đổi
+                                <button type="submit" class="theme-btn">
+                                    <span data-hover="Lưu thay đổi">Lưu thay đổi</span>
+                                    <i class="fal fa-arrow-right" aria-hidden="true"></i>
                                 </button>
                             </div>
                         </form>
                     </section>
 
                     <section id="profile-security" class="profile-card">
+                        <div class="profile-card-heading">
+                            <span class="profile-section-icon"><i class="far fa-lock" aria-hidden="true"></i></span>
+                            <div>
+                                <h2>Đổi mật khẩu</h2>
+                                <p>Quản lý mật khẩu đăng nhập của bạn.</p>
+                            </div>
+                        </div>
                         <div class="profile-card-body">
                             @if (session('login_method') === 'password')
                                 @if (session('password_success'))
@@ -120,7 +129,7 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('user-profile.password') }}"novalidate>
+                                <form method="POST" action="{{ route('user-profile.password') }}" novalidate>
                                     @csrf
                                     @method('PATCH')
                                     <div class="profile-field">
@@ -128,7 +137,7 @@
                                         <input id="current-password" name="current_password" type="password"
                                             autocomplete="current-password" required>
                                         @error('current_password')
-                                            <small class="text-danger">{{ $message }}</small>
+                                            <small class="text-danger" role="alert">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="profile-field mt-2">
@@ -137,7 +146,7 @@
                                             autocomplete="new-password" minlength="8" required>
 
                                         @error('password')
-                                            <small class="text-danger">{{ $message }}</small>
+                                            <small class="text-danger" role="alert">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="profile-field mt-2">
@@ -145,13 +154,16 @@
                                         <input id="confirm-password" name="password_confirmation" type="password"
                                             autocomplete="new-password" required>
                                         @error('password_confirmation')
-                                            <small class="text-danger">{{ $message }}</small>
+                                            <small class="text-danger" role="alert">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    <button type="submit" class="profile-explore mt-3">Đổi mật khẩu</button>
+                                    <button type="submit" class="theme-btn mt-3">
+                                        <span data-hover="Đổi mật khẩu">Đổi mật khẩu</span>
+                                        <i class="fal fa-arrow-right" aria-hidden="true"></i>
+                                    </button>
                                 </form>
                             @elseif (session('login_method') === 'google')
-                                <p>Bạn đang đăng nhập bằng tài khoản Google.Không thể đổi mật khẩu.</p>
+                                <p class="mb-0">Bạn đang đăng nhập bằng Google nên không thể đổi mật khẩu tại đây.</p>
                             @else
                                 <p>Vui lòng đăng nhập để thay đổi mật khẩu.</p>
                             @endif
@@ -164,7 +176,7 @@
         @else
             <section class="profile-card profile-guest">
                 <h2>Đăng nhập để xem hồ sơ</h2>
-                <p>Thông tin cá nhân chỉ hiển thị khi bạn đăng nhập tài khoản.</p><a class="profile-explore"
+                <p>Thông tin cá nhân chỉ hiển thị khi bạn đăng nhập tài khoản.</p><a class="theme-btn"
                     href="{{ route('login') }}">Đăng nhập</a>
             </section>
         @endif

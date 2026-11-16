@@ -1,12 +1,9 @@
 .profile-page {
-    --profile-ink: #193c35;
-    --profile-green: #236857;
-    --profile-line: #e4eae6;
-    background: #f5f7f5;
-    padding: 155px 24px 80px;
-    color: #273c35;
+    background: #f7f8f5;
+    padding: 170px 0 60px;
+    color: var(--heading-color);
     min-height: 75vh;
-    font-family: Outfit,Arial,sans-serif
+    font-family: var(--base-font)
 }
 
 .profile-page * {
@@ -14,7 +11,8 @@
 }
 
 .profile-shell {
-    max-width: 1160px;
+    width: 92%;
+    max-width: 1140px;
     margin: auto
 }
 
@@ -32,7 +30,7 @@
 }
 
 .profile-breadcrumb a:hover {
-    color: var(--profile-green)
+    color: var(--primary-color)
 }
 
 .profile-heading {
@@ -48,7 +46,7 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
-    color: var(--profile-green);
+    color: var(--primary-color);
     margin-bottom: 9px
 }
 
@@ -56,36 +54,15 @@
     font-size: 36px;
     line-height: 1.25;
     font-weight: 600;
-    letter-spacing: -1px;
-    color: var(--profile-ink);
-    margin: 0 0 10px
+    color: var(--heading-color);
+    margin: 0 0 12px
 }
 
 .profile-heading p {
-    font-size: 15px;
-    color: #69786f;
+    font-size: 16px;
+    color: var(--base-color);
     line-height: 1.6;
     margin: 0
-}
-
-.profile-explore {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    background: #fff;
-    border: 1px solid #d9e2db;
-    border-radius: 9px;
-    padding: 11px 17px;
-    color: var(--profile-green);
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap
-}
-
-.profile-explore:hover {
-    background: #eaf2ed;
-    color: var(--profile-green)
 }
 
 .profile-layout {
@@ -97,9 +74,8 @@
 
 .profile-card {
     background: #fff;
-    border: 1px solid var(--profile-line);
-    border-radius: 16px;
-    box-shadow: 0 4px 20px #183b2e04;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     overflow: hidden
 }
 
@@ -144,7 +120,7 @@
 .profile-identity h2 {
     font-size: 21px;
     line-height: 1.4;
-    color: var(--profile-ink);
+    color: var(--heading-color);
     margin: 0 0 5px;
     overflow-wrap: anywhere
 }
@@ -177,7 +153,7 @@
 .profile-account-id {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid var(--profile-line);
+    border-top: 1px solid var(--border-color);
     margin-top: 24px;
     padding-top: 18px;
     font-size: 12px;
@@ -208,7 +184,7 @@
 
 .profile-nav a:first-child {
     background: #edf4ee;
-    color: var(--profile-green)
+    color: var(--primary-color)
 }
 
 .profile-nav a:hover {
@@ -264,7 +240,7 @@
     align-items: center;
     gap: 14px;
     padding: 24px 28px;
-    border-bottom: 1px solid var(--profile-line)
+    border-bottom: 1px solid var(--border-color)
 }
 
 .profile-section-icon {
@@ -276,27 +252,27 @@
     flex-shrink: 0;
     border-radius: 11px;
     background: #eef4ef;
-    color: var(--profile-green);
+    color: var(--primary-color);
     font-size: 19px
 }
 
 .profile-card-heading h2 {
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.4;
-    color: var(--profile-ink);
+    color: var(--heading-color);
     margin: 0 0 3px;
     font-weight: 500
 }
 
 .profile-card-heading p {
-    font-size: 12px;
-    color: #7b877f;
+    font-size: 13px;
+    color: var(--base-color);
     line-height: 1.6;
     margin: 0
 }
 
 .profile-card-body {
-    padding: 26px 28px
+    padding: 24px
 }
 
 .profile-fields {
@@ -315,24 +291,22 @@
 
 .profile-field label {
     display: block;
-    font-size: 13px;
-    color: #435a4e;
+    font-size: 16px;
+    color: var(--heading-color);
     margin: 0 0 8px;
-    font-weight: 500
+    font-weight: 400
 }
 
 .profile-field input {
     width: 100%;
     min-width: 0;
-    height: 46px;
-    padding: 10px 13px;
+    padding: 12px 16px;
     margin: 0;
-    background: #fafbf9;
-    border: 1px solid #e2e8e1;
+    background: var(--lighter-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    color: #334c3f;
-    font-size: 14px;
-    line-height: 1.5;
+    color: var(--heading-color);
+    font: inherit;
     box-shadow: none
 }
 
@@ -342,9 +316,18 @@
 
 .profile-field small {
     display: block;
-    font-size: 11px;
-    color: #7d887f;
+    font-size: 13px;
+    color: var(--base-color);
     margin-top: 7px
+}
+
+.profile-field input[readonly] {
+    background: #eef1ec;
+    color: var(--base-color)
+}
+
+.profile-field .password-visibility input {
+    padding-right: 46px
 }
 
 .profile-login-method {
@@ -352,7 +335,7 @@
     align-items: center;
     gap: 14px;
     padding-bottom: 22px;
-    border-bottom: 1px solid var(--profile-line)
+    border-bottom: 1px solid var(--border-color)
 }
 
 .profile-method-icon {
@@ -362,9 +345,9 @@
     justify-content: center;
     width: 42px;
     height: 42px;
-    border: 1px solid var(--profile-line);
+    border: 1px solid var(--border-color);
     border-radius: 10px;
-    color: var(--profile-green);
+    color: var(--primary-color);
     font-size: 19px
 }
 
@@ -385,7 +368,7 @@
 
 .profile-method-status {
     font-size: 11px;
-    color: var(--profile-green);
+    color: var(--primary-color);
     white-space: nowrap;
     margin-left: auto
 }
@@ -439,20 +422,13 @@
     font-size: 24px
 }
 
-.profile-page a:focus-visible,.profile-page input:focus-visible {
-    outline: 3px solid #b5cdb5;
-    outline-offset: 3px
+.profile-page a:focus-visible,.profile-page input:focus-visible,.profile-page button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px
 }
 
 #profile-details,#profile-security {
-    scroll-margin-top: 130px
-}
-
-@media(min-width:1400px) {
-    .profile-page {
-        padding-top: 175px
-    }
-
+    scroll-margin-top: 150px
 }
 
 @media(max-width:991px) {
@@ -467,10 +443,6 @@
 
     .profile-card-heading,.profile-card-body {
         padding: 22px
-    }
-
-    .profile-heading h1 {
-        font-size: 30px
     }
 
     .profile-fields {
@@ -490,7 +462,7 @@
 
 @media(max-width:767px) {
     .profile-page {
-        padding: 115px 16px 48px
+        padding: 130px 0 60px
     }
 
     .profile-breadcrumb {
@@ -508,10 +480,6 @@
         font-size: 28px
     }
 
-    .profile-heading p {
-        font-size: 13px
-    }
-
     .profile-layout {
         grid-template-columns: 1fr
     }
@@ -526,10 +494,6 @@
 
     .profile-card-heading {
         gap: 10px
-    }
-
-    .profile-card-heading h2 {
-        font-size: 17px
     }
 
     .profile-fields {

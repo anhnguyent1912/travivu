@@ -12,7 +12,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('clients.blogs');
+        $title = 'Blog';
+        return view('clients.blogs', compact('title'));
     }
 
     /**
