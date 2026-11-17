@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\AboutController;
@@ -65,3 +66,9 @@ Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.
 Route::post('/admin/login', [AdminLoginController::class, 'login'])->middleware('throttle:5,1,admin-login')->name('admin.login.submit');
 Route::get('/admin/dashboard', [AdminLoginController::class, 'dashboard'])->middleware('auth:admin')->name('admin.dashboard');
 Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/bookings', [AdminBookingController::class, 'index'])->middleware('auth:admin')->name('admin.bookings.index');
+
+Route::patch('/admin/bookings/{bookingid}/confirm', [AdminBookingController::class, 'confirm'])
+    ->whereNumber('bookingid')
+    ->middleware('auth:admin')
+    ->name('admin.bookings.confirm');
