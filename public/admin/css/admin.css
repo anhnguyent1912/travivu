@@ -10,6 +10,11 @@ body {
 }
 
 .admin-sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    overflow-y: auto;
     width: 230px;
     flex-shrink: 0;
     background: #263d53;
@@ -60,6 +65,142 @@ body {
     }
 
     .admin-sidebar {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+        width: 100%;
+    }
+}
+/* Hai bảng thống kê trên dashboard */
+.dashboard-summary {
+    border-radius: 12px;
+}
+
+.dashboard-summary .card-body {
+    padding: 24px;
+}
+
+.dashboard-summary h2 {
+    color: #263d53;
+    font-weight: 600;
+}
+
+.dashboard-summary .table th {
+    background: #f4f6f9;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.dashboard-summary .table th,
+.dashboard-summary .table td {
+    padding: 12px;
+    border-color: #edf0f3;
+}
+
+.dashboard-summary .table td:last-child {
+    color: #198754;
+    font-weight: 700;
+}
+
+.dashboard-summary .table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Dashboard: các cột bằng nhau, biểu đồ dùng chung dữ liệu với bảng. */
+.dashboard-page > .row {
+    margin-top: 8px;
+}
+
+.dashboard-page > .row:first-of-type .card {
+    border-radius: 12px;
+}
+
+.dashboard-page > .row:first-of-type h2 {
+    font-size: clamp(22px, 2vw, 30px);
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+}
+
+.dashboard-page .text-warning {
+    color: #9b650a !important;
+}
+
+.dashboard-panel-heading {
+    min-height: 76px;
+    margin-bottom: 16px;
+}
+
+.dashboard-chart-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.dashboard-chart {
+    flex-shrink: 0;
+}
+
+.dashboard-donut {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 24px;
+}
+
+.dashboard-donut > div {
+    height: 100%;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-donut strong {
+    font-size: 28px;
+    color: #263d53;
+}
+
+.dashboard-donut span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.dashboard-legend-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 6px;
+    border-radius: 50%;
+}
+
+.dashboard-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #edf0f3;
+    color: #526071;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.dashboard-status-pending {
+    background: #fff3d6;
+    color: #865b0d;
+}
+
+.dashboard-status-confirmed {
+    background: #e6f4eb;
+    color: #176b42;
+}
+
+@media (min-width: 992px) and (max-width: 1399px), (max-width: 575px) {
+    .dashboard-chart-content {
+        flex-direction: column;
+    }
+
+    .dashboard-chart-content > .flex-grow-1 {
         width: 100%;
     }
 }

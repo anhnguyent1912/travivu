@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\client\Booking;
-use App\Models\client\tour;
 
 class LoginController extends Controller
 {
@@ -42,21 +40,6 @@ class LoginController extends Controller
         }
         $request->session()->regenerate();
         return redirect()->route('admin.dashboard');
-    }
-    public function dashboard()
-    {
-        $activeTours = tour::where('availability', 1)->count();
-        $totalBookings = Booking::count();
-        $pendingBookings = Booking::where('bookingStatus', 'pending')
-            ->count();
-        $confirmedValue = Booking::where('bookingStatus', 'confirmed')
-            ->sum('totalPrice');
-        return view('admin.dashboard', compact(
-            'activeTours',
-            'totalBookings',
-            'pendingBookings',
-            'confirmedValue'
-        ));
     }
     public function logout(request $request)
     {
