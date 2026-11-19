@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\TourController as AdminTourController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
@@ -69,7 +70,9 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middlewar
 Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 Route::get('/admin/bookings', [AdminBookingController::class, 'index'])->middleware('auth:admin')->name('admin.bookings.index');
 
-Route::patch('/admin/bookings/{bookingid}/confirm', [AdminBookingController::class, 'confirm'])
-    ->whereNumber('bookingid')
-    ->middleware('auth:admin')
-    ->name('admin.bookings.confirm');
+Route::patch('/admin/bookings/{bookingid}/confirm', [AdminBookingController::class, 'confirm'])->whereNumber('bookingid')->middleware('auth:admin')->name('admin.bookings.confirm');
+Route::get('/admin/bookings/{bookingid}', [AdminBookingController::class, 'show'])->whereNumber('bookingid')->middleware('auth:admin')->name('admin.bookings.show');
+Route::patch('/admin/bookings/{bookingid}/cancel', [AdminBookingController::class, 'cancel'])->whereNumber('bookingid')->middleware('auth:admin')->name('admin.bookings.cancel');
+Route::get('/admin/tours', [AdminTourController::class, 'index'])->middleware('auth:admin')->name('admin.tours.index');
+
+Route::patch('/admin/tours/{tourid}/availability', [AdminTourController::class, 'updateAvailability'])->whereNumber('tourid')->middleware('auth:admin')->name('admin.tours.availability');

@@ -12,14 +12,17 @@
         <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
             Dashboard
         </a>
+        <a href="{{ route('admin.tours.index') }}" class="{{ request()->routeIs('admin.tours.*') ? 'active' : '' }}">
+            Danh sách tour
+        </a>
         <details class="admin-menu" open>
-            <summary>Quản lý tour</summary>
+            <summary>Quản lý đơn đặt tour</summary>
 
             <div class="ps-3">
-                <a href="{{ route('admin.dashboard') }}"
+                {{-- <a href="{{ route('admin.dashboard') }}"
                     class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     Danh sách đặt tour
-                </a>
+                </a> --}}
 
                 <a href="{{ route('admin.bookings.index') }}"
                     class="{{ request()->routeIs('admin.bookings.*') ? 'active' : '' }}">

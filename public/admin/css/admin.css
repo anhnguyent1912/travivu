@@ -4,6 +4,16 @@ body {
     color: #344054;
 }
 
+.admin-tour-link {
+    color: #263d53;
+    text-decoration: none;
+}
+
+.admin-tour-link:hover,
+.admin-tour-link:focus-visible {
+    color: #176b42;
+}
+
 .admin-layout {
     display: flex;
     min-height: 100vh;

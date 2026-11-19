@@ -67,27 +67,32 @@
                     <p class="small text-muted">Thống kê tất cả tour.</p>
 
                     <div class="dashboard-chart-content">
-                        @include('admin.block.donut', ['counts' => $domainCounts, 'labels' => $domainLabels, 'colors' => ['#4789c8', '#198754', '#9470c5'], 'unit' => 'tour'])
+                        @include('admin.block.donut', [
+                            'counts' => $domainCounts,
+                            'labels' => $domainLabels,
+                            'colors' => ['#4789c8', '#198754', '#9470c5'],
+                            'unit' => 'tour',
+                        ])
                         <div class="flex-grow-1">
-                    <table class="table align-middle mb-0">
-                        <thead>
-                            <tr>
-                                <th>Khu vực</th>
-                                <th class="text-end">Số tour</th>
-                            </tr>
-                        </thead>
+                            <table class="table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Khu vực</th>
+                                        <th class="text-end">Số tour</th>
+                                    </tr>
+                                </thead>
 
-                        <tbody>
-                            @foreach ($domainLabels as $code => $label)
-                                <tr>
-                                    <td>{{ $label }}</td>
-                                    <td class="text-end">
-                                        {{ $domainCounts->get($code, 0) }}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                <tbody>
+                                    @foreach ($domainLabels as $code => $label)
+                                        <tr>
+                                            <td>{{ $label }}</td>
+                                            <td class="text-end">
+                                                {{ $domainCounts->get($code, 0) }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -102,27 +107,32 @@
                     <p class="small text-muted">Thống kê số đơn ở từng trạng thái.</p>
 
                     <div class="dashboard-chart-content">
-                        @include('admin.block.donut', ['counts' => $statusCounts, 'labels' => $statusLabels, 'colors' => ['#d89018', '#198754', '#8b98a7'], 'unit' => 'đơn'])
+                        @include('admin.block.donut', [
+                            'counts' => $statusCounts,
+                            'labels' => $statusLabels,
+                            'colors' => ['#d89018', '#198754', '#8b98a7'],
+                            'unit' => 'đơn',
+                        ])
                         <div class="flex-grow-1">
-                    <table class="table align-middle mb-0">
-                        <thead>
-                            <tr>
-                                <th>Trạng thái</th>
-                                <th class="text-end">Số đơn</th>
-                            </tr>
-                        </thead>
+                            <table class="table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Trạng thái</th>
+                                        <th class="text-end">Số đơn</th>
+                                    </tr>
+                                </thead>
 
-                        <tbody>
-                            @foreach ($statusLabels as $status => $label)
-                                <tr>
-                                    <td>{{ $label }}</td>
-                                    <td class="text-end">
-                                        {{ $statusCounts->get($status, 0) }}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                <tbody>
+                                    @foreach ($statusLabels as $status => $label)
+                                        <tr>
+                                            <td>{{ $label }}</td>
+                                            <td class="text-end">
+                                                {{ $statusCounts->get($status, 0) }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -140,7 +150,8 @@
                             <p class="small text-muted mb-0">Bao gồm tất cả trạng thái đơn.</p>
                         </div>
 
-                        <a href="{{ route('admin.bookings.index') }}" class="btn btn-outline-success btn-sm text-nowrap">
+                        <a href="{{ route('admin.bookings.index') }}"
+                            class="btn btn-outline-success btn-sm text-nowrap">
                             Xem tất cả
                         </a>
                     </div>
@@ -159,12 +170,18 @@
                             <tbody>
                                 @forelse ($latestBookings as $booking)
                                     <tr>
-                                        <td>#{{ $booking->bookingid }}</td>
+                                        <td>
+                                            <a
+                                                href="{{ route('admin.bookings.show', ['bookingid' => $booking->bookingid]) }}">
+                                                #{{ $booking->bookingid }}
+                                            </a>
+                                        </td>
 
                                         <td>
-                                            <div class="fw-semibold">
+                                            <a href="{{ route('admin.bookings.show', ['bookingid' => $booking->bookingid]) }}"
+                                                class="fw-semibold admin-tour-link">
                                                 {{ $booking->tour_title ?? 'Tour không còn hiển thị' }}
-                                            </div>
+                                            </a>
 
                                             <div class="small text-muted">
                                                 {{ $booking->contactName }}
@@ -181,7 +198,11 @@
                                         </td>
 
                                         <td class="text-nowrap">
-                                            <span @class(['dashboard-status', 'dashboard-status-pending' => $booking->bookingStatus === 'pending', 'dashboard-status-confirmed' => $booking->bookingStatus === 'confirmed'])>
+                                            <span @class([
+                                                'dashboard-status',
+                                                'dashboard-status-pending' => $booking->bookingStatus === 'pending',
+                                                'dashboard-status-confirmed' => $booking->bookingStatus === 'confirmed',
+                                            ])>
                                                 {{ $statusLabels[$booking->bookingStatus] ?? 'Chưa xác định' }}
                                             </span>
                                         </td>

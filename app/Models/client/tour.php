@@ -13,6 +13,8 @@ class tour extends Model
     use HasFactory;
 
     protected $table = 'tbl_tour';
+    protected $primaryKey = 'tourid';
+    public $timestamps = false;
 
     //Lay danh sach tour
     // public function getAllTour()

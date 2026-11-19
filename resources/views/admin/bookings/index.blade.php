@@ -18,6 +18,39 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
+            <form method="GET" action="{{ route('admin.bookings.index') }}" class="row g-3 align-items-end mb-4">
+
+                <div class="col-12 col-md-6">
+                    <label for="keyword" class="form-label">Tìm đơn đặt tour</label>
+                    <input type="search" id="keyword" name="keyword" class="form-control" maxlength="100"
+                        value="{{ $keyword }}" placeholder="Mã đơn, tên khách, email, SĐT hoặc tên tour">
+
+                    @error('keyword')
+                        <small class="text-danger" role="alert">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <label for="status" class="form-label">Trạng thái</label>
+                    <select id="status" name="status" class="form-select">
+                        <option value="">Tất cả trạng thái</option>
+                        @foreach ($statusLabels as $code => $label)
+                            <option value="{{ $code }}" @selected($status === $code)>
+                                {{ $label }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    @error('status')
+                        <small class="text-danger" role="alert">{{ $message }}</small>
+                    @enderror
+                </div>
+
+                <div class="col-12 col-md-3 d-flex flex-wrap gap-2">
+                    <button class="btn btn-success" type="submit">Tìm kiếm</button>
+                    <a class="btn btn-outline-secondary" href="{{ route('admin.bookings.index') }}">Xóa bộ lọc</a>
+                </div>
+            </form>
             <div class="table-responsive">
                 <table class="table table-hover align-middle">
                     <thead class="table-light">
@@ -35,12 +68,17 @@
                     <tbody>
                         @forelse ($bookings as $booking)
                             <tr>
-                                <td>#{{ $booking->bookingid }}</td>
+                                <td>
+                                    <a href="{{ route('admin.bookings.show', ['bookingid' => $booking->bookingid]) }}">
+                                        #{{ $booking->bookingid }}
+                                    </a>
+                                </td>
 
                                 <td>
-                                    <strong>
+                                    <a href="{{ route('admin.bookings.show', ['bookingid' => $booking->bookingid]) }}"
+                                        class="fw-semibold admin-tour-link">
                                         {{ $booking->tour_title ?? 'Tour không còn hiển thị' }}
-                                    </strong>
+                                    </a>
 
                                     <div class="small text-muted mt-1">
                                         {{ $booking->bookingDate?->format('d/m/Y H:i') ?? 'Chưa cập nhật' }}
