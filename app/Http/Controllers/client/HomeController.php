@@ -17,8 +17,9 @@ class HomeController extends Controller
     {
         $title = 'Trang chủ';
         $Tour = $this->homeTour->gethomeTour();
+        $destinations = $this->homeTour->getPopularDestinations();
         // dd(var: $Tour);
-        return view(view: 'clients.home', data: compact('title', 'Tour'));
+        return view(view: 'clients.home', data: compact('title', 'Tour', 'destinations'));
     }
 
     /**

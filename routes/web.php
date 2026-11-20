@@ -76,3 +76,7 @@ Route::patch('/admin/bookings/{bookingid}/cancel', [AdminBookingController::clas
 Route::get('/admin/tours', [AdminTourController::class, 'index'])->middleware('auth:admin')->name('admin.tours.index');
 
 Route::patch('/admin/tours/{tourid}/availability', [AdminTourController::class, 'updateAvailability'])->whereNumber('tourid')->middleware('auth:admin')->name('admin.tours.availability');
+Route::get('/admin/tours/create', [AdminTourController::class, 'create'])->middleware('auth:admin')->name('admin.tours.create');
+Route::post('/admin/tours', [AdminTourController::class, 'store'])->middleware('auth:admin')->name('admin.tours.store');
+Route::get('/admin/tours/{tourid}/edit', [AdminTourController::class, 'edit'])->whereNumber('tourid')->middleware('auth:admin')->name('admin.tours.edit');
+Route::patch('/admin/tours/{tourid}', [AdminTourController::class, 'update'])->whereNumber('tourid')->middleware('auth:admin')->name('admin.tours.update');

@@ -15,6 +15,19 @@ class tour extends Model
     protected $table = 'tbl_tour';
     protected $primaryKey = 'tourid';
     public $timestamps = false;
+    protected $fillable = [
+        'title',
+        'destination',
+        'domain',
+        'time',
+        'startDate',
+        'endDate',
+        'quantity',
+        'priceAdult',
+        'priceChild',
+        'description',
+        'display_position'
+    ];
 
     //Lay danh sach tour
     // public function getAllTour()
@@ -39,26 +52,46 @@ class tour extends Model
             return null;
         }
 
-        $tourdetail->images = DB::table('tbl_images')
+        $tourdetail->images = self::orderedImages()
             ->where('tourid', $tourdetail->tourid)
             ->limit(5)
             ->pluck('imageURL');
 
         $tourdetail->timeline = DB::table('tbl_timeline')
             ->where('tourid', $tourdetail->tourid)
+            ->orderBy('timeLineid')
             ->get();
 
 
         return $tourdetail;
     }
-    //lay khu vuc tour
-    public function getDomain()
+
+    public static function orderedImages()
     {
-        return DB::table($this->table)
-            ->select('domain')
+        return DB::table('tbl_images')->orderBy('uploadDate')->orderBy('imageURL');
+    }
+    //lay khu vuc tour
+    public function getDomain(bool $onlyToursPage = false)
+    {
+        $query = DB::table($this->table);
+
+        if ($onlyToursPage) {
+            $query->whereIn('display_position', ['both', 'tours']);
+        }
+
+        return $query->select('domain')
             ->selectRaw('COUNT(*) AS total')
             ->groupBy('domain')
             ->pluck('total', 'domain');
+    }
+    public function getDestinations()
+    {
+        return DB::table($this->table)
+            ->whereIn('display_position', ['both', 'tours'])
+            ->where('destination', '<>', '')
+            ->distinct()
+            ->orderBy('destination')
+            ->pluck('destination');
     }
     public function filterTour(array $filters = [])
     {
@@ -74,10 +107,16 @@ class tour extends Model
                 $join->on('tours.tourid', '=', 'ratings.tourid');
             })
             ->select('tours.*', 'ratings.average_rating');
+        $query->whereIn('tours.display_position', ['both', 'tours']);
 
-        // Khu vực.
+        // Lọc theo miền
         if (!empty($filters['domain'])) {
             $query->where('tours.domain', $filters['domain']);
+        }
+
+        // Lọc theo điểm đến
+        if (!empty($filters['destination'])) {
+            $query->where('tours.destination', $filters['destination']);
         }
 
         // Thời gian.
@@ -138,7 +177,7 @@ class tour extends Model
             ->withQueryString();
 
         // Lấy ảnh cho các tour thuộc trang hiện tại.
-        $images = DB::table('tbl_images')
+        $images = self::orderedImages()
             ->whereIn('tourid', $tours->getCollection()->pluck('tourid'))
             ->get()
             ->groupBy('tourid');

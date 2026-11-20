@@ -18,6 +18,7 @@ class TourController extends Controller
     {
         $filters = $request->validate([
             'domain' => ['nullable', 'in:b,t,n'],
+            'destination' => ['nullable', 'string', 'max:255'],
             'rating' => ['nullable', 'integer', 'between:1,5'],
             'duration' => ['nullable', 'in:1n1d,3n2d,4n3d,5n4d'],
             'min_price' => ['nullable', 'numeric', 'between:100000,10000000'],
@@ -33,7 +34,7 @@ class TourController extends Controller
             'min_price.between' => 'Giá phải từ 100.000 đến 10.000.000 VND.',
             'max_price.between' => 'Giá phải từ 100.000 đến 10.000.000 VND.',
             'sort.in' => 'Cách sắp xếp không hợp lệ.',
-            
+
         ]);
 
         if (
@@ -47,9 +48,9 @@ class TourController extends Controller
 
         $title = 'Tour';
         $tours = $this->tour->filterTour($filters);
-        $domain = $this->tour->getDomain();
+        $domain = $this->tour->getDomain(true);
+        $destinations = $this->tour->getDestinations();
 
-        return view('clients.tour', compact('title', 'tours', 'domain'));
+        return view('clients.tour', compact('title', 'tours', 'domain', 'destinations'));
     }
-
 }

@@ -15,23 +15,30 @@
         </div>
         <div class="row justify-content-center">
             @foreach ($Tour as $tour)
-            <div class="col-xxl-3 col-xl-4 col-md-6 d-flex">
-                <div class="destination-item block_tours" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="image">
-                        <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                        <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}" alt="Destination">
-                    </div>
-                    <div class="content">
-                        <span class="location"><i class="fal fa-map-marker-alt"></i>{{ $tour->destination }}</span>
-                        <h5><a href="{{ route('tour-detail', ['id' => $tour->tourid]) }}">{{ $tour->title }}</a></h5>
-                        <span class="time">{{ $tour->time }} </span>
-                    </div>
-                    <div class="destination-footer">
-                        <span class="price"><span>{{ number_format($tour->priceAdult, 0, ',', '.') }}</span>VND / người</span>
-                        <a href="{{ route('tour-detail',['id' => $tour->tourid]) }}" class="read-more">Đặt ngay <i class="fal fa-angle-right"></i></a>
+                <div class="col-xxl-3 col-xl-4 col-md-6 d-flex">
+                    <div class="destination-item block_tours" data-aos="fade-up" data-aos-duration="1500"
+                        data-aos-offset="50">
+                        <div class="image">
+                            <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                            @if ($tour->images->isNotEmpty())
+                                <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}"
+                                    alt="{{ $tour->title }}">
+                            @endif
+                        </div>
+                        <div class="content">
+                            <span class="location"><i class="fal fa-map-marker-alt"></i>{{ $tour->destination }}</span>
+                            <h5><a href="{{ route('tour-detail', ['id' => $tour->tourid]) }}">{{ $tour->title }}</a>
+                            </h5>
+                            <span class="time">{{ $tour->time }} </span>
+                        </div>
+                        <div class="destination-footer">
+                            <span class="price"><span>{{ number_format($tour->priceAdult, 0, ',', '.') }}</span>VND /
+                                người</span>
+                            <a href="{{ route('tour-detail', ['id' => $tour->tourid]) }}" class="read-more">Đặt ngay <i
+                                    class="fal fa-angle-right"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -52,84 +59,30 @@
             </div>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('clients/assets/images/destinations/destination1.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">beach</a></h6>
-                                <span class="time">abcxyz</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
+                    @foreach ($destinations as $place)
+                        @php
+                            $wide = in_array($loop->iteration, [3, 4]);
+                            $photo = $place->photo
+                                ? asset('clients/assets/images/image-tour/' . $place->photo)
+                                : asset('clients/assets/images/destinations/destination1.jpg');
+                        @endphp
+
+                        <div class="{{ $wide ? 'col-md-6' : 'col-xl-3 col-md-6' }}">
+                            <a href="{{ route('Tour', ['destination' => $place->destination]) }}"
+                                class="destination-item style-two d-block">
+                                <div class="image d-block">
+                                    <span class="heart" aria-hidden="true"><i class="fas fa-heart"></i></span>
+                                    <img src="{{ $photo }}" alt="" class="w-100"
+                                        style="aspect-ratio: {{ $wide ? '610 / 230' : '280 / 230' }}; object-fit: cover;">
+                                </div>
+
+                                <div class="content">
+                                    <h6>{{ $place->destination }}</h6>
+                                    <span class="more" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('clients/assets/images/destinations/destination2.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">abc</a></h6>
-                                <span class="time">defghi</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="destination-item style-two">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('clients/assets/images/destinations/destination3.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">def</a></h6>
-                                <span class="time">jklmno</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="destination-item style-two">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('clients/assets/images/destinations/destination4.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">ghi</a></h6>
-                                <span class="time">pqrst</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('clients/assets/images/destinations/destination5.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">jkl</a></h6>
-                                <span class="time">uvwxy</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="destination-item style-two">
-                            <div class="image">
-                                <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                <img src="{{asset('clients/assets/images/destinations/destination6.jpg')}}" alt="Destination">
-                            </div>
-                            <div class="content">
-                                <h6><a href="destination-details.html">mno</a></h6>
-                                <span class="time">zabcde</span>
-                                <a href="#" class="more"><i class="fas fa-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -149,13 +102,16 @@
                     </div>
                     <div class="features-customer-box">
                         <div class="image">
-                            <img src="{{asset('clients/assets/images/features/features-box.jpg')}}" alt="Features">
+                            <img src="{{ asset('clients/assets/images/features/features-box.jpg') }}" alt="Features">
                         </div>
                         <div class="content">
                             <div class="feature-authors mb-15">
-                                <img src="{{asset('clients/assets/images/features/feature-author1.jpg')}}" alt="Author">
-                                <img src="{{asset('clients/assets/images/features/feature-author2.jpg')}}" alt="Author">
-                                <img src="{{asset('clients/assets/images/features/feature-author3.jpg')}}" alt="Author">
+                                <img src="{{ asset('clients/assets/images/features/feature-author1.jpg') }}"
+                                    alt="Author">
+                                <img src="{{ asset('clients/assets/images/features/feature-author2.jpg') }}"
+                                    alt="Author">
+                                <img src="{{ asset('clients/assets/images/features/feature-author3.jpg') }}"
+                                    alt="Author">
                                 <span>4k+</span>
                             </div>
                             <h6>1K+ Khách hàng hài lòng</h6>
@@ -211,7 +167,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-4 col-md-6">
-                <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta1.jpg')}});">
+                <div class="cta-item"
+                    style="background-image: url({{ asset('clients/assets/images/cta/cta1.jpg') }});">
                     <span class="category">Khám Phá Vẻ Đẹp Văn Hóa Việt</span>
                     <h2>Tìm hiểu những giá trị văn hóa độc đáo của các vùng miền Việt Nam.</h2>
                     <a href="{{ route('Tour') }}" class="theme-btn style-two bgc-secondary">
@@ -221,7 +178,8 @@
                 </div>
             </div>
             <div class="col-xl-4 col-md-6">
-                <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta2.jpg')}});">
+                <div class="cta-item"
+                    style="background-image: url({{ asset('clients/assets/images/cta/cta2.jpg') }});">
                     <span class="category">Bãi biển</span>
                     <h2>Bãi trong xanh dạt dào ở Việt Nam</h2>
                     <a href="{{ route('Tour') }}" class="theme-btn style-two">
@@ -231,7 +189,8 @@
                 </div>
             </div>
             <div class="col-xl-4 col-md-6">
-                <div class="cta-item" style="background-image: url({{asset('clients/assets/images/cta/cta3.jpg')}});">
+                <div class="cta-item"
+                    style="background-image: url({{ asset('clients/assets/images/cta/cta3.jpg') }});">
                     <span class="category">Thác nước</span>
                     <h2>Thác nước lớn nhất Việt NamKhám phá</h2>
                     <a href="{{ route('Tour') }}" class="theme-btn style-two bgc-secondary">

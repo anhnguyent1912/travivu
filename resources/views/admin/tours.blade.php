@@ -2,6 +2,9 @@
 
 <main class="container-fluid px-4 py-4">
     <h1 class="h4 mb-4">Danh sách tour</h1>
+    <a href="{{ route('admin.tours.create') }}" class="btn btn-success mb-3">
+        Thêm tour
+    </a>
 
     @if (session('admin_success'))
         <div class="alert alert-success" role="status">{{ session('admin_success') }}</div>
@@ -73,6 +76,10 @@
                                 </td>
 
                                 <td>
+                                    <a href="{{ route('admin.tours.edit', ['tourid' => $tour->tourid]) }}"
+                                        class="btn btn-outline-primary btn-sm mb-2">
+                                        Sửa
+                                    </a>
                                     <form method="POST"
                                         action="{{ route('admin.tours.availability', ['tourid' => $tour->tourid]) }}">
                                         @csrf

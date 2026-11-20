@@ -7,6 +7,9 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-10 rmb-75">
                 <form id="tour-filter-form" class="shop-sidebar" method="GET" action="{{ route('Tour') }}">
+                    @if (request()->filled('destination'))
+                        <input type="hidden" name="destination" value="{{ request('destination') }}">
+                    @endif
                     @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
                             {{ $errors->first() }}
@@ -30,7 +33,7 @@
                         </div>
                     </div>
                     <div class="widget widget-activity">
-                        <h6 class="widget-title">Điểm đến</h6>
+                        <h6 class="widget-title">Khu vực</h6>
                         <ul class="radio-filter">
                             <li>
                                 <input class="form-check-input" type="radio" name="domain" id="domain_all"
@@ -91,11 +94,11 @@
                                 <label for="duration_all">Tất cả</label>
                             </li>
                             @foreach ([
-                                        '1n1d' => '1 ngày 1 đêm',
-                                        '3n2d' => '3 ngày 2 đêm',
-                                        '4n3d' => '4 ngày 3 đêm',
-                                        '5n4d' => '5 ngày 4 đêm',
-                                    ] as $value => $label)
+        '1n1d' => '1 ngày 1 đêm',
+        '3n2d' => '3 ngày 2 đêm',
+        '4n3d' => '4 ngày 3 đêm',
+        '5n4d' => '5 ngày 4 đêm',
+    ] as $value => $label)
                                 <li>
                                     <input class="form-check-input" type="radio" name="duration"
                                         id="duration_{{ $value }}" value="{{ $value }}"
@@ -164,8 +167,10 @@
                                 <div class="destination-item tour-grid style-three bgc-lighter">
                                     <div class="image">
                                         <span class="badge bgc-pink">yêu thích</span>
-                                        <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}"
-                                            alt="Tour List">
+                                        @if ($tour->images->isNotEmpty())
+                                            <img src="{{ asset('clients/assets/images/image-tour/' . $tour->images->first()) }}"
+                                                alt="{{ $tour->title }}">
+                                        @endif
                                     </div>
                                     <div class="content">
                                         <div class="destination-header">

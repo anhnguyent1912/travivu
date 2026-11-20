@@ -17,38 +17,20 @@
     </div>
 </section>
 <!-- Tour Gallery start -->
-<div class="tour-gallery">
+@if ($tourdetail->images->isNotEmpty())
     <div class="container-fluid">
-        <div class="row gap-10 justify-content-center rel">
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[0]) }}"
-                        alt="Destination">
+        <div @class(['tour-gallery', 'tour-gallery-five' => $tourdetail->images->count() === 5])>
+            @foreach ($tourdetail->images as $photo)
+                <div class="tour-gallery-photo">
+                    <span hidden>Ảnh tạm thời không hiển thị</span>
+                    <img src="{{ asset('clients/assets/images/image-tour/' . $photo) }}"
+                        alt="{{ $tourdetail->title }} – ảnh {{ $loop->iteration }}"
+                        onerror="this.previousElementSibling.hidden = false; this.remove()">
                 </div>
-                <div class="gallery-item ">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[1]) }}"
-                        alt="Destination">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item gallery-between">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[2]) }}"
-                        alt="Destination">
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[3]) }}"
-                        alt="Destination">
-                </div>
-                <div class="gallery-item">
-                    <img src="{{ asset('clients/assets/images/image-tour/' . $tourdetail->images[4]) }}"
-                        alt="Destination">
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
+@endif
 <!-- Tour Gallery End -->
 
 
