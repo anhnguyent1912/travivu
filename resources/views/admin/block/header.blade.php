@@ -22,12 +22,17 @@
                 <strong>{{ $title ?? 'Quản trị Vivutravel' }}</strong>
 
                 @auth('admin')
-                    <form method="POST" action="{{ route('admin.logout') }}">
-                        @csrf
+                    <div class="d-flex align-items-center gap-2">
+                        <a href="{{ route('home') }}" class="btn btn-outline-secondary btn-sm">
+                            ← Về trang chủ
+                        </a>
 
-                        <button type="submit" class="btn btn-outline-danger btn-sm">
-                            Đăng xuất
-                        </button>
-                    </form>
+                        <form method="POST" action="{{ route('admin.logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                Đăng xuất
+                            </button>
+                        </form>
+                    </div>
                 @endauth
             </header>

@@ -30,5 +30,8 @@
                 </a>
             </div>
         </details>
+        <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+            Quản lý khách hàng
+        </a>
     </nav>
 </aside>

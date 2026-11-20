@@ -5,6 +5,7 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\client\Home;
+use App\Models\client\tour as TourModel;
 
 class HomeController extends Controller
 {
@@ -18,8 +19,9 @@ class HomeController extends Controller
         $title = 'Trang chủ';
         $Tour = $this->homeTour->gethomeTour();
         $destinations = $this->homeTour->getPopularDestinations();
+        $searchDestinations = (new TourModel())->getDestinations();
         // dd(var: $Tour);
-        return view(view: 'clients.home', data: compact('title', 'Tour', 'destinations'));
+        return view( 'clients.home', compact('title', 'Tour', 'destinations', 'searchDestinations'));
     }
 
     /**

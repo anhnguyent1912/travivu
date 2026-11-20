@@ -62,11 +62,11 @@
     display: none;
 }
 
-.datetimepicker-custom {
+#search_form input[type="date"] {
     padding: 0;
 }
 
-.datetimepicker-custom:focus {
+#search_form input[type="date"]:focus {
     border: none;
 }
 
@@ -663,8 +663,22 @@
 /*HANDLE SEARCH*/
 #search_form .list {
     width: 100%;
-    height: 250px;
+    max-height: 250px;
     overflow-y: auto;
+}
+@media (min-width: 992px) {
+    #search_form .search-filter-inner {
+        max-width: 900px;
+    }
+
+    #search_form .filter-item {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #search_form .search-button {
+        margin-left: 0;
+    }
 }
 /*TOUR BOOKED*/
 /* .truncate-3-lines {

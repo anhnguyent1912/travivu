@@ -118,6 +118,10 @@ class tour extends Model
         if (!empty($filters['destination'])) {
             $query->where('tours.destination', $filters['destination']);
         }
+        //lọc theo thời gian
+        if (!empty($filters['start_date'])) {
+            $query->whereDate('tours.startDate', $filters['start_date']);
+}
 
         // Thời gian.
         $durations = [

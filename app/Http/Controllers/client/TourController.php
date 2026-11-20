@@ -49,8 +49,7 @@ class TourController extends Controller
         $title = 'Tour';
         $tours = $this->tour->filterTour($filters);
         $domain = $this->tour->getDomain(true);
-        $destinations = $this->tour->getDestinations();
 
-        return view('clients.tour', compact('title', 'tours', 'domain', 'destinations'));
+        return view('clients.tour', compact('title', 'tours', 'domain'));
     }
 }

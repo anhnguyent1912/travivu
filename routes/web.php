@@ -2,6 +2,7 @@
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\TourController as AdminTourController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
@@ -80,3 +81,6 @@ Route::get('/admin/tours/create', [AdminTourController::class, 'create'])->middl
 Route::post('/admin/tours', [AdminTourController::class, 'store'])->middleware('auth:admin')->name('admin.tours.store');
 Route::get('/admin/tours/{tourid}/edit', [AdminTourController::class, 'edit'])->whereNumber('tourid')->middleware('auth:admin')->name('admin.tours.edit');
 Route::patch('/admin/tours/{tourid}', [AdminTourController::class, 'update'])->whereNumber('tourid')->middleware('auth:admin')->name('admin.tours.update');
+Route::get('/admin/users', [AdminUserController::class, 'index'])->middleware('auth:admin')->name('admin.users.index');
+Route::patch('/admin/users/{userid}/activate', [AdminUserController::class, 'activate'])
+    ->whereNumber('userid')->middleware('auth:admin')->name('admin.users.activate');

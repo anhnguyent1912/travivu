@@ -52,8 +52,6 @@
                 <div class="col-lg-12">
                     <div class="section-title text-center counter-text-wrap mb-70">
                         <h2>Khám phá các điểm đến phổ biến</h2>
-                        <p>Website với <span class="count-text plus" data-speed="3000" data-stop="1240">0</span> trải
-                            nghiệm phổ biến nhất</p>
                     </div>
                 </div>
             </div>

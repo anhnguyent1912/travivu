@@ -302,6 +302,33 @@ body {
     color: #176b42;
 }
 
+/* Danh sách khách hàng */
+.customer-list .card {
+    border-radius: 12px;
+}
+
+.customer-list .table th,
+.customer-list .table td {
+    padding: 12px;
+    border-color: #e5e7eb;
+}
+
+.customer-list .table th {
+    background: #f4f6f9;
+    color: #475569;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.customer-list .dashboard-status {
+    white-space: nowrap;
+}
+
+.customer-list .customer-locked {
+    background: #fdecec;
+    color: #993337;
+}
+
 @media (min-width: 992px) and (max-width: 1399px), (max-width: 575px) {
     .dashboard-chart-content {
         flex-direction: column;
